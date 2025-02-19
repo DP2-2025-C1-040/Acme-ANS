@@ -20,9 +20,6 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="45998115: Sánchez Castro, Isabel" action="https://www.motogp.com/es"/>
-		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="28847404: Ángeles Burgos, Julia Virginia" action="https://en.wikipedia.org/wiki/Special:Random"/>
 		</acme:menu-option>
 
