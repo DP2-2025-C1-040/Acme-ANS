@@ -19,9 +19,10 @@
 <acme:menu-bar>
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="45998115: Sánchez Castro, Isabel" action="https://www.motogp.com/es"/>
-			<acme:menu-suboption code="28847404: Ángeles Burgos, Julia Virginia" action="https://en.wikipedia.org/wiki/Special:Random"/>
-			<acme:menu-suboption code="77977641: Suárez Linares, Paula María" action="https://google.es"/>
+			<acme:menu-suboption code="45998115: Sï¿½nchez Castro, Isabel" action="https://www.motogp.com/es"/>
+			<acme:menu-suboption code="28847404: ï¿½ngeles Burgos, Julia Virginia" action="https://en.wikipedia.org/wiki/Special:Random"/>
+			<acme:menu-suboption code="77977641: Suï¿½rez Linares, Paula Marï¿½a" action="https://google.es"/>
+			<acme:menu-suboption code="08370609: Aponte Pozï¿½n, Javier" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.josemaria" action="https://samsung.com"/>
 
 		</acme:menu-option>
