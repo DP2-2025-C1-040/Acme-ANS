@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
@@ -26,6 +27,7 @@ public class Airport extends AbstractEntity {
 
 	@Mandatory
 	@ValidString(max = 50)
+	@Automapped
 	private String					name;
 
 	@Mandatory
@@ -34,26 +36,32 @@ public class Airport extends AbstractEntity {
 	private String					iataCode;
 
 	@Mandatory
+	@Automapped
 	private Enum<OperationalScope>	operationalScope;
 
 	@Mandatory
 	@ValidString(max = 50)
+	@Automapped
 	private String					city;
 
 	@Mandatory
 	@ValidString(max = 50)
+	@Automapped
 	private String					country;
 
 	@Optional
 	@ValidUrl
+	@Automapped
 	private String					webSite;
 
 	@Optional
 	@ValidEmail
+	@Automapped
 	private String					emailAdress;
 
 	@Optional
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@Automapped
 	private String					contactPhoneNumber;
 
 	// Runways
