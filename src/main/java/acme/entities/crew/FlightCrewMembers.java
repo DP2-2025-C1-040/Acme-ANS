@@ -1,10 +1,11 @@
 
-package acme.entities;
+package acme.entities.crew;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 
-import acme.client.components.basis.AbstractEntity;
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
@@ -18,30 +19,31 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class FlightCrewMembers extends AbstractEntity {
+public class FlightCrewMembers extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
-	private static final long			serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
 	@Column(unique = true)
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
-	private String						employeeCode;
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
+	private String				employeeCode;
 
 	@Mandatory
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
-	private String						phoneNumber;
+	private String				phoneNumber;
 
 	@Mandatory
 	@ValidString
 	@Automapped
-	private String						languageSkills;
+	private String				languageSkills;
 
 	@Mandatory
 	@Automapped
-	private Enum<AvailabilityStatus>	availabilityStatus;
+	@Valid
+	private AvailabilityStatus	availabilityStatus;
 
 	// @Mandatory
 	// @Automapped
@@ -50,11 +52,11 @@ public class FlightCrewMembers extends AbstractEntity {
 	@Mandatory
 	@ValidMoney
 	@Automapped
-	private Money						salary;
+	private Money				salary;
 
 	@Optional
 	@Automapped
 	@ValidNumber(min = 0)
-	private Integer						yearsOfExperience;
+	private Integer				yearsOfExperience;
 
 }

@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.crew;
 
 import java.util.Date;
 import java.util.Objects;
