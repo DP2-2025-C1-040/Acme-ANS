@@ -1,6 +1,8 @@
 
 package acme.entities.airlineManager;
 
+import java.util.Objects;
+
 import javax.validation.constraints.Pattern;
 
 import acme.client.components.basis.AbstractEntity;
@@ -38,5 +40,26 @@ public class AirlineManager extends AbstractEntity {
 	@Optional
 	@ValidUrl
 	private String				imageLink;
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(this.dateOfBirth, this.imageLink, this.managerId, this.yearsOfExperience);
+		return result;
+	}
+
+	@Override
+	public boolean equals(final Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (this.getClass() != obj.getClass())
+			return false;
+		AirlineManager other = (AirlineManager) obj;
+		return Objects.equals(this.dateOfBirth, other.dateOfBirth) && Objects.equals(this.imageLink, other.imageLink) && Objects.equals(this.managerId, other.managerId) && Objects.equals(this.yearsOfExperience, other.yearsOfExperience);
+	}
 
 }
