@@ -3,14 +3,10 @@ package acme.entities.aircraft;
 
 import java.util.Objects;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
-import org.checkerframework.common.aliasing.qual.Unique;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
+import javax.persistence.Column;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
@@ -24,31 +20,32 @@ public class Aircraft extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString
-	@Length(max = 50, message = "Model must be at most 50 characters long")
+	@ValidString(max = 50)
+	@Automapped
 	private String				model;
 
 	@Mandatory
-	@ValidString
-	@Length(max = 50, message = "Registration Number must be at most 50 characters long")
-	@Unique
+	@ValidString(max = 50)
+	@Column(unique = true)
 	private String				regNumber;
 
 	@Mandatory
 	@ValidNumber
+	@Automapped
 	private Integer				capacity;
 
 	@Mandatory
-	@ValidNumber
-	@Range(min = 2000, max = 50000)
+	@ValidNumber(min = 2000, max = 50000)
+	@Automapped
 	private Integer				cargoWeight;
 
 	@Mandatory
-	@Enumerated(EnumType.STRING)
+	@Automapped
 	private AircraftStatus		status;
 
 	@Mandatory
 	@ValidString
+	@Automapped
 	private String				details;
 
 
