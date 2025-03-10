@@ -3,8 +3,6 @@ package acme.entities.airlineManager;
 
 import java.util.Objects;
 
-import javax.validation.constraints.Pattern;
-
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Moment;
 import acme.client.components.mappings.Automapped;
@@ -24,21 +22,23 @@ public class AirlineManager extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString
-	@Pattern(regexp = "^[A-Z]{2,3}\\d{6}$", message = "Manager ID must follow this pattern: XX123456 or YYY123456")
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Automapped
 	private String				managerId;
 
 	@Mandatory
 	@ValidNumber
+	@Automapped
 	private Integer				yearsOfExperience;
 
 	@Mandatory
 	@ValidMoment
+	@Automapped
 	private Moment				dateOfBirth;
 
 	@Optional
 	@ValidUrl
+	@Automapped
 	private String				imageLink;
 
 
