@@ -2,12 +2,14 @@
 package acme.entities.leg;
 
 import javax.persistence.Column;
+import javax.persistence.Transient;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Moment;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.entities.Airport;
 
 public class Leg extends AbstractEntity {
 
@@ -47,18 +49,32 @@ public class Leg extends AbstractEntity {
 	@Mandatory
 	private LegStatus	status;
 
+	@Mandatory
+	@Transient
+	private Airport		departureAirport;
+
+	@Mandatory
+	@Transient
+	private Airport		arrivalAirport;
+
 	/*
-	 * private Airport departureAirport;
+	 * @Mandatory
 	 * 
-	 * private Airport arrivalAirport;
-	 * 
+	 * @Transient
 	 * private Aircraft aircraft;
 	 * 
-	 * 
 	 * @ManyToOne
+	 * 
+	 * @Valid
+	 * 
+	 * @Transient
 	 * private Flight flight;
 	 * 
 	 * @ManyToOne
+	 * 
+	 * @Valid
+	 * 
+	 * @Transient
 	 * private Airline airline;
 	 */
 
