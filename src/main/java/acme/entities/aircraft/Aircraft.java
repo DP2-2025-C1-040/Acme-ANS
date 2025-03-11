@@ -4,6 +4,7 @@ package acme.entities.aircraft;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -30,7 +31,7 @@ public class Aircraft extends AbstractEntity {
 	private String				regNumber;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber //Añadir limites implicitos
 	@Automapped
 	private Integer				capacity;
 
@@ -40,6 +41,7 @@ public class Aircraft extends AbstractEntity {
 	private Integer				cargoWeight;
 
 	@Mandatory
+	@Valid
 	@Automapped
 	private AircraftStatus		status;
 
@@ -52,6 +54,16 @@ public class Aircraft extends AbstractEntity {
 	public enum AircraftStatus {
 		ACTIVE, MAINTENANCE
 	}
+
+	//Pendiente de Merge
+	/*
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne(optional = false)
+	 * private Airline airline;
+	 */
 
 
 	@Override
