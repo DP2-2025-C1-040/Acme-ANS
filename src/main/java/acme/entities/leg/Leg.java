@@ -9,7 +9,7 @@ import acme.client.components.datatypes.Moment;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
-import acme.entities.Airport;
+import acme.entities.airport.Airport;
 
 public class Leg extends AbstractEntity {
 
