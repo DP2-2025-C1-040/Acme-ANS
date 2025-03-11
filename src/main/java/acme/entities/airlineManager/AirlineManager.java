@@ -1,10 +1,13 @@
 
 package acme.entities.airlineManager;
 
+import java.util.Date;
 import java.util.Objects;
 
-import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -13,7 +16,7 @@ import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
 
-public class AirlineManager extends AbstractEntity {
+public class AirlineManager extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
@@ -21,20 +24,22 @@ public class AirlineManager extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	//Recomienda crear un validador para el managerId
 	@Mandatory
+	//@AirlineManagerValidator
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Automapped
 	private String				managerId;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 0, max = 70)
 	@Automapped
 	private Integer				yearsOfExperience;
 
 	@Mandatory
-	@ValidMoment
-	@Automapped
-	private Moment				dateOfBirth;
+	@ValidMoment(past = true)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				dateOfBirth;
 
 	@Optional
 	@ValidUrl
