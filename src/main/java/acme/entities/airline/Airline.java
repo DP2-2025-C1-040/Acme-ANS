@@ -7,6 +7,7 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -29,7 +30,7 @@ public class Airline extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidString(min = 3, max = 3, pattern = "[A-Z]{3}")
+	@ValidString(pattern = "[A-Z]{3}")
 	@Column(unique = true)
 	private String				iataCode;
 
@@ -39,8 +40,9 @@ public class Airline extends AbstractEntity {
 	private String				webSite;
 
 	@Mandatory
+	@Valid
 	@Automapped
-	private Enum<AirlineType>	type;
+	private AirlineType			type;
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -76,7 +78,7 @@ public class Airline extends AbstractEntity {
 			return false;
 		Airline other = (Airline) obj;
 		return Objects.equals(this.emailAdress, other.emailAdress) && Objects.equals(this.foundationMoment, other.foundationMoment) && Objects.equals(this.iataCode, other.iataCode) && Objects.equals(this.name, other.name)
-			&& Objects.equals(this.phoneNumber, other.phoneNumber) && Objects.equals(this.type, other.type) && Objects.equals(this.webSite, other.webSite);
+			&& Objects.equals(this.phoneNumber, other.phoneNumber) && this.type == other.type && Objects.equals(this.webSite, other.webSite);
 	}
 
 }
