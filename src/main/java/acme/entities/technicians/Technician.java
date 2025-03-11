@@ -3,13 +3,13 @@ package acme.entities.technicians;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.Length;
+import javax.validation.Valid;
 
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,32 +24,33 @@ public class Technician {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
-	@Pattern(regexp = "^[A-Z]{2,3}\\d{6}$")
-	@Automapped
 	private String				licenseNumber;
 
 	@Mandatory
-	@Pattern(regexp = "^\\+?\\d{6,15}$")
+	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
 	private String				phoneNumber;
 
 	@Mandatory
-	@Length(min = 1, max = 50)
+	@ValidString(max = 50)
 	@Automapped
 	private String				specialisation;
 
 	@Mandatory
+	@Valid
 	@Automapped
-	private boolean				hasPassedHealthTest;
+	private Boolean				hasPassedHealthTest;
 
 	@Mandatory
+	@ValidNumber
 	@Automapped
 	private Integer				yearsOfExperience;
 
 	@Optional
+	@ValidString(max = 255)
 	@Automapped
-	@Length(max = 255)
 	private String				certifications;
 
 	// Derived attributes -----------------------------------------------------
