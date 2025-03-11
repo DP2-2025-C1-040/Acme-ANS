@@ -1,6 +1,6 @@
 
 package acme.entities.maintenanceRecords;
 
-public enum Status {
+public enum RecordStatus {
 	PENDING, IN_PROGRESS, COMPLETED;
 }

@@ -1,14 +1,19 @@
 
 package acme.entities.maintenanceRecords;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,18 +29,22 @@ public class MaintenanceRecord {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@Automapped
-	private LocalDateTime		maintenanceDate;
+	@ValidMoment
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				maintenanceDate;
 
 	@Mandatory
+	@Valid
 	@Automapped
-	private Status				status;
+	private RecordStatus		status;
 
 	@Mandatory
-	@Automapped
-	private LocalDateTime		nextInspection;
+	@ValidMoment
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				nextInspection;
 
 	@Mandatory
+	@ValidMoney
 	@Automapped
 	private Money				estimatedCost;
 
