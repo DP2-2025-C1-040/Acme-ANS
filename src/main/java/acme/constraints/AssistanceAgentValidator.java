@@ -41,21 +41,10 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 			char employeeCodeFirstChar = Character.toUpperCase(employeeCode.charAt(0));
 			char employeeCodeSecondChar = Character.toUpperCase(employeeCode.charAt(1));
 			char nameFirstChar = Character.toUpperCase(name.charAt(0));
+			char surnameFirstChar = Character.toUpperCase(surname.charAt(0));
 
-			String[] surnameParts = surname.split(" ");
-			if (surnameParts.length > 1) {
-				char surnameFirstChar = Character.toUpperCase(surnameParts[0].charAt(0));
-				char surnameSecondChar = Character.toUpperCase(surnameParts[1].charAt(0));
-				char employeeCodeThirdChar = Character.toUpperCase(employeeCode.charAt(2));
-
-				if (!(employeeCodeFirstChar == nameFirstChar && employeeCodeSecondChar == surnameFirstChar && employeeCodeThirdChar == surnameSecondChar))
-					super.state(context, false, "EmployeeCode", "The employeeCode is incorrectly");
-			} else {
-				char surnameFirstChar = Character.toUpperCase(surname.charAt(0));
-
-				if (!(employeeCodeFirstChar == nameFirstChar && employeeCodeSecondChar == surnameFirstChar))
-					super.state(context, false, "EmployeeCode", "The employeeCode is incorrectly");
-			}
+			if (!(employeeCodeFirstChar == nameFirstChar && employeeCodeSecondChar == surnameFirstChar))
+				super.state(context, false, "EmployeeCode", "The employeeCode is incorrectly");
 			result = !super.hasErrors(context);
 		}
 		return result;
