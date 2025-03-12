@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.log;
 
 import java.util.Date;
 import java.util.Objects;
@@ -14,17 +14,13 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.entities.crew.FlightCrewMembers;
 
 public class ActivityLog extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
-
-	@Mandatory
-	@ManyToOne
-	@Automapped
-	private FlightCrewMembers	flightCrewMember;
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -45,6 +41,11 @@ public class ActivityLog extends AbstractEntity {
 	@ValidNumber(min = 0, max = 10)
 	@Automapped
 	private float				severityLevel;
+
+	@Mandatory
+	@ManyToOne
+	@Automapped
+	private FlightCrewMembers	flightCrewMember;
 
 
 	@Override
