@@ -23,11 +23,6 @@ public class ActivityLog extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ManyToOne
-	@Automapped
-	private FlightCrewMembers	flightCrewMember;
-
-	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				registrationMoment;
@@ -46,6 +41,11 @@ public class ActivityLog extends AbstractEntity {
 	@ValidNumber(min = 0, max = 10)
 	@Automapped
 	private float				severityLevel;
+
+	@Mandatory
+	@ManyToOne
+	@Automapped
+	private FlightCrewMembers	flightCrewMember;
 
 
 	@Override
