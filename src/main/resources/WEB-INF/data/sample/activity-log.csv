@@ -1,0 +1,43 @@
+key,registration-moment,type-of-incident,description,severity-level,key:flight-crew-member
+# base entity
+activity-log-00,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+# registration-moment - standard variations
+activity-log-01,2000/01/01 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-02,2000/01/01 00:01,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-03,2200/12/31 23:59,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-04,2201/01/01 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+# registration-moment - no singular values
+# type-of-incident - standard variations
+activity-log-05,2024/02/10 14:35,L,"Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-06,2024/02/10 14:35,Lo,"Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-07,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-08,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-09,2024/02/10 14:35,โลเร็ม อิปซัม,"Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-10,2024/02/10 14:35,لوريم إيبسوم,"Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-11,2024/02/10 14:35,洛伦·伊普森,"Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-12,2024/02/10 14:35,<marquee>Hacked</marquee>,"Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-13,2024/02/10 14:35,<script>alert('Hacked!');</script>,"Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+activity-log-14,2024/02/10 14:35,' or 'A' = 'A,"Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-01
+# type-of-incident - no singular values
+# description - standard variations
+activity-log-15,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing",L,6.00,member-01
+activity-log-16,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lo,6.00,member-01
+activity-log-17,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te",6.00,member-01
+activity-log-18,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem",Lo,6.00,member-01
+activity-log-19,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing",โลเร็ม อิปซัม,6.00,member-01
+activity-log-20,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing",洛伦·伊普森,6.00,member-01
+activity-log-21,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing",<marquee>Hacked</marquee>,6.00,member-01
+activity-log-22,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing",<script>alert('Hacked!');</script>,6.00,member-01
+activity-log-23,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing",' or 'A' = 'A,6.00,member-01
+# description - no singular values
+# severity-level - standard variations
+activity-log-24,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",0.00,member-01
+activity-log-25,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",0.01,member-01
+activity-log-26,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",9.99,member-01
+activity-log-27,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,member-01
+# severity-level - no singular values
+# flight-crew-member - standard variations
+activity-log-28,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-02
+activity-log-29,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-03
+activity-log-30,2024/02/10 14:35,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",6.00,member-04
+# flight-crew-member - no singular values

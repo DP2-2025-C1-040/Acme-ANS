@@ -4,6 +4,7 @@ package acme.entities.log;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -15,7 +16,12 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.entities.crew.FlightCrewMembers;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class ActivityLog extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -38,9 +44,9 @@ public class ActivityLog extends AbstractEntity {
 	private String				description;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 10)
+	@ValidNumber(min = 0, max = 10, fraction = 2)
 	@Automapped
-	private float				severityLevel;
+	private Float				severityLevel;
 
 	@Mandatory
 	@ManyToOne
