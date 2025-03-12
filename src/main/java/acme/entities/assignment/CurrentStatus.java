@@ -1,5 +1,5 @@
 
-package acme.entities.crew;
+package acme.entities.assignment;
 
 public enum CurrentStatus {
 
