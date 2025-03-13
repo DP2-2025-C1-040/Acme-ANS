@@ -1,0 +1,22 @@
+key,tag,selfTransfer,cost,description,key:manager
+# base entity
+flight-01,Lorem ipsum dolor sit amet,True,0.00,Lorem ipsum dolor sit ame,manager-01
+# tag - standard variations
+flight-02,Lo,No,120.00,One-stop flight from ORD to MIA,manager-02
+flight-03,"Lorem ipsum dolor sit amet, consectetur adipiscing",Yes,500.00,Private charter flight from SFO to DFW,manager-03
+flight-04,โลเร็ม อิปซัม,True,0.00,Lorem ipsum dolor sit ame,manager-01
+flight-05,لوريم إيبسوم,True,0.00,Lorem ipsum dolor sit ame,manager-01
+flight-06,洛伦·伊普森,True,0.00,Lorem ipsum dolor sit ame,manager-01
+flight-07,"Lorem ipsum dolor sit amet, consectetur adipiscing",True,0.00,Lorem ipsum dolor sit ame,manager-01
+# selfTransfer - standard variations
+flight-08,Lorem ipsum dolor sit amet,False,0.00,Lorem ipsum dolor sit ame,manager-01
+# cost - standard variations
+flight-09,Lorem ipsum dolor sit amet,True,0.01,Lorem ipsum dolor sit ame,manager-01
+flight-10,Lorem ipsum dolor sit amet,True,1000000.00,Lorem ipsum dolor sit ame,manager-01
+flight-11,Lorem ipsum dolor sit amet,True,EUR 999999.99,Lorem ipsum dolor sit ame,manager-01
+flight-12,Lorem ipsum dolor sit amet,True,EUR 12341.12,Lorem ipsum dolor sit ame,manager-01
+# description - standard variations
+flight-13,Lorem ipsum dolor sit amet,True,0.00,,manager-01
+flight-14,Lorem ipsum dolor sit amet,True,0.00,L,manager-01
+# manager - standard variations
+flight-15,Lorem ipsum dolor sit amet,True,0.00,Lorem ipsum dolor sit ame,manager-02
