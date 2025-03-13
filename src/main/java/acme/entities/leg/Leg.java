@@ -28,7 +28,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-//@ValidFlightNumber
+// @ValidFlightNumber
 public class Leg extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------

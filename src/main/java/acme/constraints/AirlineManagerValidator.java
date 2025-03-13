@@ -34,27 +34,39 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 			// Obtenemos la identidad del AirlineManager que queremos comparar
 			DefaultUserIdentity identity = airlineManager.getUserAccount().getIdentity();
 			String managerId = airlineManager.getManagerId();
-
-			// Validar formato del managerId
-			String regex = "^[A-Z]{2,3}\\d{6}$";
-			boolean validFormat = managerId.matches(regex);
-
 			String fullName = identity.getFullName();
 
 			// Separar el nombre y los apellidos por ", " (formato esperado: "Apellido(s), Nombre(s)")
 			String[] parts = fullName.split(", ");
 			String lastNameInitial = parts[0].substring(0, 1).toUpperCase();
 			String firstNameInitial = parts[1].substring(0, 1).toUpperCase();
-			String expectedInitials = lastNameInitial + firstNameInitial;
+			String expectedInitials = firstNameInitial + lastNameInitial;
+			String managerInitials = managerId.substring(0, expectedInitials.length());
 
-			String managerInitials = managerId.substring(0, managerId.length() >= 3 ? 3 : 2);
-			boolean validInitials = expectedInitials == managerInitials;
+			boolean validInitials = expectedInitials.equals(managerInitials);
 
-			if (identity == null || identity.getFullName() == null || managerId == null && !validFormat && !validInitials)
-				result = false;
+			super.state(context, validInitials, "airlineManager", "acme.validation.leg.airline-manager-initials.message");
 
-			super.state(context, validFormat, "airlineManager", "acme.validation.leg.flight-number.message");
-			super.state(context, validInitials, "airlineManager", "acme.validation.leg.flight-number.message");
+			boolean validFormat = false;
+			// Validar formato del managerId
+			if (managerId.length() == 8) {
+				String regex = "^[A-Z]{2}\\d{6}$";
+				validFormat = managerId.matches(regex);
+			} else if (managerId.length() == 9) {
+				String regex = "^[A-Z]{3}\\d{6}$";
+				validFormat = managerId.matches(regex);
+			}
+
+			super.state(context, validFormat, "airlineManager", "acme.validation.leg.airline-manager-format.message");
+
+			// Depuración
+			//			System.out.println("Manager FullName: " + fullName);
+			//			System.out.println("Manager ID: " + managerId);
+			//			System.out.println("Expected Initials: " + expectedInitials);
+			//			System.out.println("Extracted Manager Initials: " + managerInitials);
+			//			System.out.println("Valid Initials: " + validInitials);
+			//			System.out.println("Valid Format: " + validFormat);
+
 		}
 
 		result = !super.hasErrors(context);
