@@ -1,10 +1,11 @@
 
-package acme.entities.technicians;
+package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
 
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -16,7 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Technician {
+public class Technician extends AbstractRole {
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -44,12 +45,12 @@ public class Technician {
 	private Boolean				hasPassedHealthTest;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 0, max = 120)
 	@Automapped
 	private Integer				yearsOfExperience;
 
 	@Optional
-	@ValidString(max = 255)
+	@ValidString
 	@Automapped
 	private String				certifications;
 
