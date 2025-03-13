@@ -9,6 +9,7 @@ import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
+
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
@@ -65,27 +66,5 @@ public class Airport extends AbstractEntity {
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
 	private String				contactPhoneNumber;
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + Objects.hash(this.city, this.contactPhoneNumber, this.country, this.emailAdress, this.iataCode, this.name, this.operationalScope, this.webSite);
-		return result;
-	}
-
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (this.getClass() != obj.getClass())
-			return false;
-		Airport other = (Airport) obj;
-		return Objects.equals(this.city, other.city) && Objects.equals(this.contactPhoneNumber, other.contactPhoneNumber) && Objects.equals(this.country, other.country) && Objects.equals(this.emailAdress, other.emailAdress)
-			&& Objects.equals(this.iataCode, other.iataCode) && Objects.equals(this.name, other.name) && this.operationalScope == other.operationalScope && Objects.equals(this.webSite, other.webSite);
-	}
 
 }
