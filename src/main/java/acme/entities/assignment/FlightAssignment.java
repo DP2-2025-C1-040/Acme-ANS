@@ -30,8 +30,8 @@ public class FlightAssignment extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Automapped
 	@Valid
+	@Automapped
 	private Duty				duty;
 
 	@Mandatory
@@ -50,13 +50,13 @@ public class FlightAssignment extends AbstractEntity {
 	private String				remarks;
 
 	@Mandatory
+	@Valid
 	@ManyToOne
-	@Automapped
 	private FlightCrewMembers	flightCrewMember;
 
 	@Mandatory
+	@Valid
 	@ManyToOne
-	@Automapped
 	private Leg					leg;
 
 }
