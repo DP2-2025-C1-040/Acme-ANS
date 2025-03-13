@@ -1,0 +1,39 @@
+key,duty,moment,current-status,remarks,key:flight-crew-member,key:leg
+# base-entity
+assignment-00,PILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+# duty - standard variations
+assignment-01,COPILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+assignment-02,LEAD_ATTENDANT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+assignment-03,CABIN_ATTENDANT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+# duty - no singular values
+# moment - standar variations
+assignment-04,PILOT,2000/01/01 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+assignment-05,PILOT,2000/01/01 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+assignment-06,PILOT,2200/12/31 23:59,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+assignment-07,PILOT,2201/01/01 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+# moment - no singular values
+# current-status - standard variations
+assignment-08,PILOT,2020/02/10 14:35,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+assignment-09,PILOT,2020/02/10 14:35,CANCELLED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-00
+# current-status -no singular values
+# remarks - standard variations
+assignment-10,PILOT,2020/02/10 14:35,CONFIRMED,L,member-01,leg-00
+assignment-11,PILOT,2020/02/10 14:35,CONFIRMED,Lo,member-01,leg-00
+assignment-12,PILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Donec vel felis eget justo dictum fermentum. Nam nec magna sed risus dictum suscipit. Aenean sit amet justo eget lacus tincidunt vulputate. Fusce tincidunt, nisi vel scelerisque interdum, libero null",member-01,leg-00
+assignment-13,PILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Donec vel felis eget justo dictum fermentum. Nam nec magna sed risus dictum suscipit. Aenean sit amet justo eget lacus tincidunt vulputate. Fusce tincidunt, nisi vel scelerisque interdum, libero nulla",member-01,leg-00
+assignment-14,PILOT,2020/02/10 14:35,CONFIRMED,โลเร็ม อิปซัม,member-01,leg-00
+assignment-15,PILOT,2020/02/10 14:35,CONFIRMED,لوريم إيبسوم,member-01,leg-00
+assignment-16,PILOT,2020/02/10 14:35,CONFIRMED,洛伦·伊普森,member-01,leg-00
+assignment-17,PILOT,2020/02/10 14:35,CONFIRMED,<marquee>Hacked</marquee>,member-01,leg-00
+assignment-18,PILOT,2020/02/10 14:35,CONFIRMED,<script>alert('Hacked!');</script>,member-01,leg-00
+assignment-19,PILOT,2020/02/10 14:35,CONFIRMED,' or 'A' = 'A,member-01,leg-00
+# remarks - no singular values
+# flight-crew-member - standard variations
+assignment-20,PILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-02,leg-00
+assignment-21,PILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-03,leg-00
+assignment-22,PILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-04,leg-00
+# flight-crew-member - no singular values
+# leg - standard variations
+assignment-23,PILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01
+assignment-24,PILOT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-02
+# leg -no singular values
