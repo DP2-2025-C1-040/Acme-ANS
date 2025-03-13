@@ -1,27 +1,30 @@
 
-package acme.entities.claims;
+package acme.entities.trackingLogs;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.ValidEmail;
+import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
-import acme.entities.leg.Leg;
-import acme.realms.AssistanceAgent;
+import acme.constraints.ValidTrackingLog;
+import acme.entities.claims.Claim;
 import lombok.Getter;
 import lombok.Setter;
 
+@ValidTrackingLog
 @Entity
 @Getter
 @Setter
-public class Claim extends AbstractEntity {
+public class TrackingLog extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -32,28 +35,27 @@ public class Claim extends AbstractEntity {
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				registrationMoment;
+	private Date				lastUpdateMoment;
 
 	@Mandatory
-	@ValidEmail
+	@ValidString(min = 1, max = 50)
 	@Automapped
-	private String				passengerEmail;
+	private String				step;
 
 	@Mandatory
-	@ValidString(min = 1, max = 255)
+	@ValidScore
 	@Automapped
-	private String				description;
+	private Double				resolutionPercentage;
 
 	@Mandatory
 	@Valid
 	@Automapped
-	private ClaimType			type;
+	public TrackingLogStatus	indicator;
 
-  @Mandatory
-	@Valid
+	@Optional
+	@ValidString(min = 0, max = 255)
 	@Automapped
-	private Boolean				indicator;
-
+	private String				resolution;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -62,11 +64,6 @@ public class Claim extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private AssistanceAgent		assistanceAgent;
-
-	@Mandatory
-	@Valid
-	@ManyToOne
-	private Leg					leg;
+	private Claim				claim;
 
 }
