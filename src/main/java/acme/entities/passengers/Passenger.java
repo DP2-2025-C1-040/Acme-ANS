@@ -1,5 +1,5 @@
 
-package acme.entities.maintenanceRecords;
+package acme.entities.passengers;
 
 import java.util.Date;
 
@@ -10,21 +10,20 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidMoney;
+import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidString;
-import acme.entities.aircraft.Aircraft;
+import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class MaintenanceRecord extends AbstractEntity {
+public class Passenger extends AbstractEntity {
+
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -32,29 +31,34 @@ public class MaintenanceRecord extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidMoment
+	@ValidString(max = 255)
+	@Automapped
+	private String				fullName;
+
+	@Mandatory
+	@ValidEmail
+	@Automapped
+	private String				email;
+
+	@Mandatory
+	@ValidString(pattern = "^[A-Z0-9]{6,9}$")
+	@Automapped
+	private String				passportNumber;
+
+	@Mandatory
+	@Valid
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				maintenanceDate;
+	private Date				dateOfBirdth;
+
+	@Optional
+	@ValidString(max = 50)
+	@Automapped
+	private String				specialNeeds;
 
 	@Mandatory
 	@Valid
 	@Automapped
-	private RecordStatus		status;
-
-	@Mandatory
-	@ValidMoment
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				nextInspection;
-
-	@Mandatory
-	@ValidMoney(min = 0.01)
-	@Automapped
-	private Money				estimatedCost;
-
-	@Optional
-	@ValidString
-	@Automapped
-	private String				notes;
+	private Boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -62,6 +66,6 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
-	private Aircraft			aircraft;
+	@ManyToOne(optional = false)
+	private Customer			customer;
 }

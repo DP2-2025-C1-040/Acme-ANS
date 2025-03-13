@@ -1,8 +1,20 @@
+/*
+ * Booking.java
+ *
+ * Copyright (C) 2012-2025 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
-package acme.entities.maintenanceRecords;
+package acme.entities.booking;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -17,14 +29,15 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
-import acme.entities.aircraft.Aircraft;
+import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class MaintenanceRecord extends AbstractEntity {
+public class Booking extends AbstractEntity {
+
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -32,36 +45,47 @@ public class MaintenanceRecord extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidMoment
+	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
+	@Column(unique = true)
+	private String				locatorCode;
+
+	@Mandatory
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				maintenanceDate;
+	private Date				purchaseMoment;
 
 	@Mandatory
 	@Valid
 	@Automapped
-	private RecordStatus		status;
+	private TravelClassEnum		travelClass;
 
 	@Mandatory
-	@ValidMoment
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				nextInspection;
-
-	@Mandatory
-	@ValidMoney(min = 0.01)
+	@ValidMoney
 	@Automapped
-	private Money				estimatedCost;
+	private Money				price;
 
 	@Optional
-	@ValidString
+	@ValidString(pattern = "\\d{4}")
 	@Automapped
-	private String				notes;
+	private String				lastNibble;
+
+	@Mandatory
+	@Valid
+	@Automapped
+	private Boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
+	//	@Mandatory
+	//	@Valid
+	//	@ManyToOne
+	//	private Flight				flight;
+
 	@Mandatory
 	@Valid
-	@ManyToOne
-	private Aircraft			aircraft;
+	@ManyToOne(optional = false)
+	private Customer			customer;
+
 }
