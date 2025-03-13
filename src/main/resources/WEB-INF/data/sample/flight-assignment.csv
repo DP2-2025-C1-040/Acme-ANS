@@ -9,8 +9,8 @@ assignment-03,CABIN_ATTENDANT,2020/02/10 14:35,CONFIRMED,"Lorem ipsum dolor sit 
 # moment - standar variations
 assignment-04,PILOT,2000/01/01 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01
 assignment-05,PILOT,2000/01/01 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01
-assignment-06,PILOT,2200/12/31 23:59,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01
-assignment-07,PILOT,2201/01/01 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01
+assignment-06,PILOT,2024/12/31 23:58,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01
+assignment-07,PILOT,2024/12/31 23:59,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01
 # moment - no singular values
 # current-status - standard variations
 assignment-08,PILOT,2020/02/10 14:35,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01

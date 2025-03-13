@@ -1,4 +1,4 @@
 key,key:userAccount,identifier,phoneNumber,physicalAddress,city,country,earnedPoints
-customer1,user-account-customer-01,ABC,+34911222333,A,A,A,1
-customer2,user-account-customer-02,CDE,+15551234567,B,B,B,1
-customer3,user-account-customer-03,FGH,491234567890,C,C,C,1
+customer1,user-account-customer-01,AB123456,+34911222333,A,A,A,1
+customer2,user-account-customer-02,XYZ987654,+15551234567,B,B,B,1
+customer3,user-account-customer-03,CD654321,491234567890,C,C,C,1
