@@ -1,0 +1,54 @@
+key,name,iata-code,web-site,type,foundation-moment,email-address,phone-number
+# base entity
+airline-00,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+# name - standard variations
+airline-01,L,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-02,Lo,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te",ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem",ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-05,โลเร็ม อิปซัม,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-06,لوريم إيبسوم,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-07,洛伦·伊普森,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-08,<marquee>Hacked</marquee>,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-09,<script>alert('Hacked!');</script>,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-10,' or 'A' = 'A,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+# name - no singular values
+# iata-code - standard variations
+airline-11,Lorem,WCD,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-12,Lorem,UJS,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-13,Lorem,RAK,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-14,Lorem,PSF,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-15,Lorem,HWI,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-16,Lorem,PFE,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+# iata-code - no singular values
+# web-site - standard variations
+airline-17,Lorem,ABC,"http://example.org?a=1&b=2",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-18,Lorem,ABC,"ftp://a.b",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-19,Lorem,ABC,"https://www.lorem-ipsum.org",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-20,Lorem,ABC,"http://www.lorem-ipsum.org/dolor/sit.html",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-21,Lorem,ABC,"http://example.org/a/b?",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+# web-site - no singular values
+# type - standard variations
+airline-22,Lorem,ABC,"http://lorem.com/ipsum",STANDARD,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-23,Lorem,ABC,"http://lorem.com/ipsum",LOW_COST,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+# type - no singular values
+# foundation-moment - standard variations
+airline-24,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2000/01/01 00:00,"acme@lorem-ipsum.org",+123456
+airline-25,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2000/01/01 00:01,"acme@lorem-ipsum.org",+123456
+airline-26,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2200/12/31 23:59,"acme@lorem-ipsum.org",+123456
+airline-27,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2201/01/01 00:00,"acme@lorem-ipsum.org",+123456
+# foundation-moment - no singular values
+# email-address - standard variations
+airline-28,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"a@b.e",+123456
+airline-29,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"a@b.es",+123456
+airline-30,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"a@b.esx",+123456
+airline-31,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu",+123456
+# email-address - no singular values
+# phone-number - standard variations
+airline-32,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",987654321
+airline-33,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+34911223344
+airline-34,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",123456789012345
+airline-35,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+199988877766655
+airline-36,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+447911123456
+airline-37,Lorem,ABC,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",5551234567
+# phone-number - no singular values
