@@ -1,22 +1,24 @@
 
-package acme.entities.airline;
+package acme.realms;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
-import acme.client.components.basis.AbstractEntity;
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidAirlineManager;
+import acme.entities.airline.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,45 +26,41 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Airline extends AbstractEntity {
+@ValidAirlineManager
+public class AirlineManager extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
+	// Attributes -------------------------------------------------------------
+
+	//Recomienda crear un validador para el managerId
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Automapped
-	private String				name;
+	private String				managerId;
 
 	@Mandatory
-	@ValidString(pattern = "[A-Z]{3}")
-	@Column(unique = true)
-	private String				iataCode;
-
-	@Mandatory
-	@ValidUrl
+	@ValidNumber(min = 0, max = 70)
 	@Automapped
-	private String				webSite;
-
-	@Mandatory
-	@Valid
-	@Automapped
-	private AirlineType			type;
+	private Integer				yearsOfExperience;
 
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				foundationMoment;
+	private Date				dateOfBirth;
 
 	@Optional
-	@ValidEmail
+	@ValidUrl
 	@Automapped
-	private String				emailAddress;
+	private String				imageLink;
 
-	@Optional
-	@ValidString(pattern = "^\\+?\\d{6,15}$")
-	@Automapped
-	private String				phoneNumber;
+	// Relationships ----------------------------------------------------------
+
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Airline				airline;
 
 }

@@ -1,8 +1,7 @@
 
-package acme.entities.claims;
+package acme.entities.aircraft;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
@@ -10,18 +9,16 @@ import javax.validation.Valid;
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.ValidEmail;
-import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.entities.leg.Leg;
-import acme.realms.AssistanceAgent;
+import acme.entities.airline.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Claim extends AbstractEntity {
+public class Aircraft extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -30,43 +27,40 @@ public class Claim extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidMoment(past = true)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				registrationMoment;
+	@ValidString(max = 50)
+	@Automapped
+	private String				model;
 
 	@Mandatory
-	@ValidEmail
-	@Automapped
-	private String				passengerEmail;
+	@ValidString(max = 50)
+	@Column(unique = true)
+	private String				regNumber;
 
 	@Mandatory
-	@ValidString(min = 1, max = 255)
+	@ValidNumber //Añadir limites implicitos
 	@Automapped
-	private String				description;
+	private Integer				capacity;
+
+	@Mandatory
+	@ValidNumber(min = 2000, max = 50000)
+	@Automapped
+	private Integer				cargoWeight;
 
 	@Mandatory
 	@Valid
 	@Automapped
-	private ClaimType			type;
+	private AircraftStatus		aircraftStatus;
 
-  @Mandatory
-	@Valid
+	@Mandatory
+	@ValidString
 	@Automapped
-	private Boolean				indicator;
-
-
-	// Derived attributes -----------------------------------------------------
+	private String				details;
 
 	// Relationships ----------------------------------------------------------
 
 	@Mandatory
 	@Valid
-	@ManyToOne
-	private AssistanceAgent		assistanceAgent;
-
-	@Mandatory
-	@Valid
-	@ManyToOne
-	private Leg					leg;
+	@ManyToOne(optional = false)
+	private Airline				airline;
 
 }

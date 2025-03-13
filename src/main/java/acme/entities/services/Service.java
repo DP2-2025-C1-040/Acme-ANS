@@ -1,34 +1,32 @@
 
-package acme.entities.airline;
-
-import java.util.Date;
+package acme.entities.services;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidEmail;
-import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidPromoCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-
-public class Airline extends AbstractEntity {
+@ValidPromoCode
+public class Service extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidString(max = 50)
@@ -36,33 +34,26 @@ public class Airline extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidString(pattern = "[A-Z]{3}")
-	@Column(unique = true)
-	private String				iataCode;
-
-	@Mandatory
 	@ValidUrl
 	@Automapped
-	private String				webSite;
+	private String				picture;
 
 	@Mandatory
-	@Valid
+	@ValidNumber(min = 1, max = 100)
 	@Automapped
-	private AirlineType			type;
-
-	@Mandatory
-	@ValidMoment(past = true)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				foundationMoment;
+	private Double				avgDwellTime;
 
 	@Optional
-	@ValidEmail
-	@Automapped
-	private String				emailAddress;
+	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
+	@Column(unique = true, nullable = true)
+	private String				promoCode;
 
 	@Optional
-	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@ValidScore
 	@Automapped
-	private String				phoneNumber;
+	private Double				promoDiscount;
 
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 }
