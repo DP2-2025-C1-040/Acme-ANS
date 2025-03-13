@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>618</x>
+      <y>222</y>
+      <w>210</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>works in &gt;
+lt=&lt;-x
+m1=1
+m2=1
+
+</panel_attributes>
+    <additional_attributes>330.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>354</x>
+      <y>318</y>
+      <w>468</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Claim
+--
++ registrationMoment: Date {Mandatory, ValidMoment(past=true), Temporal(TIMESTAMP)}
++ passengerEmail: String {Mandatory, ValidEmail, Automapped}
++ description: String {Mandatory, ValidString(min = 1max = 255), Automapped}
++ type: ClaimType {Mandatory,Valid, Automapped}
++ accepted: boolean {Mandatory, Valid, Automapped}
+bg=blue
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>408</x>
+      <y>480</y>
+      <w>372</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+TrackingLog
+--
++ lastUpdateMoment: Date {Mandatory, ValidMoment(past=true), Temporal(TIMESTAMP)}
++ step: String {Mandatory, ValidString(min = 1, max = 50), Automapped}
++ resolutionPercentage: Double {Mandatory, ValidNumber(min = 0, max = 100), Automapped}
++ status: TrackingLogStatus {Mandatory, Valid, Automapped}
++ resolutionDetails: String {Mandatory, ValidString(min = 1, max = 255), Automapped}
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>246</y>
+      <w>78</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Registered by ^
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>408</y>
+      <w>48</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>About ^
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>534</x>
+      <y>216</y>
+      <w>90</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+AssistanceAgent
+bg=pink
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>816</x>
+      <y>222</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Airline
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>918</x>
+      <y>354</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Leg
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>354</y>
+      <w>114</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>about &gt;
+lt=&lt;-x
+m1=1
+m2=1
+
+</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>144</y>
+      <w>390</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+AssistanceAgent
+--
++ employeeCode: String {Mandatory, ValidString(pattern = "^[A-Z]{2-3}\d{6}$"), Column(unique = true)}
++ spokenLanguages: String {Mandatory, ValidString(min = 1, max = 255), Automapped}
++ airline: Airline {Mandatory, Valid, Automapped}
++ startDate: Date {Mandatory, ValidMoment(past=true), Temporal(TIMESTAMP)}
++ briefBio: String {Optional, ValidString(min = 1, max = 255), Automapped}
++ salary: Money {Optional, ValidMoney(min=0.00,max=1000000.00), Automapped}
++ photoUrl: String {Optional, ValidUrl, Automapped}
+bg=pink
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>342</y>
+      <w>108</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+ClaimType
+--
++ FLIGHT_ISSUES
++ LUGGAGE_ISSUES
++ SECURITY_INCIDENT
++ OTHER_ISSUES
+bg=LIGHT_GRAY</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>342</y>
+      <w>108</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+TrackingLogStatus
+--
++ PENDING
++ ACCEPTED
++ REJECTED
+bg=LIGHT_GRAY</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>264</y>
+      <w>150</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidAssistanceAgent
+--
++ employeeCode 2-3 first letters must
+correspond to the agent initials
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
