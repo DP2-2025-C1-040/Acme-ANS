@@ -35,8 +35,8 @@ airline-23,Lorem,RST,"http://lorem.com/ipsum",LOW_COST,2020/02/10 14:35,"acme@lo
 # foundation-moment - standard variations
 airline-24,Lorem,UVW,"http://lorem.com/ipsum",LUXURY,2000/01/01 00:00,"acme@lorem-ipsum.org",+123456
 airline-25,Lorem,XYZ,"http://lorem.com/ipsum",LUXURY,2000/01/01 00:01,"acme@lorem-ipsum.org",+123456
-airline-26,Lorem,AJK,"http://lorem.com/ipsum",LUXURY,2200/12/30 23:59,"acme@lorem-ipsum.org",+123456
-airline-27,Lorem,BFL,"http://lorem.com/ipsum",LUXURY,2200/12/31 00:00,"acme@lorem-ipsum.org",+123456
+airline-26,Lorem,AJK,"http://lorem.com/ipsum",LUXURY,2024/12/31 23:58,"acme@lorem-ipsum.org",+123456
+airline-27,Lorem,BFL,"http://lorem.com/ipsum",LUXURY,2024/12/31 23:59,"acme@lorem-ipsum.org",+123456
 # foundation-moment - no singular values
 # email-address - standard variations
 airline-28,Lorem,CGH,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"a@b.e",+123456
