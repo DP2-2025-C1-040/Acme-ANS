@@ -3,11 +3,8 @@ package acme.constraints;
 
 import javax.validation.ConstraintValidatorContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.entities.flight.FlightRepository;
 import acme.entities.leg.Leg;
 
 @Validator
@@ -15,11 +12,10 @@ public class FlightNumberValidator extends AbstractValidator<ValidFlightNumber, 
 
 	// Internal state ---------------------------------------------------------
 
-	@Autowired
-	private FlightRepository repository;
+	//	@Autowired
+	//	private FlightRepository repository;
 
 	// ConstraintValidator interface ------------------------------------------
-
 
 	@Override
 	protected void initialise(final ValidFlightNumber annotation) {
