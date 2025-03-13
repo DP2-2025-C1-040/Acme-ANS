@@ -4,8 +4,8 @@ airport-00,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lo
 # name - standard variations
 airport-01,L,DEF,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-02,Lo,GHI,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te",JKL,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem",MNO,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",JKL,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",MNO,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-05,โลเร็ม อิปซัม,PQR,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-06,لوريم إيبسوم,STU,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-07,洛伦·伊普森,VWX,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
@@ -28,8 +28,8 @@ airport-18,Lorem,KLM,REGIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-i
 # city - standard variations
 airport-19,Lorem,NOP,INTERNATIONAL,L,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-20,Lorem,QRS,INTERNATIONAL,Lo,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-21,Lorem,TUV,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te",Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-22,Lorem,WXY,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem",Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-21,Lorem,TUV,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscin",Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-22,Lorem,WXY,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-23,Lorem,ZAB,INTERNATIONAL,โลเร็ม อิปซัม,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-24,Lorem,CDE,INTERNATIONAL,لوريم إيبسوم,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-25,Lorem,FGH,INTERNATIONAL,洛伦·伊普森,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
@@ -40,8 +40,8 @@ airport-28,Lorem,OPQ,INTERNATIONAL,' or 'A' = 'A,Lorem,"http://lorem.com/ipsum",
 # country - standard variations
 airport-29,Lorem,RST,INTERNATIONAL,Lorem,L,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-30,Lorem,UVW,INTERNATIONAL,Lorem,Lo,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-31,Lorem,XYZ,INTERNATIONAL,Lorem,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te","http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-32,Lorem,ERY,INTERNATIONAL,Lorem,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem","http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-31,Lorem,XYZ,INTERNATIONAL,Lorem,"Lorem ipsum dolor sit amet, consectetur adipiscin","http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-32,Lorem,ERY,INTERNATIONAL,Lorem,"Lorem ipsum dolor sit amet, consectetur adipiscing","http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-33,Lorem,CSL,INTERNATIONAL,Lorem,โลเร็ม อิปซัม,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-34,Lorem,DSK,INTERNATIONAL,Lorem,لوريم إيبسوم,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 airport-35,Lorem,EWF,INTERNATIONAL,Lorem,洛伦·伊普森,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
