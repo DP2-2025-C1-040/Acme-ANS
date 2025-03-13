@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities;
+package acme.entities.booking;
 
 import java.util.Date;
 
@@ -84,8 +84,8 @@ public class Booking extends AbstractEntity {
 	//	private Flight				flight;
 
 	@Mandatory
+	@Valid
 	@ManyToOne(optional = false)
-	@Automapped
 	private Customer			customer;
 
 }
