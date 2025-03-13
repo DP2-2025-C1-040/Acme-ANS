@@ -13,6 +13,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.entities.leg.Leg;
 import acme.realms.AssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
