@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -23,48 +24,47 @@ public class Airport extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
-	private static final long		serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
-	private String					name;
+	private String				name;
 
 	@Mandatory
 	@ValidString(min = 3, max = 3, pattern = "[A-Z]{3}")
 	@Column(unique = true)
-	private String					iataCode;
+	private String				iataCode;
 
 	@Mandatory
+	@Valid
 	@Automapped
-	private Enum<OperationalScope>	operationalScope;
+	private OperationalScope	operationalScope;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
-	private String					city;
+	private String				city;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
-	private String					country;
+	private String				country;
 
 	@Optional
 	@ValidUrl
 	@Automapped
-	private String					webSite;
+	private String				webSite;
 
 	@Optional
 	@ValidEmail
 	@Automapped
-	private String					emailAdress;
+	private String				emailAdress;
 
 	@Optional
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
-	private String					contactPhoneNumber;
-
-	// Runways
+	private String				contactPhoneNumber;
 
 
 	@Override
@@ -85,7 +85,7 @@ public class Airport extends AbstractEntity {
 			return false;
 		Airport other = (Airport) obj;
 		return Objects.equals(this.city, other.city) && Objects.equals(this.contactPhoneNumber, other.contactPhoneNumber) && Objects.equals(this.country, other.country) && Objects.equals(this.emailAdress, other.emailAdress)
-			&& Objects.equals(this.iataCode, other.iataCode) && Objects.equals(this.name, other.name) && Objects.equals(this.operationalScope, other.operationalScope) && Objects.equals(this.webSite, other.webSite);
+			&& Objects.equals(this.iataCode, other.iataCode) && Objects.equals(this.name, other.name) && this.operationalScope == other.operationalScope && Objects.equals(this.webSite, other.webSite);
 	}
 
 }

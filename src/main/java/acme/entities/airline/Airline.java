@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -34,7 +35,7 @@ public class Airline extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidString(min = 3, max = 3, pattern = "[A-Z]{3}")
+	@ValidString(pattern = "[A-Z]{3}")
 	@Column(unique = true)
 	private String				iataCode;
 
@@ -44,8 +45,9 @@ public class Airline extends AbstractEntity {
 	private String				webSite;
 
 	@Mandatory
+	@Valid
 	@Automapped
-	private Enum<AirlineType>	type;
+	private AirlineType			type;
 
 	@Mandatory
 	@ValidMoment(past = true)
