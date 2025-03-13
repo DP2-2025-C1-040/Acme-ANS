@@ -10,7 +10,7 @@ aircraft-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",REG-005,180,120
 # regNumber - standard variations
 aircraft-05,Standard Model,REG-01,180,12000,ACTIVE,Standard configuration,airline-01
 aircraft-06,Standard Model,REG-02,180,12000,ACTIVE,Standard configuration,airline-01
-aircraft-07,Standard Model,"REG-12345678901234567890123456789012345678901234567890",180,12000,ACTIVE,Maximum length regNumber,airline-01
+aircraft-07,Standard Model,"REG-1234567890123456789012345678901234567890123456",180,12000,ACTIVE,Maximum length regNumber,airline-01
 # regNumber - no singular values
 # capacity - standard variations
 aircraft-08,Standard Model,REG-008,1,12000,ACTIVE,Minimal capacity,airline-01

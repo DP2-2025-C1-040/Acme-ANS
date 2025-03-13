@@ -1,30 +1,30 @@
-key,flightNumber,status,scheduledDeparture,scheduledArrival,originCity,destinationCity,key:departureAirport,key:destinationAirport,key:aircraft,key:flight,key:airline
+key,flightNumber,status,scheduledDeparture,scheduledArrival,originCity,destinationCity,key:departureAirport,key:arrivalAirport,key:aircraft,key:flight,key:airline
 # base entity
 leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # flightNumber - standard variations
 leg-02,DEF345,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # status - standard variations
-leg-03,DEF123,DELAYED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-04,DEF123,CANCELLED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-05,DEF123,LANDED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-03,DEF567,DELAYED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-04,DEF891,CANCELLED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-05,DEF234,LANDED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # scheduledDeparture - standard variations
 # scheduledArrival - standard variations
-leg-01,DEF123,ON_TIME,2025/01/01 00:02,2025/01/01 00:03,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2200/12/31 23:58,2200/12/31 23:59,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-06,DEF456,ON_TIME,2025/01/01 00:02,2025/01/01 00:03,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-07,DEF678,ON_TIME,2200/12/31 23:58,2200/12/31 23:59,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # scheduledDeparture - no singular values
 # scheduledArrival - no singular values
 # originCity - standard variations
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lo,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,โลเร็ม อิปซัม,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,لوريم إيبسوم,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,洛伦·伊普森,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-08,DEF911,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lo,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-09,DEF222,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,โลเร็ม อิปซัม,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-10,DEF333,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,لوريم إيبسوم,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-11,DEF444,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,洛伦·伊普森,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-12,DEF000,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # destinationCity - standard variations
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lo,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,โลเร็ม อิปซัม,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,لوريم إيبسوم,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,洛伦·伊普森,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-01,DEF123,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,"Lorem ipsum dolor sit amet, consectetur adipiscing",airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-13,DEF555,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lo,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-14,DEF666,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,โลเร็ม อิปซัม,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-15,DEF777,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,لوريم إيبسوم,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-16,DEF888,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,洛伦·伊普森,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-17,DEF999,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,"Lorem ipsum dolor sit amet, consectetur adipiscing",airport-01,airport-02,aircraft-01,flight-01,airline-01
 # departureAirport - standard variations
 # destinationAirport - standard variations
 # aircraft - standard variations
