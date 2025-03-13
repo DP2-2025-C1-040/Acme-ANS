@@ -35,3 +35,6 @@ trackingLog-21,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Le cinn
 trackingLog-22,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"De decis",claim-01
 trackingLog-23,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"To be decided",claim-01
 trackingLog-24,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Erabakitzeko",claim-01
+
+# claim
+trackingLog-01,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Por decidir",claim-02
