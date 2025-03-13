@@ -1,0 +1,43 @@
+key,name,moment,subject,text,score,recommended
+#base
+review-00,Good Review,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+
+#name
+review-01,N,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-02,Nice,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-03,Big airplane,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-04,Nada mal,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+
+#moment
+review-05,N,2024/01/03 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-06,N,2013/06/30 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-07,N,2009/07/08 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-08,N,2021/12/12 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-09,N,2003/07/17 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+
+#subject
+review-10,Good Review,2009/07/02 0:00,Incredible,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-11,Good Review,2009/07/02 0:00,"Awesome!","It's amazing!, I could sleep and that's too hard","10,00",TRUE
+review-12,Good Review,2009/07/02 0:00,"Too much","It's amazing!, I could sleep and that's too hard","10,00",TRUE
+
+#text
+review-13,Good Review,2009/07/02 0:00,The airplane was confortable,"The best","10,00",TRUE
+review-14,Good Review,2009/07/02 0:00,The airplane was confortable,"Yeah*","10,00",TRUE
+review-15,Good Review,2009/07/02 0:00,The airplane was confortable,"Shhh","10,00",TRUE
+
+#score
+review-16,Good Review,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard",,TRUE
+review-17,Good Review,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","0,55",TRUE
+review-18,Good Review,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","9,99",TRUE
+
+#isRecommended
+review-19,Good Review,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",false
+
+
+
+
+
+
+
+
+
