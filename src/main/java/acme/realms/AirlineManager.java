@@ -1,11 +1,13 @@
 
-package acme.entities.airlineManager;
+package acme.realms;
 
 import java.util.Date;
-import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
@@ -15,7 +17,13 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.entities.airline.Airline;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class AirlineManager extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
@@ -46,25 +54,11 @@ public class AirlineManager extends AbstractRole {
 	@Automapped
 	private String				imageLink;
 
+	// Relationships ----------------------------------------------------------
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + Objects.hash(this.dateOfBirth, this.imageLink, this.managerId, this.yearsOfExperience);
-		return result;
-	}
-
-	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (this.getClass() != obj.getClass())
-			return false;
-		AirlineManager other = (AirlineManager) obj;
-		return Objects.equals(this.dateOfBirth, other.dateOfBirth) && Objects.equals(this.imageLink, other.imageLink) && Objects.equals(this.managerId, other.managerId) && Objects.equals(this.yearsOfExperience, other.yearsOfExperience);
-	}
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Airline				airline;
 
 }
