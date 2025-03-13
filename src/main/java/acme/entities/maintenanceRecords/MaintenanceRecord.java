@@ -4,10 +4,12 @@ package acme.entities.maintenanceRecords;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
+import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
@@ -21,7 +23,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class MaintenanceRecord {
+public class MaintenanceRecord extends AbstractEntity {
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -44,7 +46,7 @@ public class MaintenanceRecord {
 	private Date				nextInspection;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0.01)
 	@Automapped
 	private Money				estimatedCost;
 
@@ -57,9 +59,8 @@ public class MaintenanceRecord {
 
 	// Relationships ----------------------------------------------------------
 
-	// Commented until aircraft is done
-	// @Mandatory
-	// @Valid
-	// @ManyToOne
-	// private Aircraft			aircraft;
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Aircraft			aircraft;
 }
