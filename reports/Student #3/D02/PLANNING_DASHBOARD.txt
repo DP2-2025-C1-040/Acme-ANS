@@ -1,3 +1,1 @@
-This link indicates the milestone (M2 for D02), which allows you to see what deliverable each issue is from.
-
-https://github.com/orgs/DP2-2025-C1-040/projects/3/views/1?visibleFields=%5B"Title"%2C"Assignees"%2C"Status"%2C170076804%2C170076806%2C170076805%2C170076807%2C170515079%2C170515323%2C"Milestone"%5D
+https://github.com/orgs/DP2-2025-C1-040/projects/3/views/6
