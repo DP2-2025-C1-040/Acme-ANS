@@ -2,7 +2,6 @@
 package acme.entities.flight;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -98,6 +97,6 @@ public class Flight extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private List<Leg>		legs;
+	private Leg				leg;
 
 }
