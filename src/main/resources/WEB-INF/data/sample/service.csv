@@ -1,0 +1,46 @@
+﻿key,name,picture,avgDwellTime,promoCode,promoDiscount
+#base entity
+service-00,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,AAAA-25,50
+# name - standard variations
+service-01,L,http://lorem.com/ipsum,50.5,AAAB-25,50
+service-02,Lo,http://lorem.com/ipsum,50.5,AABA-25,50
+service-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",http://lorem.com/ipsum,50.5,AABB-25,50
+service-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,50.5,ABAA-25,50
+# name - no singular values
+# picture - standard variations
+service-05,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,ABAB-25,50
+service-06,Lorem ipsum dolor sit ame,ftp://a,50.5,ABBA-25,50
+service-07,Lorem ipsum dolor sit ame,ftp://a.b,50.5,ABBB-25,50
+service-08,Lorem ipsum dolor sit ame,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",50.5,BAAA-25,50
+service-09,Lorem ipsum dolor sit ame,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",50.5,BAAB-25,50
+service-10,Lorem ipsum dolor sit ame,https://www.lorem-ipsum.org,50.5,BABA-25,50
+service-11,Lorem ipsum dolor sit ame,ftp://www.lorem-ipsum.org,50.5,BABB-25,50
+service-12,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html,50.5,BBAA-25,50
+service-13,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html#dolor,50.5,BBAB-25,50
+service-14,Lorem ipsum dolor sit ame,http://example.org?a=1&b=2,50.5,BBBA-25,50
+service-15,Lorem ipsum dolor sit ame,http://example.org?,50.5,BBBB-25,50
+service-16,Lorem ipsum dolor sit ame,http://example.org?a,50.5,AAAC-25,50
+service-17,Lorem ipsum dolor sit ame,http://example.org?a&b,50.5,AACA-25,50
+service-18,Lorem ipsum dolor sit ame,http://example.org/,50.5,AACC-25,50
+service-19,Lorem ipsum dolor sit ame,http://example.org/a,50.5,ACAA-25,50
+service-20,Lorem ipsum dolor sit ame,http://example.org/a/b,50.5,ACAC-25,50
+service-21,Lorem ipsum dolor sit ame,http://example.org/a/b?,50.5,ACCA-25,50
+service-22,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,50.5,ACCC-25,50
+# picture - no singular values
+# avgDwellTime - standard variations
+service-23,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,1,CAAA-25,50
+service-24,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,1.01,CAAC-25,50
+service-25,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,99.99,CACA-25,50
+service-26,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,100,CACC-25,50
+# avgDwellTime - no singular values
+# promoCode - standard variations
+service-27,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,"",50
+service-28,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,ABCD-25,50
+service-29,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,WXYZ-25,50
+# promoCode - no singular values,"","","",""
+# promoDiscount - standard variations
+service-30,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,CCAA-25,0
+service-31,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,CCAC-25,0.01
+service-32,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,CCCA-25,99.99
+service-33,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,CCCC-25,100
+# promoDiscount - no singular values
