@@ -5,8 +5,8 @@ import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.entities.trackingLogs.TrackingLog;
-import acme.entities.trackingLogs.TrackingLogStatus;
+import acme.entities.tracking_logs.TrackingLog;
+import acme.entities.tracking_logs.TrackingLogStatus;
 
 @Validator
 public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, TrackingLog> {
