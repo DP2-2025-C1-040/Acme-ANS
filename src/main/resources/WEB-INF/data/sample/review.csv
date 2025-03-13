@@ -1,4 +1,4 @@
-key,name,moment,subject,text,score,isRecommended
+key,name,moment,subject,text,score,recommended
 #base
 review-00,Good Review,2009/07/02 0:00,The airplane was confortable,"It's amazing!, I could sleep and that's too hard","10,00",TRUE
 
