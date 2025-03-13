@@ -1,0 +1,6 @@
+key,key:user-account,employeeCode,languages,startDate,bio,salary,photo,key:airline
+#base
+agent-01,user-account-agent-01,CAA123456,"español, inglés, portugués",2003/04/02 00:00,Agradable,EUR 15.00,http://foto.jpg,airline-01
+agent-02,user-account-agent-02,JSP789123,"español",2000/11/24 00:00,Paciente,EUR 15.00,http://foto.jpg,airline-01
+agent-03,user-account-agent-03,CPL789123,"français, espagnhol, anglais",2022/01/25 00:00,Instruit,EUR 15.00,http://foto.jpg,airline-01
+
