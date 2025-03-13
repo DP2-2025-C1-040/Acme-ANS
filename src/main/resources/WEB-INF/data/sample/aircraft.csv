@@ -23,15 +23,14 @@ aircraft-12,Standard Model,REG-012,180,49999,ACTIVE,Just below maximum cargo wei
 aircraft-13,Standard Model,REG-013,180,50000,ACTIVE,Maximum cargo weight,airline-01
 # cargoWeight - no singular values
 # aircraftStatus - standard variations
-aircraft-14,Standard Model,REG-014,180,12000,INACTIVE,Status inactive,airline-01
-aircraft-15,Standard Model,REG-015,180,12000,MAINTENANCE,Under maintenance,airline-01
+aircraft-14,Standard Model,REG-015,180,12000,MAINTENANCE,Under maintenance,airline-01
 # aircraftStatus - no singular values
 # details - standard variations
-aircraft-16,Standard Model,REG-016,180,12000,ACTIVE,D,airline-01
-aircraft-17,Standard Model,REG-017,180,12000,ACTIVE,De,airline-01
-aircraft-18,Standard Model,REG-018,180,12000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscin",airline-01
-aircraft-19,Standard Model,REG-019,180,12000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing",airline-01
+aircraft-15,Standard Model,REG-016,180,12000,ACTIVE,D,airline-01
+aircraft-16,Standard Model,REG-017,180,12000,ACTIVE,De,airline-01
+aircraft-17,Standard Model,REG-018,180,12000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscin",airline-01
+aircraft-18,Standard Model,REG-019,180,12000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing",airline-01
 # details - singular values
-aircraft-20,Standard Model,REG-020,180,12000,ACTIVE,"<script>alert('X');</script>",airline-01
-aircraft-21,Standard Model,REG-021,180,12000,ACTIVE,"<marquee>Hacked</marquee>",airline-01
-aircraft-22,Standard Model,REG-022,180,12000,ACTIVE,"' or 'A' = 'A",airline-01
+aircraft-19,Standard Model,REG-020,180,12000,ACTIVE,"<script>alert('X');</script>",airline-01
+aircraft-20,Standard Model,REG-021,180,12000,ACTIVE,"<marquee>Hacked</marquee>",airline-01
+aircraft-21,Standard Model,REG-022,180,12000,ACTIVE,"' or 'A' = 'A",airline-01
