@@ -13,6 +13,8 @@ import acme.entities.leg.Leg;
 @Repository
 public interface FlightRepository extends AbstractRepository {
 
+	// Utilizar launcher inquirer para comprobar que las query devuelven los datos que queremos
+
 	@Query("SELECT min(l.scheduledDeparture) FROM Leg l WHERE l.flight.id = :flightId")
 	Date findScheduledDeparture(int flightId);
 

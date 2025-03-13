@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
@@ -15,9 +13,10 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.client.helpers.SpringHelper;
 import acme.entities.leg.Leg;
 import acme.realms.AirlineManager;
 import lombok.Getter;
@@ -40,62 +39,65 @@ public class Flight extends AbstractEntity {
 	private String				tag;
 
 	@Mandatory
+	@Valid
 	@Automapped
 	private Boolean				selfTransfer;
 
 	@Mandatory
-	@ValidMoney(min = 1)
+	@ValidMoney(min = 0.01)
 	@Automapped
 	private Money				cost;
 
-	@Mandatory
+	@Optional
 	@ValidString
 	@Automapped
 	private String				description;
 
-	// Definirlo como Derived Attributes como getScheduledDeparture
-	// Enlazar el atributo a un FlightRepository
-	// Seguir foto del FollowUp (necesita correcciones)
-	// Utilizar launcher inquirer para comprobar que las query devuelven los datos que queremos
-	// Además, solo van acompañados de la anotación @Transient y nada más
-	@Mandatory
-	@ValidMoment
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				scheduledDeparture;
-
-	@Mandatory
-	@ValidMoment
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				scheduledArrival;
-
-	@Mandatory
-	@ValidString(max = 50)
-	@Transient
-	private String				originCity;
-
-	@Mandatory
-	@ValidString(max = 50)
-	@Transient
-	private String				destinationCity;
-
 	// Derived attributes -----------------------------------------------------
 
-	/*
-	 * public Integer getNumberOfLayovers() {
-	 * return legs != null && legs.size() > 1 ? legs.size() - 1 : 0;
-	 * }
-	 */
+
+	@Transient
+	public Date getScheduledDeparture() {
+		FlightRepository repository = SpringHelper.getBean(FlightRepository.class);
+		return repository.findScheduledDeparture(this.getId());
+	}
+
+	@Transient
+	public Date getScheduledArrival() {
+		FlightRepository repository = SpringHelper.getBean(FlightRepository.class);
+		return repository.findScheduledArrival(this.getId());
+	}
+
+	@Transient
+	public String getOriginCity() {
+		FlightRepository repository = SpringHelper.getBean(FlightRepository.class);
+		return repository.findOriginCity(this.getId());
+	}
+
+	@Transient
+	public String getDestinationCity() {
+		FlightRepository repository = SpringHelper.getBean(FlightRepository.class);
+		return repository.findDestinationCity(this.getId());
+	}
+
+	@Transient
+	public Integer getNumberOfLayovers() {
+		FlightRepository repository = SpringHelper.getBean(FlightRepository.class);
+		Integer numberOfLegs = repository.countLegs(this.getId());
+		return numberOfLegs != null && numberOfLegs > 0 ? numberOfLegs - 1 : 0;
+	}
 
 	// Relationships ----------------------------------------------------------
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private AirlineManager		airlineManager;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private List<Leg>			legs;
+	private AirlineManager	airlineManager;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private List<Leg>		legs;
 
 }
