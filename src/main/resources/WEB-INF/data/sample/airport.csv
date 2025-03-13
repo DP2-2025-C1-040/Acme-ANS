@@ -2,16 +2,16 @@ key,name,iata-code,operational-scope,city,country,web-site,email-address,contact
 # base-entity
 airport-00,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 # name - standard variations
-airport-01,L,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-02,Lo,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te",ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem",ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-05,โลเร็ม อิปซัม,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-06,لوريم إيبسوم,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-07,洛伦·伊普森,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-08,<marquee>Hacked</marquee>,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-09,<script>alert('Hacked!');</script>,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-10,' or 'A' = 'A,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-01,L,DEF,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-02,Lo,GHI,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te",JKL,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem",MNO,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-05,โลเร็ม อิปซัม,PQR,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-06,لوريم إيبسوم,STU,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-07,洛伦·伊普森,VWX,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-08,<marquee>Hacked</marquee>,YZA,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-09,<script>alert('Hacked!');</script>,BCD,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-10,' or 'A' = 'A,EFG,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 # name - no singular values
 # iata-code - standard variations
 airport-11,Lorem,WCD,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
@@ -22,51 +22,51 @@ airport-15,Lorem,HWI,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lo
 airport-16,Lorem,PFE,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 # iata-code - no singular values
 # operational-scope - standard variations
-airport-17,Lorem,ABC,DOMESTIC,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-18,Lorem,ABC,REGIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-17,Lorem,HIJ,DOMESTIC,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-18,Lorem,KLM,REGIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 # operational-scope - no singular values
 # city - standard variations
-airport-19,Lorem,ABC,INTERNATIONAL,L,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-20,Lorem,ABC,INTERNATIONAL,Lo,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-21,Lorem,ABC,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te",Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-22,Lorem,ABC,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem",Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-23,Lorem,ABC,INTERNATIONAL,โลเร็ม อิปซัม,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-24,Lorem,ABC,INTERNATIONAL,لوريم إيبسوم,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-25,Lorem,ABC,INTERNATIONAL,洛伦·伊普森,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-26,Lorem,ABC,INTERNATIONAL,<marquee>Hacked</marquee>,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-27,Lorem,ABC,INTERNATIONAL,<script>alert('Hacked!');</script>,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-28,Lorem,ABC,INTERNATIONAL,' or 'A' = 'A,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-19,Lorem,NOP,INTERNATIONAL,L,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-20,Lorem,QRS,INTERNATIONAL,Lo,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-21,Lorem,TUV,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te",Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-22,Lorem,WXY,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem",Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-23,Lorem,ZAB,INTERNATIONAL,โลเร็ม อิปซัม,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-24,Lorem,CDE,INTERNATIONAL,لوريم إيبسوم,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-25,Lorem,FGH,INTERNATIONAL,洛伦·伊普森,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-26,Lorem,IJK,INTERNATIONAL,<marquee>Hacked</marquee>,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-27,Lorem,LMN,INTERNATIONAL,<script>alert('Hacked!');</script>,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-28,Lorem,OPQ,INTERNATIONAL,' or 'A' = 'A,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 # city - no singular values
 # country - standard variations
-airport-29,Lorem,ABC,INTERNATIONAL,Lorem,L,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-30,Lorem,ABC,INTERNATIONAL,Lorem,Lo,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-31,Lorem,ABC,INTERNATIONAL,Lorem,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te","http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-32,Lorem,ABC,INTERNATIONAL,Lorem,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem","http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-33,Lorem,ABC,INTERNATIONAL,Lorem,โลเร็ม อิปซัม,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-34,Lorem,ABC,INTERNATIONAL,Lorem,لوريم إيبسوم,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-35,Lorem,ABC,INTERNATIONAL,Lorem,洛伦·伊普森,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-36,Lorem,ABC,INTERNATIONAL,Lorem,<marquee>Hacked</marquee>,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-37,Lorem,ABC,INTERNATIONAL,Lorem,<script>alert('Hacked!');</script>,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
-airport-38,Lorem,ABC,INTERNATIONAL,Lorem,' or 'A' = 'A,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-29,Lorem,RST,INTERNATIONAL,Lorem,L,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-30,Lorem,UVW,INTERNATIONAL,Lorem,Lo,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-31,Lorem,XYZ,INTERNATIONAL,Lorem,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te","http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-32,Lorem,ERY,INTERNATIONAL,Lorem,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem","http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-33,Lorem,CSL,INTERNATIONAL,Lorem,โลเร็ม อิปซัม,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-34,Lorem,DSK,INTERNATIONAL,Lorem,لوريم إيبسوم,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-35,Lorem,EWF,INTERNATIONAL,Lorem,洛伦·伊普森,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-36,Lorem,WPE,INTERNATIONAL,Lorem,<marquee>Hacked</marquee>,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-37,Lorem,VNE,INTERNATIONAL,Lorem,<script>alert('Hacked!');</script>,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
+airport-38,Lorem,FKL,INTERNATIONAL,Lorem,' or 'A' = 'A,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+123456
 # country - no singular values
 # web-site - standard variations
-airport-39,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://example.org?a=1&b=2","acme@lorem-ipsum.org",+123456
-airport-40,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"ftp://a.b","acme@lorem-ipsum.org",+123456
-airport-41,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"https://www.lorem-ipsum.org","acme@lorem-ipsum.org",+123456
-airport-42,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://www.lorem-ipsum.org/dolor/sit.html","acme@lorem-ipsum.org",+123456
-airport-43,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://example.org/a/b?","acme@lorem-ipsum.org",+123456
+airport-39,Lorem,VME,INTERNATIONAL,Lorem,Lorem,"http://example.org?a=1&b=2","acme@lorem-ipsum.org",+123456
+airport-40,Lorem,WER,INTERNATIONAL,Lorem,Lorem,"ftp://a.b","acme@lorem-ipsum.org",+123456
+airport-41,Lorem,VSO,INTERNATIONAL,Lorem,Lorem,"https://www.lorem-ipsum.org","acme@lorem-ipsum.org",+123456
+airport-42,Lorem,EFR,INTERNATIONAL,Lorem,Lorem,"http://www.lorem-ipsum.org/dolor/sit.html","acme@lorem-ipsum.org",+123456
+airport-43,Lorem,QER,INTERNATIONAL,Lorem,Lorem,"http://example.org/a/b?","acme@lorem-ipsum.org",+123456
 # web-site - no singular values
 # email-address - standard variations
-airport-44,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","a@b.e",+123456
-airport-45,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","a@b.es",+123456
-airport-46,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","a@b.esx",+123456
-airport-47,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu",+123456
+airport-44,Lorem,CSA,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","a@b.e",+123456
+airport-45,Lorem,VRE,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","a@b.es",+123456
+airport-46,Lorem,ABY,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","a@b.esx",+123456
+airport-47,Lorem,RTU,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu",+123456
 # email-address - no singular values
 # contact-phone-number - standard variations
-airport-48,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",987654321
-airport-49,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+34911223344
-airport-50,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",123456789012345
-airport-51,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+199988877766655
-airport-52,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+447911123456
-airport-53,Lorem,ABC,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",5551234567
+airport-48,Lorem,UIR,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",987654321
+airport-49,Lorem,ERT,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+34911223344
+airport-50,Lorem,NHF,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",123456789012345
+airport-51,Lorem,JIY,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+199988877766655
+airport-52,Lorem,DFE,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",+447911123456
+airport-53,Lorem,NGT,INTERNATIONAL,Lorem,Lorem,"http://lorem.com/ipsum","acme@lorem-ipsum.org",5551234567
 # contact-phone-number - no singular values
