@@ -1,5 +1,5 @@
 
-package acme.entities.log;
+package acme.entities.activity_log;
 
 import java.util.Date;
 
@@ -45,7 +45,7 @@ public class ActivityLog extends AbstractEntity {
 	@Mandatory
 	@ValidNumber(min = 0, max = 10, fraction = 2)
 	@Automapped
-	private Float				severityLevel;
+	private Double				severityLevel;
 
 	@Mandatory
 	@ManyToOne(optional = false)
