@@ -39,7 +39,7 @@ public class Claim extends AbstractEntity {
 	private String				passengerEmail;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				description;
 
@@ -49,8 +49,9 @@ public class Claim extends AbstractEntity {
 	private ClaimType			type;
 
 	@Mandatory
+	@Valid
 	@Automapped
-	private boolean				indicator;
+	private Boolean				indicator;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -60,5 +61,10 @@ public class Claim extends AbstractEntity {
 	@Valid
 	@ManyToOne
 	private AssistanceAgent		assistanceAgent;
+
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Leg					leg;
 
 }
