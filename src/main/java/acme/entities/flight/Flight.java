@@ -42,8 +42,9 @@ public class Flight extends AbstractEntity {
 	@Automapped
 	private Boolean				selfTransfer;
 
+	// No es necesario ajustar los límites porque ya están en application.properties
 	@Mandatory
-	@ValidMoney(min = 0.01)
+	@ValidMoney
 	@Automapped
 	private Money				cost;
 

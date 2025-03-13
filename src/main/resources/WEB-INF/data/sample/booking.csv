@@ -1,0 +1,24 @@
+key,locatorCode,purchaseMoment,travelClass,price,lastNibble,draftMode,key:customer
+# base entity
+booking-00,ABC123,2024/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1
+# locatorCode - standard variations
+booking-01,A1B2C3,2024/12/30 12:00,ECONOMY,EUR 150.00,2345,TRUE,customer1
+booking-02,ABCD123,2024/12/29 11:30,ECONOMY,EUR 200.00,3456,TRUE,customer2
+booking-03,ABCDEFG8,2024/12/28 10:15,ECONOMY,EUR 250.00,4567,TRUE,customer2
+# purchaseMoment - standard variations (momentos pasados)
+booking-04,XYZ789,2020/05/20 15:30,ECONOMY,EUR 120.00,5678,TRUE,customer1
+booking-05,LMN456,2019/12/31 23:59,ECONOMY,EUR 80.00,6789,TRUE,customer1
+# travelClass - standard variations
+booking-06,OPQ123,2024/12/27 09:00,BUSINESS,EUR 300.00,7890,TRUE,customer1
+booking-07,OPR456,2024/12/26 08:45,BUSINESS,EUR 350.00,8901,TRUE,customer1
+# price - standard variations
+booking-08,STU789,2024/12/25 07:30,ECONOMY,EUR 0.01,9012,TRUE,customer1
+booking-09,STV012,2024/12/24 06:15,ECONOMY,EUR 9999.99,0123,TRUE,customer1
+# lastNibble - standard variations
+booking-10,UVW345,2024/12/23 05:00,ECONOMY,EUR 180.00,,TRUE,customer1
+booking-11,UVW678,2024/12/22 04:45,ECONOMY,EUR 190.00,5678,TRUE,customer1
+# lastNibble
+booking-12,XYZ901,2024/12/21 03:30,ECONOMY,EUR 210.00,0000,TRUE,customer1
+# draftMode - variaciones
+booking-13,ABCDEF,2024/12/20 02:15,BUSINESS,EUR 220.00,3456,FALSE,customer1
+booking-14,ABC1234,2024/12/19 01:00,BUSINESS,EUR 230.00,7890,TRUE,customer1

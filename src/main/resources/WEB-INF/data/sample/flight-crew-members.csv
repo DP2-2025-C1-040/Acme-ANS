@@ -1,0 +1,6 @@
+key,key:userAccount,employee-code,phone-number,language-skills,availability-status,salary,years-of-experience,key:airline
+member-01,user-account-member-01,JS123456,+34987654321,"English,Spanish",AVAILABLE,"USD 75,000",10,airline-01
+member-02,user-account-member-02,EJ654321,+12025551234,"English,French,German",ON_VACATION,"USD 82,500",12,airline-02
+member-03,user-account-member-03,CM987654,+525555678910,"Spanish,Portuguese,English",ON_LEAVE,"USD 70,000",8,airline-03
+member-04,user-account-member-04,SL345678,+442079876543,"English,Chinese,Korean",AVAILABLE,"USD 90,000",15,airline-04
+member,user-account-member,MB567890,+13105551234,"English,Italian",AVAILABLE,"USD 78,000",11,airline-05

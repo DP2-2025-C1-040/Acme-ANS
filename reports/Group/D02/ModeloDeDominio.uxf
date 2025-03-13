@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>231</y>
+      <w>275</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>Airport
+--
+-serialVersionUID = 1L: long
+-name: String
+-iataCode: String
+-operationalScope: OperationalScope
+-city: String
+-country: String
+-webSite: String
+-emailAddress: String
+-contactPhoneNumber: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>473</x>
+      <y>88</y>
+      <w>209</w>
+      <h>209</h>
+    </coordinates>
+    <panel_attributes>Airline
+--
+-serialVersionUID = 1L: long
+-name: String
+-iataCode: String
+-webSite: String
+-type: AirlineType
+-foundationMoment: Date
+-emailAddress: String
+-phoneNumber: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>462</y>
+      <w>220</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Aircraft
+--
+-serialVersionUID = 1L: long
+-model: String
+-regNumber: String
+-capacity: Integer
+-cargoWeight: Integer
+-aircraftStatus: AircraftStatus
+-details: String
+-airline: Airline
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>748</x>
+      <y>319</y>
+      <w>231</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>Service
+--
+-serialVersionUID = 1L: long
+-name: String
+-picture: String
+-avgDwellTime: Double
+-promoCode: String
+-promoDiscount: Double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>748</x>
+      <y>88</y>
+      <w>220</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>Review
+--
+-serialVersionUID = 1L: long
+-name: String
+-moment: Date
+-subject: String
+-text: String
+-score: Double
+-recommended: Boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>572</x>
+      <y>286</y>
+      <w>55</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+</diagram>
