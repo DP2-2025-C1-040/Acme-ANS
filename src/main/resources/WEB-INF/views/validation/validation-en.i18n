@@ -12,3 +12,5 @@
 acme.validation.leg.flight-number.message = The flight number doesn't match the expected format.
 acme.validation.leg.airline-manager-format.message = The airline manager identifier doesn't match the expected format.
 acme.validation.leg.airline-manager-initials.message = The first two letters of the airline manager identifier don't match the airline manager's initials.
+acme.validation.assistance-agent.employee-code.message = The employeeCode is incorrect.
+acme.validation.service.promo-code.year.message = This promo code is not valid for this year.

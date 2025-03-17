@@ -59,14 +59,6 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 
 			super.state(context, validFormat, "airlineManager", "acme.validation.leg.airline-manager-format.message");
 
-			// Depuración
-			//			System.out.println("Manager FullName: " + fullName);
-			//			System.out.println("Manager ID: " + managerId);
-			//			System.out.println("Expected Initials: " + expectedInitials);
-			//			System.out.println("Extracted Manager Initials: " + managerInitials);
-			//			System.out.println("Valid Initials: " + validInitials);
-			//			System.out.println("Valid Format: " + validFormat);
-
 		}
 
 		result = !super.hasErrors(context);

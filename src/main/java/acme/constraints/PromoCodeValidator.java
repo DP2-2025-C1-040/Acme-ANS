@@ -32,7 +32,7 @@ public class PromoCodeValidator extends AbstractValidator<ValidPromoCode, Servic
 			String currentYear = MomentHelper.format(currentDate, "yy");
 
 			boolean isValidYear = promoCode.endsWith(currentYear);
-			super.state(context, isValidYear, "promoCode", null);
+			super.state(context, isValidYear, "promoCode", "acme.validation.service.promo-code.year.message");
 
 			result = !super.hasErrors(context);
 		}
