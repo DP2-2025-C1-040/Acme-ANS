@@ -44,7 +44,7 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 			char surnameFirstChar = Character.toUpperCase(surname.charAt(0));
 
 			if (!(employeeCodeFirstChar == nameFirstChar && employeeCodeSecondChar == surnameFirstChar))
-				super.state(context, false, "EmployeeCode", "The employeeCode is incorrectly");
+				super.state(context, false, "EmployeeCode", "acme.validation.assistance-agent.employee-code.message");
 			result = !super.hasErrors(context);
 		}
 		return result;

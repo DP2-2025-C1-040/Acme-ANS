@@ -3,7 +3,7 @@ key,managerId,yearsOfExperience,dateOfBirth,imageLink,key:airline,key:userAccoun
 manager-01,AM123456,0,2000/01/01 00:00,http://lorem.com/ipsum,airline-01,user-account-manager-01
 # managerId - standard variations
 manager-02,LF123456,0,2000/01/01 00:00,http://lorem.com/ipsum,airline-01,user-account-manager-02
-manager-03,COX123456,0,2000/01/01 00:00,http://lorem.com/ipsum,airline-01,user-account-manager-02
+manager-03,COX123456,0,2000/01/01 00:00,http://lorem.com/ipsum,airline-01,user-account-manager-03
 # managerId - no singular values
 # yearsOfExperience - standard variations
 manager-04,AM123456,1,2000/01/01 00:00,http://lorem.com/ipsum,airline-01,user-account-manager-01
@@ -21,8 +21,8 @@ manager-11,AM777777,0,2000/01/01 00:00,"ftp://a",airline-01,user-account-manager
 manager-12,AM888888,0,2000/01/01 00:00,"ftp://a.b",airline-01,user-account-manager-01
 manager-13,AM999999,0,2000/01/01 00:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",airline-01,user-account-manager-01
 manager-14,AM000000,0,2000/01/01 00:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",airline-01,user-account-manager-01
-manager-15,AA123456,0,2000/01/01 00:00,"http://example.org?",airline-01,user-account-manager-01
-manager-16,AB123456,0,2000/01/01 00:00,"http://example.org?a&b",airline-01,user-account-manager-01
-manager-17,AC123456,0,2000/01/01 00:00,"http://example.org/a",airline-01,user-account-manager-01
-manager-18,AD123456,0,2000/01/01 00:00,"http://example.org/a/b?",airline-01,user-account-manager-01
+manager-15,AM123456,0,2000/01/01 00:00,"http://example.org?",airline-01,user-account-manager-01
+manager-16,AM123456,0,2000/01/01 00:00,"http://example.org?a&b",airline-01,user-account-manager-01
+manager-17,AM123456,0,2000/01/01 00:00,"http://example.org/a",airline-01,user-account-manager-01
+manager-18,AM123456,0,2000/01/01 00:00,"http://example.org/a/b?",airline-01,user-account-manager-01
 # imageLink - no singular values

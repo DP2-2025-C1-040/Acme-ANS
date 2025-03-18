@@ -28,8 +28,8 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 			TrackingLogStatus trackingLogStatus = trackingLog.getIndicator();
 			{
 				double percentage = trackingLog.getResolutionPercentage();
-				boolean correctStatusCompleted = percentage < 100.00 && trackingLogStatus.equals(TrackingLogStatus.PENDING);
-				boolean correctStatusUncompleted = percentage >= 100.00 && !trackingLogStatus.equals(TrackingLogStatus.PENDING);
+				boolean correctStatusUncompleted = percentage < 100.00 && trackingLogStatus.equals(TrackingLogStatus.PENDING);
+				boolean correctStatusCompleted = percentage >= 100.00 && !trackingLogStatus.equals(TrackingLogStatus.PENDING);
 
 				boolean correctStatus = correctStatusCompleted || correctStatusUncompleted;
 
