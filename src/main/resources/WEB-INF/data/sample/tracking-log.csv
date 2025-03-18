@@ -1,38 +1,31 @@
 key,last_update_moment,step,resolution_percentage,indicator,resolution,key:claim
-
 # base entity
-trackingLog-01,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Por decidir",claim-01
-
+trackingLog-01,2022/03/10 00:00,Reclamación aceptada,100.00,ACCEPTED,Por decidir,claim-01
 # last_update_moment
-trackingLog-02,2015/12/09 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Por decidir",claim-01
-trackingLog-03,2020/09/12 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Por decidir",claim-01
-trackingLog-04,2005/12/15 00:01,"Reclamación aceptada",100.00,ACCEPTED,"Por decidir",claim-01
-trackingLog-05,2022/11/03 23:59,"Reclamación aceptada",100.00,ACCEPTED,"Por decidir",claim-01
-trackingLog-06,2003/04/17 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Por decidir",claim-01
-
+trackingLog-02,2015/12/09 00:00,Reclamación aceptada,100.00,ACCEPTED,Por decidir,claim-01
+trackingLog-03,2020/09/12 00:00,Reclamación aceptada,100.00,ACCEPTED,Por decidir,claim-01
+trackingLog-04,2005/12/15 00:01,Reclamación aceptada,100.00,ACCEPTED,Por decidir,claim-01
+trackingLog-05,2022/11/03 23:59,Reclamación aceptada,100.00,ACCEPTED,Por decidir,claim-01
+trackingLog-06,2003/04/17 00:00,Reclamación aceptada,100.00,ACCEPTED,Por decidir,claim-01
 # step
-trackingLog-07,2025/03/10 00:00,"Claim accepted",100.00,ACCEPTED,"Por decidir",claim-01
-trackingLog-08,2025/03/10 00:00,"Réclamation acceptée",100.00,ACCEPTED,"Por decidir",claim-01
-trackingLog-09,2025/03/10 00:00,"Dictum accepit",100.00,ACCEPTED,"Por decidir",claim-01
-trackingLog-10,2025/03/10 00:00,"Glacadh leis an éileamh",100.00,ACCEPTED,"Por decidir",claim-01
-trackingLog-11,2025/03/10 00:00,"Reivindicação aceite",100.00,ACCEPTED,"Por decidir",claim-01
-
+trackingLog-07,2022/03/10 00:00,Claim accepted,100.00,ACCEPTED,Por decidir,claim-01
+trackingLog-08,2022/03/10 00:00,Réclamation acceptée,100.00,ACCEPTED,Por decidir,claim-01
+trackingLog-09,2022/03/10 00:00,Dictum accepit,100.00,ACCEPTED,Por decidir,claim-01
+trackingLog-10,2022/03/10 00:00,Glacadh leis an éileamh,100.00,ACCEPTED,Por decidir,claim-01
+trackingLog-11,2022/03/10 00:00,Reivindicação aceite,100.00,ACCEPTED,Por decidir,claim-01
 # resolution_percentage
-trackingLog-12,2025/03/10 00:00,"Reclamación aceptada",30.00,PENDING,"Por decidir",claim-01
-trackingLog-13,2025/03/10 00:00,"Reclamación aceptada",21.00,PENDING,"Por decidir",claim-01
-trackingLog-14,2025/03/10 00:00,"Reclamación aceptada",10.01,PENDING,"Por decidir",claim-01
-trackingLog-15,2025/03/10 00:00,"Reclamación aceptada",32.99,PENDING,"Por decidir",claim-01
-trackingLog-16,2025/03/10 00:00,"Reclamación aceptada",21.85,PENDING,"Por decidir",claim-01
-
+trackingLog-12,2022/03/10 00:00,Reclamación aceptada,30.00,PENDING,,claim-01
+trackingLog-13,2022/03/10 00:00,Reclamación aceptada,21.00,PENDING,,claim-01
+trackingLog-14,2022/03/10 00:00,Reclamación aceptada,10.01,PENDING,,claim-01
+trackingLog-15,2022/03/10 00:00,Reclamación aceptada,32.99,PENDING,,claim-01
+trackingLog-16,2022/03/10 00:00,Reclamación aceptada,21.85,PENDING,,claim-01
 # status
-trackingLog-17,2025/03/10 00:00,"Reclamación aceptada",100.00,REJECTED,"Por decidir",claim-01
-
+trackingLog-17,2022/03/10 00:00,Reclamación aceptada,100.00,REJECTED,Por decidir,claim-01
 # resolution
-trackingLog-18,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"A ser decidido",claim-01
-trackingLog-19,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Le cinneadh",claim-01
-trackingLog-20,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"De decis",claim-01
-trackingLog-21,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"To be decided",claim-01
-trackingLog-22,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Erabakitzeko",claim-01
-
+trackingLog-18,2022/03/10 00:00,Reclamación aceptada,100.00,ACCEPTED,A ser decidido,claim-01
+trackingLog-19,2022/03/10 00:00,Reclamación aceptada,100.00,ACCEPTED,Le cinneadh,claim-01
+trackingLog-20,2022/03/10 00:00,Reclamación aceptada,100.00,ACCEPTED,De decis,claim-01
+trackingLog-21,2022/03/10 00:00,Reclamación aceptada,100.00,ACCEPTED,To be decided,claim-01
+trackingLog-22,2022/03/10 00:00,Reclamación aceptada,100.00,ACCEPTED,Erabakitzeko,claim-01
 # claim
-trackingLog-23,2025/03/10 00:00,"Reclamación aceptada",100.00,ACCEPTED,"Por decidir",claim-02
+trackingLog-23,2022/03/10 00:00,Reclamación aceptada,100.00,ACCEPTED,Por decidir,claim-02
