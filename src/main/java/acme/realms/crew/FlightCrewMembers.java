@@ -21,6 +21,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+//@ValidEmployeeCode
 public class FlightCrewMembers extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------

@@ -18,6 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+//@ValidIataCode
 public class Airport extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -30,7 +31,7 @@ public class Airport extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidString(pattern = "[A-Z]{3}")
+	@ValidString(pattern = "^[A-Z]{3}$")
 	@Column(unique = true)
 	private String				iataCode;
 

@@ -14,3 +14,5 @@ acme.validation.leg.airline-manager-format.message = The airline manager identif
 acme.validation.leg.airline-manager-initials.message = The first two letters of the airline manager identifier don't match the airline manager's initials.
 acme.validation.assistance-agent.employee-code.message = The employeeCode is incorrect.
 acme.validation.service.promo-code.year.message = This promo code is not valid for this year.
+acme.validation.flight-crew-member.duplicated-employee-code.message = The employee code must be unique.
+acme.validation.airline.duplicated-iata-code.message = The IATA code must be unique.
