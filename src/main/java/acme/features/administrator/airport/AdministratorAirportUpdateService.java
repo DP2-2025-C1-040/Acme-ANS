@@ -12,7 +12,7 @@ import acme.entities.airport.Airport;
 import acme.entities.airport.OperationalScope;
 
 @GuiService
-public class AdministratorAirportShowService extends AbstractGuiService<Administrator, Airport> {
+public class AdministratorAirportUpdateService extends AbstractGuiService<Administrator, Airport> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -39,6 +39,21 @@ public class AdministratorAirportShowService extends AbstractGuiService<Administ
 	}
 
 	@Override
+	public void bind(final Airport airport) {
+		super.bindObject(airport, "name", "iataCode", "operationalScope", "city", "country", "webSite", "emailAddress", "contactPhoneNumber");
+	}
+
+	@Override
+	public void validate(final Airport airport) {
+		;
+	}
+
+	@Override
+	public void perform(final Airport airport) {
+		this.repository.save(airport);
+	}
+
+	@Override
 	public void unbind(final Airport airport) {
 		SelectChoices choices;
 		Dataset dataset;
@@ -51,5 +66,4 @@ public class AdministratorAirportShowService extends AbstractGuiService<Administ
 
 		super.getResponse().addData(dataset);
 	}
-
 }

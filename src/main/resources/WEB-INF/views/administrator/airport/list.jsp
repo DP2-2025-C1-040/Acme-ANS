@@ -20,3 +20,5 @@
 	<acme:list-column code="administrator.airport.list.label.iataCode" path="iataCode" width="33%"/>
 	<acme:list-column code="administrator.airport.list.label.city" path="city" width="33%"/>
 </acme:list>
+
+<acme:button code="administrator.airport.list.button.create" action="/administrator/airport/create"/>

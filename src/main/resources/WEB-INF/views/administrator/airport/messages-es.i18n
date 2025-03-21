@@ -23,3 +23,9 @@ administrator.airport.form.label.country = País:
 administrator.airport.form.label.webSite = Sitio web:
 administrator.airport.form.label.emailAddress = Correo electrónico:
 administrator.airport.form.label.contactPhoneNumber = Teléfono de contacto:
+
+administrator.airport.form.button.create = Crear
+administrator.airport.form.button.update = Actualizar
+administrator.airport.form.label.confirmation = Confirma que el aeropuerto es correcto.
+
+administrator.airport.list.button.create = Crear

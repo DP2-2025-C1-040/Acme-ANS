@@ -12,7 +12,7 @@ import acme.entities.airport.Airport;
 import acme.entities.airport.OperationalScope;
 
 @GuiService
-public class AdministratorAirportShowService extends AbstractGuiService<Administrator, Airport> {
+public class AdministratorAirportCreateService extends AbstractGuiService<Administrator, Airport> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -29,27 +29,35 @@ public class AdministratorAirportShowService extends AbstractGuiService<Administ
 
 	@Override
 	public void load() {
-		Airport airport;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		airport = this.repository.findAirportById(id);
-
+		Airport airport = new Airport();
 		super.getBuffer().addData(airport);
+	}
+
+	@Override
+	public void bind(final Airport airport) {
+		super.bindObject(airport, "name", "iataCode", "operationalScope", "city", "country", "webSite", "emailAddress", "contactPhoneNumber");
+	}
+
+	@Override
+	public void validate(final Airport airport) {
+		;
+	}
+
+	@Override
+	public void perform(final Airport airport) {
+		this.repository.save(airport);
 	}
 
 	@Override
 	public void unbind(final Airport airport) {
 		SelectChoices choices;
-		Dataset dataset;
 
 		choices = SelectChoices.from(OperationalScope.class, airport.getOperationalScope());
 
-		dataset = super.unbindObject(airport, "name", "iataCode", "operationalScope", "city", "country", "webSite", "emailAddress", "contactPhoneNumber");
+		Dataset dataset = super.unbindObject(airport, "name", "iataCode", "operationalScope", "city", "country", "webSite", "emailAddress", "contactPhoneNumber");
 		dataset.put("confirmation", false);
 		dataset.put("scopes", choices);
 
 		super.getResponse().addData(dataset);
 	}
-
 }
