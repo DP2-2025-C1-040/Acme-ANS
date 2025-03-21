@@ -11,10 +11,11 @@ import javax.validation.Payload;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = IataCodeValidator.class)
-public @interface ValidIataCode {
+@Constraint(validatedBy = IataCodeValidatorAirline.class)
+public @interface ValidIataCodeAirline {
 
 	String message() default "";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
+
 }

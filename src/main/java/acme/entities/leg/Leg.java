@@ -16,6 +16,7 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidFlightNumber;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airline.Airline;
 import acme.entities.airport.Airport;
@@ -26,8 +27,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
-//@ValidFlightNumber
+@ValidFlightNumber
 public class Leg extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------

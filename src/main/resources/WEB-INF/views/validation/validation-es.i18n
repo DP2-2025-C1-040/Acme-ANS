@@ -13,4 +13,5 @@ acme.validation.leg.flight-number.message = El número de vuelo no coincide con 
 acme.validation.leg.airline-manager-format.message = El identificador del gestor de aerolínea no coincide con el formato esperado.
 acme.validation.leg.airline-manager-initials.message = Las primeras dos letras del identificador del gestor de aerolínea no coinciden con las iniciales del gestor de aerolínea.
 acme.validation.flight-crew-member.duplicated-employee-code.message = El código del empleado debe ser único.
+acme.validation.airport.duplicated-iata-code.message = El código IATA debe ser único.
 acme.validation.airline.duplicated-iata-code.message = El código IATA debe ser único.

@@ -9,7 +9,7 @@ import acme.client.repositories.AbstractRepository;
 @Repository
 public interface FlightCrewMemberRepository extends AbstractRepository {
 
-	@Query("SELECT COUNT(fcm) > 0 FROM FlightCrewMembers fcm WHERE fcm.employeeCode = :employeeCode")
-	boolean existsByEmployeeCode(String employeeCode);
+	@Query("SELECT COUNT(f) > 0 FROM FlightCrewMembers f WHERE f.employeeCode = :employeeCode AND f.id <> :id")
+	boolean existsByEmployeeCodeAndIdNot(String employeeCode, int id);
 
 }
