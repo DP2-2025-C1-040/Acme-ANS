@@ -31,6 +31,7 @@
 			<acme:submit code="administrator.airport.form.button.update" action="/administrator/airport/update"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
+			<acme:input-checkbox code="administrator.airport.form.label.confirmation" path="confirmation"/>
 			<acme:submit code="administrator.airport.form.button.create" action="/administrator/airport/create"/>
 		</jstl:when>		
 	</jstl:choose>
