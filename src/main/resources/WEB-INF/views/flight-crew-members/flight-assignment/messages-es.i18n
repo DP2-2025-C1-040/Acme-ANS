@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-flight-crew-members.flight-assignment.list.title = Lista de asignaciones de vuelos aterrizados
+flight-crew-members.flight-assignment.list.title = Lista de asignaciones de vuelos a tiempo
 
 flight-crew-members.flight-assignment.list.label.duty = Función
 flight-crew-members.flight-assignment.list.label.moment = Fecha
