@@ -21,17 +21,15 @@ public class CrewAssignmentController extends AbstractGuiController<FlightCrewMe
 	@Autowired
 	private CrewAssignmentListServiceOnTime	onTimeListService;
 
-	//	@Autowired
-	//	private CrewAssignmentShowService		showService;
+	@Autowired
+	private CrewAssignmentShowService		showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("list", this.landedListService);
-		//		super.addBasicCommand("list", this.onTimeListService);
-		//super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("show", this.showService);
 		super.addCustomCommand("list-landed", "list", this.landedListService);
 		super.addCustomCommand("list-on-time", "list", this.onTimeListService);
 	}

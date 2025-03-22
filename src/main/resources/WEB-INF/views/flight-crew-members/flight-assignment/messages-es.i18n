@@ -12,3 +12,31 @@ flight-crew-members.flight-assignment.list.title = Lista de asignaciones de vuel
 
 flight-crew-members.flight-assignment.list.label.duty = Función
 flight-crew-members.flight-assignment.list.label.moment = Fecha
+
+flight-crew-members.flight-assignment.form.title = Asignación de vuelo
+flight-crew-members.flight-assignment.form.label.duty = Función:
+flight-crew-members.flight-assignment.form.label.moment = Fecha:
+flight-crew-members.flight-assignment.form.label.currentStatus = Estado:
+flight-crew-members.flight-assignment.form.label.remarks = Comentarios:
+
+flight-crew-members.flight-assignment.form.label.flightCrewMember.id = Tripulante de vuelo:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.employeeCode = Código de empleado:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber = Número de teléfono:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills = Conocimientos lingüísticos:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus = Estado de disponibilidad:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.salary = Salario:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience = Años de experiencia:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.airline = Aerolínea:
+
+flight-crew-members.flight-assignment.form.label.leg.id = Ala:
+flight-crew-members.flight-assignment.form.label.leg.flightNumber = Número de vuelo:
+flight-crew-members.flight-assignment.form.label.leg.status = Estado:
+flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture = Salida programada:
+flight-crew-members.flight-assignment.form.label.leg.scheduledArrival = Llegada programada:
+flight-crew-members.flight-assignment.form.label.leg.originCity = Ciudad de origen:
+flight-crew-members.flight-assignment.form.label.leg.destinationCity = Ciudad de destino:
+flight-crew-members.flight-assignment.form.label.leg.departureAirport = Aeropuerto de salida:
+flight-crew-members.flight-assignment.form.label.leg.arrivalAirport = Aeropuerto de llegada:
+flight-crew-members.flight-assignment.form.label.leg.aircraft = Avión:
+flight-crew-members.flight-assignment.form.label.leg.flight = Vuelo:
+flight-crew-members.flight-assignment.form.label.leg.airline = Aerolínea:

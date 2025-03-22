@@ -57,12 +57,12 @@ public class Leg extends AbstractEntity {
 
 	@Mandatory
 	@ValidString(max = 50)
-	@Transient
+	@Automapped
 	private String				originCity;
 
 	@Mandatory
 	@ValidString(max = 50)
-	@Transient
+	@Automapped
 	private String				destinationCity;
 
 	// Derived attributes -----------------------------------------------------

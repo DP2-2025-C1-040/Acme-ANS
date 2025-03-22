@@ -16,4 +16,7 @@ public interface CrewAssignmentRepository extends AbstractRepository {
 	@Query("SELECT f FROM FlightAssignment f WHERE f.flightCrewMember.id = :id AND f.leg.status = :status")
 	Collection<FlightAssignment> findAllAssignmentsByMemberIdAndStatus(int id, LegStatus status);
 
+	@Query("SELECT f FROM FlightAssignment f WHERE f.id = :id")
+	FlightAssignment findFlightAssignmentById(int id);
+
 }

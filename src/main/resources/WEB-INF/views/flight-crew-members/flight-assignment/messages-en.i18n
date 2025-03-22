@@ -12,3 +12,30 @@ flight-crew-members.flight-assignment.list.title = List of landed flight assignm
 
 flight-crew-members.flight-assignment.list.label.duty = Duty
 flight-crew-members.flight-assignment.list.label.moment = Moment
+
+flight-crew-members.flight-assignment.form.title = Flight assignment
+flight-crew-members.flight-assignment.form.label.duty = Duty:
+flight-crew-members.flight-assignment.form.label.moment = Moment:
+flight-crew-members.flight-assignment.form.label.currentStatus = Status:
+flight-crew-members.flight-assignment.form.label.remarks = Remarks:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.id = Flight crew member:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.employeeCode = Employee code:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber = Phone number:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills = Language skills:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus = Availability status:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.salary = Salary:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience = Years of experience:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.airline = Airline:
+
+flight-crew-members.flight-assignment.form.label.leg.id = Leg:
+flight-crew-members.flight-assignment.form.label.leg.flightNumber = Flight number:
+flight-crew-members.flight-assignment.form.label.leg.status = Status:
+flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture = Scheduled departure:
+flight-crew-members.flight-assignment.form.label.leg.scheduledArrival = Scheduled arrival:
+flight-crew-members.flight-assignment.form.label.leg.originCity = Origin city:
+flight-crew-members.flight-assignment.form.label.leg.destinationCity = Destination city:
+flight-crew-members.flight-assignment.form.label.leg.departureAirport = Departure airport:
+flight-crew-members.flight-assignment.form.label.leg.arrivalAirport = Arrival airport:
+flight-crew-members.flight-assignment.form.label.leg.aircraft = Aircraft:
+flight-crew-members.flight-assignment.form.label.leg.flight = Flight:
+flight-crew-members.flight-assignment.form.label.leg.airline = Airline:
