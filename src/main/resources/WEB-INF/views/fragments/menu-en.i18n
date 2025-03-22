@@ -27,6 +27,12 @@ master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
 
+# master.menu.flightCrewMember ########################################################
+
+master.menu.flightCrewMember = Flight Crew Member
+master.menu.flightCrewMember.assignments.list-landed = Flight Assignments Landed
+master.menu.flightCrewMember.assignments.list-on-time = Flight Assignments On Time
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
