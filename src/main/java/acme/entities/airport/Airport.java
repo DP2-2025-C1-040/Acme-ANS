@@ -12,12 +12,14 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidIataCodeAirport;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidIataCodeAirport
 public class Airport extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -30,7 +32,7 @@ public class Airport extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidString(pattern = "[A-Z]{3}")
+	@ValidString(pattern = "^[A-Z]{3}$")
 	@Column(unique = true)
 	private String				iataCode;
 
