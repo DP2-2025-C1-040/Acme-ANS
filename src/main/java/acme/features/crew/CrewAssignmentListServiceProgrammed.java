@@ -13,7 +13,7 @@ import acme.entities.leg.LegStatus;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
-public class CrewAssignmentListServiceOnTime extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
+public class CrewAssignmentListServiceProgrammed extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -35,6 +35,7 @@ public class CrewAssignmentListServiceOnTime extends AbstractGuiService<FlightCr
 
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		assignments = this.repository.findAllAssignmentsByMemberIdAndStatus(memberId, LegStatus.ON_TIME);
+		assignments.addAll(this.repository.findAllAssignmentsByMemberIdAndStatus(memberId, LegStatus.DELAYED));
 
 		super.getBuffer().addData(assignments);
 	}

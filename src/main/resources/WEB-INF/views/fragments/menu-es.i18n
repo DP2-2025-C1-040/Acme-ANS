@@ -31,7 +31,7 @@ master.menu.administrator.shut-system-down = Parar el sistema
 
 master.menu.flightCrewMember = Tripulante de vuelo
 master.menu.flightCrewMember.assignments.list-landed = Asignaciones de vuelos aterrizados
-master.menu.flightCrewMember.assignments.list-on-time = Asignaciones de vuelos a tiempo
+master.menu.flightCrewMember.assignments.list-programmed = Asignaciones de vuelos programados
 
 # master.menu.provider ########################################################
 

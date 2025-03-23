@@ -40,7 +40,7 @@
 		
 		<acme:menu-option code="master.menu.flightCrewMember" access="hasRealm('FlightCrewMembers')">
 			<acme:menu-suboption code="master.menu.flightCrewMember.assignments.list-landed" action="/flight-crew-members/flight-assignment/list-landed"/>
-			<acme:menu-suboption code="master.menu.flightCrewMember.assignments.list-on-time" action="/flight-crew-members/flight-assignment/list-on-time"/>
+			<acme:menu-suboption code="master.menu.flightCrewMember.assignments.list-programmed" action="/flight-crew-members/flight-assignment/list-programmed"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRealm('Provider')">

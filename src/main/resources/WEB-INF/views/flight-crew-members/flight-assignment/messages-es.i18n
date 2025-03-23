@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-flight-crew-members.flight-assignment.list.title = Lista de asignaciones de vuelos a tiempo
+flight-crew-members.flight-assignment.list.title = Lista de asignaciones de vuelos programados
 
 flight-crew-members.flight-assignment.list.label.duty = Función
 flight-crew-members.flight-assignment.list.label.moment = Fecha
@@ -28,7 +28,7 @@ flight-crew-members.flight-assignment.form.label.flightCrewMember.salary = Salar
 flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience = Años de experiencia:
 flight-crew-members.flight-assignment.form.label.flightCrewMember.airline = Aerolínea:
 
-flight-crew-members.flight-assignment.form.label.leg.id = Ala:
+flight-crew-members.flight-assignment.form.label.leg.id = Escala:
 flight-crew-members.flight-assignment.form.label.leg.flightNumber = Número de vuelo:
 flight-crew-members.flight-assignment.form.label.leg.status = Estado:
 flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture = Salida programada:
