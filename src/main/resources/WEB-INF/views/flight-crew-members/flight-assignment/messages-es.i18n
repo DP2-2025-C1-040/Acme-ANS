@@ -40,3 +40,10 @@ flight-crew-members.flight-assignment.form.label.leg.arrivalAirport = Aeropuerto
 flight-crew-members.flight-assignment.form.label.leg.aircraft = Avión:
 flight-crew-members.flight-assignment.form.label.leg.flight = Vuelo:
 flight-crew-members.flight-assignment.form.label.leg.airline = Aerolínea:
+
+flight-crew-members.flight-assignment.form.button.create = Crear
+
+flight-crew-members.flight-assignment.form.error.not-available = El tripulante de vuelo no está disponible
+flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = El tripulante de vuelo está asignado a varias escalas
+flight-assignment.form.error.invalid-duty = El tripulante de vuelo no tiene función LEAD_ATTENDANT
+flight-crew-members.flight-assignment.form.error.leg-already-occurred = La escala ya ha ocurrido
