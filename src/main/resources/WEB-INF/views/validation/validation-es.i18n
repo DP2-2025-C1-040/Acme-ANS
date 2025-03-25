@@ -15,3 +15,5 @@ acme.validation.leg.airline-manager-initials.message = Las primeras dos letras d
 acme.validation.flight-crew-member.duplicated-employee-code.message = El código del empleado debe ser único.
 acme.validation.airport.duplicated-iata-code.message = El código IATA debe ser único
 acme.validation.airline.duplicated-iata-code.message = El código IATA debe ser único
+acme.validation.airport.pattern-iata-code.message = El código IATA debe tener 3 letras mayúsculas
+acme.validation.flight-crew-member.pattern-employee-code.message = El código de empleado debe ser 2 o 3 letras mayúsculas + 6 números
