@@ -9,6 +9,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
+import org.springframework.data.annotation.Transient;
+
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
@@ -52,9 +54,9 @@ public class Claim extends AbstractEntity {
 	private ClaimType			type;
 
 	@Mandatory
-	@Valid
+	@Transient
 	@Automapped
-	private Boolean				indicator;
+	private Boolean				acceped;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -62,12 +64,12 @@ public class Claim extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private AssistanceAgent		assistanceAgent;
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = true)
 	private Leg					leg;
 
 }
