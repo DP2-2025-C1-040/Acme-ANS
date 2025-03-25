@@ -1,5 +1,5 @@
 
-package acme.features.crew;
+package acme.features.crew.assignment;
 
 import java.util.Collection;
 

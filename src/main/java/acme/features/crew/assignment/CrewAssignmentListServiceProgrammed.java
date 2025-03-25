@@ -1,5 +1,5 @@
 
-package acme.features.crew;
+package acme.features.crew.assignment;
 
 import java.util.Collection;
 
@@ -13,7 +13,7 @@ import acme.entities.leg.LegStatus;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
-public class CrewAssignmentListServiceLanded extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
+public class CrewAssignmentListServiceProgrammed extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -34,7 +34,8 @@ public class CrewAssignmentListServiceLanded extends AbstractGuiService<FlightCr
 		int memberId;
 
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		assignments = this.repository.findAllAssignmentsByMemberIdAndStatus(memberId, LegStatus.LANDED);
+		assignments = this.repository.findAllAssignmentsByMemberIdAndStatus(memberId, LegStatus.ON_TIME);
+		assignments.addAll(this.repository.findAllAssignmentsByMemberIdAndStatus(memberId, LegStatus.DELAYED));
 
 		super.getBuffer().addData(assignments);
 	}

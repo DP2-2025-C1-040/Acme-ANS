@@ -32,6 +32,7 @@ master.menu.administrator.shut-system-down = Shut system down
 master.menu.flightCrewMember = Flight Crew Member
 master.menu.flightCrewMember.assignments.list-landed = Flight Assignments Landed
 master.menu.flightCrewMember.assignments.list-programmed = Flight Assignments Programmed
+master.menu.flightCrewMember.activityLogs.list = Activity logs
 
 # master.menu.provider ########################################################
 

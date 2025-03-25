@@ -1,5 +1,5 @@
 
-package acme.features.crew;
+package acme.features.crew.activityLog;
 
 import java.util.Collection;
 
@@ -8,17 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.assignment.FlightAssignment;
-import acme.entities.leg.LegStatus;
+import acme.entities.activity_log.ActivityLog;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
-public class CrewAssignmentListServiceProgrammed extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
+public class CrewActivityLogListService extends AbstractGuiService<FlightCrewMembers, ActivityLog> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CrewAssignmentRepository repository;
+	private CrewActivityLogRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -30,21 +29,20 @@ public class CrewAssignmentListServiceProgrammed extends AbstractGuiService<Flig
 
 	@Override
 	public void load() {
-		Collection<FlightAssignment> assignments;
+		Collection<ActivityLog> activityLogs;
 		int memberId;
 
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		assignments = this.repository.findAllAssignmentsByMemberIdAndStatus(memberId, LegStatus.ON_TIME);
-		assignments.addAll(this.repository.findAllAssignmentsByMemberIdAndStatus(memberId, LegStatus.DELAYED));
+		activityLogs = this.repository.findAllActivityLogsByMemberId(memberId);
 
-		super.getBuffer().addData(assignments);
+		super.getBuffer().addData(activityLogs);
 	}
 
 	@Override
-	public void unbind(final FlightAssignment assignment) {
+	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(assignment, "duty", "moment");
+		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident");
 
 		super.getResponse().addData(dataset);
 	}
