@@ -48,10 +48,14 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 
 		if (flightAssignmentId != null && !flightAssignmentId.isEmpty()) {
 			int id = Integer.parseInt(flightAssignmentId);
-			FlightAssignment flightAssignment = this.assignmentRepository.findFlightAssignmentById(id);  // Asegúrate de que encuentras el flightAssignment en el repositorio
+			FlightAssignment flightAssignment = this.assignmentRepository.findFlightAssignmentById(id);
 
-			if (flightAssignment != null)
+			// Verifica si FlightAssignment se asigna correctamente
+			if (flightAssignment != null) {
 				activityLog.setFlightAssignment(flightAssignment);
+				System.out.println("FlightAssignment asignado: " + flightAssignment);
+			} else
+				System.out.println("No se encontró el FlightAssignment con ID: " + flightAssignmentId);
 		}
 	}
 
@@ -62,7 +66,11 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void perform(final ActivityLog activityLog) {
-		this.repository.save(activityLog);
+		if (activityLog != null) {
+			System.out.println("ActivityLog antes de guardar: " + activityLog);
+			this.repository.save(activityLog);
+		} else
+			System.out.println("ActivityLog es nulo. No se puede guardar.");
 	}
 
 	@Override
@@ -71,7 +79,7 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
 
 		// Obtener todas las asignaciones de vuelo disponibles
-		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentByCrewMember(memberId);
+		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
 
 		// Convertir la colección de FlightAssignments en SelectChoices
 		SelectChoices flightAssignmentChoices = new SelectChoices();

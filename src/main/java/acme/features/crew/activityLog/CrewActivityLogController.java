@@ -24,6 +24,9 @@ public class CrewActivityLogController extends AbstractGuiController<FlightCrewM
 	@Autowired
 	private CrewActivityLogCreateService	createService;
 
+	@Autowired
+	private CrewActivityLogUpdateService	updateService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -32,6 +35,7 @@ public class CrewActivityLogController extends AbstractGuiController<FlightCrewM
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 	}
 
 }
