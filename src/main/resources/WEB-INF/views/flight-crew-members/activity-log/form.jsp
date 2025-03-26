@@ -22,13 +22,19 @@
     <acme:input-textbox code="flight-crew-members.activity-log.form.label.severityLevel" path="severityLevel"/>
     
     <jstl:choose>
-    	<jstl:when test="${_command == 'show'}">
-			<!-- Datos de FlightAssignment -->
-    		<acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.id" path="flightAssignment.id"/>
-    		<acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.duty" path="flightAssignment.duty"/>
-    		<acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.moment" path="flightAssignment.moment"/>
-    		<acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.currentStatus" path="flightAssignment.currentStatus"/>
-	    	<acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.remarks" path="flightAssignment.remarks"/>
-		</jstl:when>
-	</jstl:choose>
+        <jstl:when test="${_command == 'show'}">
+            <!-- Datos del FlightAssignment en solo lectura -->
+            <acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.duty" path="flightAssignment.duty"/>
+            <acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.moment" path="flightAssignment.moment"/>
+            <acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.currentStatus" path="flightAssignment.currentStatus"/>
+            <acme:input-textbox code="flight-crew-members.activity-log.form.label.flight-assignment.remarks" path="flightAssignment.remarks"/>
+        </jstl:when>
+        <jstl:when test="${_command == 'create'}">
+            <!-- Desplegable para seleccionar FlightAssignment -->
+            <acme:input-select code="flight-crew-members.activity-log.form.label.flightAssignment" 
+                               path="flightAssignment.id" 
+                               choices="${flightAssignments}"/>
+            <acme:submit code="flight-crew-members.activity-log.form.button.create" action="/flight-crew-members/activity-log/create"/>
+        </jstl:when>
+    </jstl:choose>
 </acme:form>

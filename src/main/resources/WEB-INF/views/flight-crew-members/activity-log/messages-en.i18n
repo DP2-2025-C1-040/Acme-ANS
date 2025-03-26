@@ -25,3 +25,6 @@ flight-crew-members.activity-log.form.label.flight-assignment.duty = Duty:
 flight-crew-members.activity-log.form.label.flight-assignment.moment = Moment:
 flight-crew-members.activity-log.form.label.flight-assignment.currentStatus = Current Status:
 flight-crew-members.activity-log.form.label.flight-assignment.remarks = Remarks:
+
+flight-crew-members.activity-log.form.label.flightAssignment = Flight Assignment:
+flight-crew-members.activity-log.form.button.create = Create
