@@ -1,6 +1,7 @@
 
 package acme.features.crew.assignment;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import acme.client.services.GuiService;
 import acme.entities.assignment.CurrentStatus;
 import acme.entities.assignment.Duty;
 import acme.entities.assignment.FlightAssignment;
+import acme.entities.leg.Leg;
 import acme.realms.crew.AvailabilityStatus;
 import acme.realms.crew.FlightCrewMemberRepository;
 import acme.realms.crew.FlightCrewMembers;
@@ -20,7 +22,10 @@ import acme.realms.crew.FlightCrewMembers;
 public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
 
 	@Autowired
-	private FlightCrewMemberRepository repository;
+	private FlightCrewMemberRepository	repository;
+
+	@Autowired
+	private CrewAssignmentRepository	assignmentRepository;
 
 
 	@Override
@@ -78,12 +83,27 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 		SelectChoices duties = SelectChoices.from(Duty.class, assignment.getDuty());
 		SelectChoices statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 
+		// Obtener todas las legs disponibles
+		Collection<Leg> legs = this.assignmentRepository.findAllLegs(); // Asegúrate de que tienes acceso a las Legs
+
+		// Convertir las Legs en SelectChoices
+		SelectChoices legChoices = new SelectChoices();
+
+		// Recorrer las legs y crear una etiqueta personalizada
+		for (Leg leg : legs) {
+			String key = Integer.toString(leg.getId());  // Usar el ID de Leg como clave
+			String label = leg.getFlightNumber() + " - " + leg.getOriginCity();  // Etiqueta personalizada con origen y destino
+
+			// Agregar la Leg como opción en SelectChoices
+			legChoices.add(key, label, false);
+		}
+
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "flightCrewMember", "leg");
+
+		// Agregar las opciones al dataset
 		dataset.put("duties", duties);
 		dataset.put("statuses", statuses);
-
-		if (assignment.getFlightCrewMember() != null)
-			dataset.put("flightCrewMember", assignment.getFlightCrewMember());
+		dataset.put("legs", legChoices);  // Agregar las legs al dataset
 
 		super.getResponse().addData(dataset);
 	}
