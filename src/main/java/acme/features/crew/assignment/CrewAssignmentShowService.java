@@ -1,6 +1,8 @@
 
 package acme.features.crew.assignment;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -48,14 +50,19 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 		SelectChoices statuses;
 		SelectChoices availabilityStatuses;
 		SelectChoices legStatuses;
+		SelectChoices choices;
+		Collection<Leg> legs;
 		Dataset dataset;
 
+		legs = this.repository.findAllLegs();
+
+		choices = SelectChoices.from(legs, "flightNumber", assignment.getLeg());
 		duties = SelectChoices.from(Duty.class, assignment.getDuty());
 		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 		availabilityStatuses = SelectChoices.from(AvailabilityStatus.class, assignment.getFlightCrewMember().getAvailabilityStatus());
 		legStatuses = SelectChoices.from(LegStatus.class, assignment.getLeg().getStatus());
 
-		dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks");
+		dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg");
 
 		if (assignment.getFlightCrewMember() != null) {
 			FlightCrewMembers crewMember = assignment.getFlightCrewMember();
@@ -90,6 +97,8 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 		dataset.put("statuses", statuses);
 		dataset.put("availabilityStatuses", availabilityStatuses);
 		dataset.put("legStatuses", legStatuses);
+		dataset.put("leg", choices.getSelected().getKey());
+		dataset.put("legs", choices);
 
 		super.getResponse().addData(dataset);
 	}

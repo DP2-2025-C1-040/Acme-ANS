@@ -27,6 +27,9 @@ public class CrewAssignmentController extends AbstractGuiController<FlightCrewMe
 	@Autowired
 	private CrewAssignmentCreateService			createService;
 
+	@Autowired
+	private CrewAssignmentUpdateService			updateService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -34,6 +37,7 @@ public class CrewAssignmentController extends AbstractGuiController<FlightCrewMe
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 		super.addCustomCommand("list-landed", "list", this.landedListService);
 		super.addCustomCommand("list-programmed", "list", this.programmedListService);
 	}

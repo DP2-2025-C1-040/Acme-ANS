@@ -22,39 +22,42 @@
     <acme:input-textbox code="flight-crew-members.flight-assignment.form.label.remarks" path="remarks"/>
 
     <jstl:choose>
-    	<jstl:when test="${_command == 'show'}">
+    	<jstl:when test="${acme:anyOf(_command, 'show|update')}">
+    		<acme:input-select code="flight-crew-members.flight-assignment.form.label.leg" path="leg" choices="${legs}"/>
 			<!-- Datos de FlightCrewMember -->
 			<span style="font-weight: bold; font-size: 1.5em;">
     			<acme:print code="flight-crew-members.flight-assignment.form.label.flightCrewMember.title"/>
 			</span>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.employeeCode" path="flightCrewMember.employeeCode"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber" path="flightCrewMember.phoneNumber"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills" path="flightCrewMember.languageSkills"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus" path="flightCrewMember.availabilityStatus"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.salary" path="flightCrewMember.salary"/>
-	    	<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience"/>
-	    	<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.airline" path="flightCrewMember.airline"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.employeeCode" path="flightCrewMember.employeeCode" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber" path="flightCrewMember.phoneNumber" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills" path="flightCrewMember.languageSkills" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus" path="flightCrewMember.availabilityStatus" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.salary" path="flightCrewMember.salary" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.airline" path="flightCrewMember.airline" readonly="true"/>
 
     		<!-- Datos de Leg -->
     		<span style="font-weight: bold; font-size: 1.5em;">
     			<acme:print code="flight-crew-members.flight-assignment.form.label.leg.title"/>
 			</span>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flightNumber" path="leg.flightNumber"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.status" path="leg.status"/>
-	    	<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture" path="leg.scheduledDeparture"/>
-	    	<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledArrival" path="leg.scheduledArrival"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.originCity" path="leg.originCity"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.destinationCity" path="leg.destinationCity"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.departureAirport" path="leg.departureAirport"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.arrivalAirport" path="leg.arrivalAirport"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.aircraft" path="leg.aircraft"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flight" path="leg.flight"/>
-    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.airline" path="leg.airline"/>
+    		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flightNumber" path="leg.flightNumber" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.status" path="leg.status" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture" path="leg.scheduledDeparture" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledArrival" path="leg.scheduledArrival" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.originCity" path="leg.originCity" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.destinationCity" path="leg.destinationCity" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.departureAirport" path="leg.departureAirport" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.arrivalAirport" path="leg.arrivalAirport" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.aircraft" path="leg.aircraft" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flight" path="leg.flight" readonly="true"/>
+			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.airline" path="leg.airline" readonly="true"/>
+    		
+    		<acme:submit code="flight-crew-members.flight-assignment.form.button.update" action="/flight-crew-members/flight-assignment/update"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:input-select code="flight-crew-members.flight-assignment.form.label.leg" path="leg" choices="${legs}"/>
 			<acme:submit code="flight-crew-members.flight-assignment.form.button.create" action="/flight-crew-members/flight-assignment/create"/>
-		</jstl:when>		
+		</jstl:when>
 	</jstl:choose>
 </acme:form>
 
