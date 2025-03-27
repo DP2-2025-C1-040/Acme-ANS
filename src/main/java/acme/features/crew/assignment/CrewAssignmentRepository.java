@@ -2,6 +2,7 @@
 package acme.features.crew.assignment;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,12 @@ public interface CrewAssignmentRepository extends AbstractRepository {
 
 	@Query("SELECT f FROM FlightAssignment f WHERE f.flightCrewMember.id = :id AND f.leg.status = :status")
 	Collection<FlightAssignment> findAllAssignmentsByMemberIdAndStatus(int id, LegStatus status);
+
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.flightCrewMember.id = :memberId AND fa.leg.scheduledArrival < :moment")
+	Collection<FlightAssignment> findAllAssignmentsByMemberIdBeforeNow(int memberId, Date moment);
+
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.flightCrewMember.id = :memberId AND fa.leg.scheduledDeparture > :moment")
+	Collection<FlightAssignment> findAllAssignmentsByMemberIdAfterNow(int memberId, Date moment);
 
 	@Query("SELECT f FROM FlightAssignment f WHERE f.id = :id")
 	FlightAssignment findFlightAssignmentById(int id);

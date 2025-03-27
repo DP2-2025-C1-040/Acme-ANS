@@ -24,6 +24,9 @@
     <jstl:choose>
     	<jstl:when test="${_command == 'show'}">
 			<!-- Datos de FlightCrewMember -->
+			<span style="font-weight: bold; font-size: 1.5em;">
+    			<acme:print code="flight-crew-members.flight-assignment.form.label.flightCrewMember.title"/>
+			</span>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.employeeCode" path="flightCrewMember.employeeCode"/>
     		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber" path="flightCrewMember.phoneNumber"/>
     		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills" path="flightCrewMember.languageSkills"/>
@@ -33,6 +36,9 @@
 	    	<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.airline" path="flightCrewMember.airline"/>
 
     		<!-- Datos de Leg -->
+    		<span style="font-weight: bold; font-size: 1.5em;">
+    			<acme:print code="flight-crew-members.flight-assignment.form.label.leg.title"/>
+			</span>
     		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flightNumber" path="leg.flightNumber"/>
     		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.status" path="leg.status"/>
 	    	<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture" path="leg.scheduledDeparture"/>
@@ -46,7 +52,7 @@
     		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.airline" path="leg.airline"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:input-select code="flight-crew-members.flight-assignment.form.label.leg" path="leg.id" choices="${legs}"/>
+			<acme:input-select code="flight-crew-members.flight-assignment.form.label.leg" path="leg" choices="${legs}"/>
 			<acme:submit code="flight-crew-members.flight-assignment.form.button.create" action="/flight-crew-members/flight-assignment/create"/>
 		</jstl:when>		
 	</jstl:choose>

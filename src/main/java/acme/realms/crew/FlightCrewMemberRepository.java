@@ -1,8 +1,6 @@
 
 package acme.realms.crew;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +18,7 @@ public interface FlightCrewMemberRepository extends AbstractRepository {
 	boolean existsByFlightCrewMemberAndDuty(FlightCrewMembers crewMember, Duty duty);
 
 	@Query("SELECT f FROM FlightCrewMembers f WHERE f.id = :id")
-	Optional<FlightCrewMembers> findById(int id);
+	FlightCrewMembers findById(int id);
 
 	@Query("SELECT COUNT(f) FROM FlightAssignment f WHERE f.flightCrewMember = :flightCrewMember AND f.leg IS NOT NULL")
 	long countByFlightCrewMemberAndLegNotNull(FlightCrewMembers flightCrewMember);

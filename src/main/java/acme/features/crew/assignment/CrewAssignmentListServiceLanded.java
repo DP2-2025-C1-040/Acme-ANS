@@ -6,10 +6,10 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.assignment.FlightAssignment;
-import acme.entities.leg.LegStatus;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
@@ -34,7 +34,7 @@ public class CrewAssignmentListServiceLanded extends AbstractGuiService<FlightCr
 		int memberId;
 
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		assignments = this.repository.findAllAssignmentsByMemberIdAndStatus(memberId, LegStatus.LANDED);
+		assignments = this.repository.findAllAssignmentsByMemberIdBeforeNow(memberId, MomentHelper.getCurrentMoment());
 
 		super.getBuffer().addData(assignments);
 	}

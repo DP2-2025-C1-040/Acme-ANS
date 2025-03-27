@@ -19,7 +19,7 @@ flight-crew-members.flight-assignment.form.label.moment = Fecha:
 flight-crew-members.flight-assignment.form.label.currentStatus = Estado:
 flight-crew-members.flight-assignment.form.label.remarks = Comentarios:
 
-flight-crew-members.flight-assignment.form.label.flightCrewMember.id = Tripulante de vuelo:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.title = Tripulante de vuelo:
 flight-crew-members.flight-assignment.form.label.flightCrewMember.employeeCode = Código de empleado:
 flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber = Número de teléfono:
 flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills = Conocimientos lingüísticos:
@@ -28,7 +28,7 @@ flight-crew-members.flight-assignment.form.label.flightCrewMember.salary = Salar
 flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience = Años de experiencia:
 flight-crew-members.flight-assignment.form.label.flightCrewMember.airline = Aerolínea:
 
-flight-crew-members.flight-assignment.form.label.leg.id = Escala:
+flight-crew-members.flight-assignment.form.label.leg.title = Escala:
 flight-crew-members.flight-assignment.form.label.leg.flightNumber = Número de vuelo:
 flight-crew-members.flight-assignment.form.label.leg.status = Estado:
 flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture = Salida programada:
