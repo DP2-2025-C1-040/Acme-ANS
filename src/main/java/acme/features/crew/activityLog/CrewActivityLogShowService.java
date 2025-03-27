@@ -43,36 +43,16 @@ public class CrewActivityLogShowService extends AbstractGuiService<FlightCrewMem
 	@Override
 	public void unbind(final ActivityLog activityLog) {
 		int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Dataset dataset;
+		Collection<FlightAssignment> assignments;
+		SelectChoices choices;
 
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+		assignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
 
-		if (activityLog.getFlightAssignment() != null) {
-			FlightAssignment assignment = activityLog.getFlightAssignment();
-			dataset.put("flightAssignment.id", assignment.getId());
-			dataset.put("flightAssignment.duty", assignment.getDuty());
-			dataset.put("flightAssignment.moment", assignment.getMoment());
-			dataset.put("flightAssignment.currentStatus", assignment.getCurrentStatus());
-			dataset.put("flightAssignment.remarks", assignment.getRemarks());
-		}
+		choices = SelectChoices.from(assignments, "moment", activityLog.getFlightAssignment());
 
-		// Obtener todas las asignaciones de vuelo disponibles
-		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
-
-		// Convertir la colección de FlightAssignments en SelectChoices
-		SelectChoices flightAssignmentChoices = new SelectChoices();
-
-		// Recorrer las asignaciones y crear una etiqueta personalizada
-		for (FlightAssignment assignment : flightAssignments) {
-			String key = Integer.toString(assignment.getId());  // Usar el ID de FlightAssignment como clave
-			String label = assignment.getDuty() + " - " + assignment.getMoment();  // Combinar duty y moment en una etiqueta
-
-			// Agregar el FlightAssignment como opción en SelectChoices
-			flightAssignmentChoices.add(key, label, false);
-		}
-
-		// Agregar el objeto SelectChoices al dataset
-		dataset.put("flightAssignments", flightAssignmentChoices);
+		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment");
+		dataset.put("flightAssignment", choices.getSelected().getKey());
+		dataset.put("assignments", choices);
 
 		super.getResponse().addData(dataset);
 	}

@@ -29,3 +29,4 @@ flight-crew-members.activity-log.form.label.flight-assignment.remarks = Remarks:
 flight-crew-members.activity-log.form.label.flightAssignment = Flight Assignment:
 flight-crew-members.activity-log.form.button.create = Create
 flight-crew-members.activity-log.form.button.update = Update
+flight-crew-members.activity-log.form.button.delete = Delete

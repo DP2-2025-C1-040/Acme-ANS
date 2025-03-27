@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activity_log.ActivityLog;
 import acme.entities.assignment.FlightAssignment;
-import acme.features.crew.assignment.CrewAssignmentRepository;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
@@ -20,10 +20,7 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CrewActivityLogRepository	repository;
-
-	@Autowired
-	private CrewAssignmentRepository	assignmentRepository;
+	private CrewActivityLogRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -36,27 +33,13 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 	@Override
 	public void load() {
 		ActivityLog activityLog = new ActivityLog();
+		activityLog.setRegistrationMoment(MomentHelper.getCurrentMoment());
 		super.getBuffer().addData(activityLog);
 	}
 
 	@Override
 	public void bind(final ActivityLog activityLog) {
-		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
-
-		// Obtener el parámetro flightAssignment.id
-		String flightAssignmentId = (String) super.getRequest().getData("flightAssignment.id");
-
-		if (flightAssignmentId != null && !flightAssignmentId.isEmpty()) {
-			int id = Integer.parseInt(flightAssignmentId);
-			FlightAssignment flightAssignment = this.assignmentRepository.findFlightAssignmentById(id);
-
-			// Verifica si FlightAssignment se asigna correctamente
-			if (flightAssignment != null) {
-				activityLog.setFlightAssignment(flightAssignment);
-				System.out.println("FlightAssignment asignado: " + flightAssignment);
-			} else
-				System.out.println("No se encontró el FlightAssignment con ID: " + flightAssignmentId);
-		}
+		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment");
 	}
 
 	@Override
@@ -66,35 +49,22 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void perform(final ActivityLog activityLog) {
-		if (activityLog != null) {
-			System.out.println("ActivityLog antes de guardar: " + activityLog);
-			this.repository.save(activityLog);
-		} else
-			System.out.println("ActivityLog es nulo. No se puede guardar.");
+		this.repository.save(activityLog);
 	}
 
 	@Override
 	public void unbind(final ActivityLog activityLog) {
 		int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+		Collection<FlightAssignment> assignments;
+		SelectChoices choices;
 
-		// Obtener todas las asignaciones de vuelo disponibles
-		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
+		assignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
 
-		// Convertir la colección de FlightAssignments en SelectChoices
-		SelectChoices flightAssignmentChoices = new SelectChoices();
+		choices = SelectChoices.from(assignments, "moment", activityLog.getFlightAssignment());
 
-		// Recorrer las asignaciones y crear una etiqueta personalizada
-		for (FlightAssignment assignment : flightAssignments) {
-			String key = Integer.toString(assignment.getId());  // Usar el ID de FlightAssignment como clave
-			String label = assignment.getDuty() + " - " + assignment.getMoment();  // Combinar duty y moment en una etiqueta
-
-			// Agregar el FlightAssignment como opción en SelectChoices
-			flightAssignmentChoices.add(key, label, false);
-		}
-
-		// Agregar el objeto SelectChoices al dataset
-		dataset.put("flightAssignments", flightAssignmentChoices);
+		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment");
+		dataset.put("flightAssignment", choices.getSelected().getKey());
+		dataset.put("assignments", choices);
 
 		super.getResponse().addData(dataset);
 	}

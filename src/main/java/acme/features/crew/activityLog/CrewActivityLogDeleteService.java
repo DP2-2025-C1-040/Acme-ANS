@@ -14,7 +14,7 @@ import acme.entities.assignment.FlightAssignment;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
-public class CrewActivityLogUpdateService extends AbstractGuiService<FlightCrewMembers, ActivityLog> {
+public class CrewActivityLogDeleteService extends AbstractGuiService<FlightCrewMembers, ActivityLog> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -49,7 +49,7 @@ public class CrewActivityLogUpdateService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void perform(final ActivityLog activityLog) {
-		this.repository.save(activityLog);
+		this.repository.delete(activityLog);
 	}
 
 	@Override
@@ -68,4 +68,5 @@ public class CrewActivityLogUpdateService extends AbstractGuiService<FlightCrewM
 
 		super.getResponse().addData(dataset);
 	}
+
 }
