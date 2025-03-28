@@ -26,7 +26,10 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int id = super.getRequest().getData("id", int.class);
+		ActivityLog activityLog = this.repository.findActivityLogById(id);
+		boolean status = activityLog != null && activityLog.getDraftMode() && !activityLog.getFlightAssignment().getDraftMode();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -39,7 +42,7 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 
 	@Override
 	public void bind(final ActivityLog activityLog) {
-		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment", "draftMode");
+		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment");
 	}
 
 	@Override
@@ -63,9 +66,10 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 
 		choices = SelectChoices.from(assignments, "moment", activityLog.getFlightAssignment());
 
-		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment");
+		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment", "draftMode");
 		dataset.put("flightAssignment", choices.getSelected().getKey());
 		dataset.put("assignments", choices);
+		dataset.put("draftMode", activityLog.getDraftMode());
 
 		super.getResponse().addData(dataset);
 	}

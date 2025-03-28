@@ -26,7 +26,10 @@ public class CrewActivityLogUpdateService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int id = super.getRequest().getData("id", int.class);
+		ActivityLog activityLog = this.repository.findActivityLogById(id);
+		boolean status = activityLog != null && activityLog.getDraftMode();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -65,6 +68,7 @@ public class CrewActivityLogUpdateService extends AbstractGuiService<FlightCrewM
 		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment");
 		dataset.put("flightAssignment", choices.getSelected().getKey());
 		dataset.put("assignments", choices);
+		dataset.put("draftMode", activityLog.getDraftMode());
 
 		super.getResponse().addData(dataset);
 	}
