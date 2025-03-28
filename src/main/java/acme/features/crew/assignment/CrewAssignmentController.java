@@ -30,6 +30,12 @@ public class CrewAssignmentController extends AbstractGuiController<FlightCrewMe
 	@Autowired
 	private CrewAssignmentUpdateService			updateService;
 
+	@Autowired
+	private CrewAssignmentPublishService		publishService;
+
+	@Autowired
+	private CrewAssignmentDeleteService			deleteService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -38,8 +44,10 @@ public class CrewAssignmentController extends AbstractGuiController<FlightCrewMe
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 		super.addCustomCommand("list-landed", "list", this.landedListService);
 		super.addCustomCommand("list-programmed", "list", this.programmedListService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }

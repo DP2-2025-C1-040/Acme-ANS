@@ -13,11 +13,12 @@ import acme.entities.assignment.CurrentStatus;
 import acme.entities.assignment.Duty;
 import acme.entities.assignment.FlightAssignment;
 import acme.entities.leg.Leg;
+import acme.realms.crew.AvailabilityStatus;
 import acme.realms.crew.FlightCrewMemberRepository;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
-public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
+public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
 
 	@Autowired
 	private FlightCrewMemberRepository	repository;
@@ -28,10 +29,9 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void authorise() {
-		;
-		int id = super.getRequest().getData("id", int.class);
-		FlightAssignment assignment = this.assignmentRepository.findFlightAssignmentById(id);
-		boolean status = assignment.getDraftMode();
+		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		FlightCrewMembers crewMember = this.repository.findById(userId);
+		boolean status = crewMember.getAvailabilityStatus() == AvailabilityStatus.AVAILABLE;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -58,6 +58,7 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void perform(final FlightAssignment assignment) {
+		assignment.setDraftMode(false);
 		this.repository.save(assignment);
 	}
 

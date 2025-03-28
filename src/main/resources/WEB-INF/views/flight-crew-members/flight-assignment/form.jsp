@@ -22,7 +22,7 @@
     <acme:input-textbox code="flight-crew-members.flight-assignment.form.label.remarks" path="remarks"/>
 
     <jstl:choose>
-    	<jstl:when test="${acme:anyOf(_command, 'show|update')}">
+    	<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
     		<acme:input-select code="flight-crew-members.flight-assignment.form.label.leg" path="leg" choices="${legs}"/>
 			<!-- Datos de FlightCrewMember -->
 			<span style="font-weight: bold; font-size: 1.5em;">
@@ -53,6 +53,8 @@
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.airline" path="leg.airline" readonly="true"/>
     		
     		<acme:submit code="flight-crew-members.flight-assignment.form.button.update" action="/flight-crew-members/flight-assignment/update"/>
+    		<acme:submit code="flight-crew-members.flight-assignment.form.button.delete" action="/flight-crew-members/flight-assignment/delete"/>
+    		<acme:submit code="flight-crew-members.flight-assignment.form.button.publish" action="/flight-crew-members/flight-assignment/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:input-select code="flight-crew-members.flight-assignment.form.label.leg" path="leg" choices="${legs}"/>

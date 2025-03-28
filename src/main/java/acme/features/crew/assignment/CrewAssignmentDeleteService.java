@@ -13,24 +13,23 @@ import acme.entities.assignment.CurrentStatus;
 import acme.entities.assignment.Duty;
 import acme.entities.assignment.FlightAssignment;
 import acme.entities.leg.Leg;
-import acme.realms.crew.FlightCrewMemberRepository;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
-public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
+public class CrewAssignmentDeleteService extends AbstractGuiService<FlightCrewMembers, FlightAssignment> {
+
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private FlightCrewMemberRepository	repository;
+	private CrewAssignmentRepository repository;
 
-	@Autowired
-	private CrewAssignmentRepository	assignmentRepository;
+	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		;
 		int id = super.getRequest().getData("id", int.class);
-		FlightAssignment assignment = this.assignmentRepository.findFlightAssignmentById(id);
+		FlightAssignment assignment = this.repository.findFlightAssignmentById(id);
 		boolean status = assignment.getDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
@@ -41,7 +40,7 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		assignment = this.assignmentRepository.findFlightAssignmentById(id);
+		assignment = this.repository.findFlightAssignmentById(id);
 
 		super.getBuffer().addData(assignment);
 	}
@@ -58,7 +57,7 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void perform(final FlightAssignment assignment) {
-		this.repository.save(assignment);
+		this.repository.delete(assignment);
 	}
 
 	@Override
@@ -68,7 +67,7 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		SelectChoices duties;
 		SelectChoices statuses;
 
-		legs = this.assignmentRepository.findAllLegs();
+		legs = this.repository.findAllLegs();
 
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());

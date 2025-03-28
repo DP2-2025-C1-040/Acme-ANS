@@ -45,6 +45,8 @@ flight-crew-members.flight-assignment.form.label.leg = Leg:
 
 flight-crew-members.flight-assignment.form.button.create = Create
 flight-crew-members.flight-assignment.form.button.update = Update
+flight-crew-members.flight-assignment.form.button.publish = Publish
+flight-crew-members.flight-assignment.form.button.delete = Delete
 
 flight-crew-members.flight-assignment.form.error.not-available = The flight crew member has no available status
 flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = The flight crew member is assigned to multiple legs
