@@ -60,11 +60,17 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 	public void unbind(final ActivityLog activityLog) {
 		int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		Collection<FlightAssignment> assignments;
-		SelectChoices choices;
+		SelectChoices choices = new SelectChoices();
 
 		assignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
 
-		choices = SelectChoices.from(assignments, "moment", activityLog.getFlightAssignment());
+		for (FlightAssignment assignment : assignments) {
+			String key = Integer.toString(assignment.getId());
+			String label = assignment.getMoment() + " - " + assignment.getDuty() + " - " + assignment.getCurrentStatus() + " - " + assignment.getLeg().getFlightNumber();
+			boolean isSelected = assignment.equals(activityLog.getFlightAssignment());
+
+			choices.add(key, label, isSelected);
+		}
 
 		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment", "draftMode");
 		dataset.put("flightAssignment", choices.getSelected().getKey());
