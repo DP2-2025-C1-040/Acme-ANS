@@ -6,7 +6,7 @@ leg-02,DEF3456,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit a
 # status - standard variations
 leg-03,DEF5678,DELAYED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 leg-04,DEF8912,CANCELLED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-05,DEF2345,LANDED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-05,DEF2345,LANDED,2200/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # scheduledDeparture - standard variations
 # scheduledArrival - standard variations
 leg-06,DEF4567,ON_TIME,2025/01/01 00:02,2025/01/01 00:03,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01

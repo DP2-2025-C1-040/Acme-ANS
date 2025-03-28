@@ -14,6 +14,7 @@ import acme.entities.assignment.CurrentStatus;
 import acme.entities.assignment.Duty;
 import acme.entities.assignment.FlightAssignment;
 import acme.entities.leg.Leg;
+import acme.realms.crew.AvailabilityStatus;
 import acme.realms.crew.FlightCrewMemberRepository;
 import acme.realms.crew.FlightCrewMembers;
 
@@ -29,11 +30,10 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
-		//				int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		//				FlightCrewMembers crewMember = this.repository.findById(userId);
-		//				boolean isLeadAttendant = this.repository.existsByFlightCrewMemberAndDuty(crewMember, Duty.LEAD_ATTENDANT);
-		//				super.getResponse().setAuthorised(isLeadAttendant);
+		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		FlightCrewMembers crewMember = this.repository.findById(userId);
+		boolean status = crewMember.getAvailabilityStatus() == AvailabilityStatus.AVAILABLE;
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -55,18 +55,12 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void validate(final FlightAssignment assignment) {
-		//		boolean isAvailable, isNotAssignedMultipleLegs, isValidDuty;
-		//
-		//		// Verificar si el miembro de la tripulación tiene el estado "AVAILABLE"
-		//		if (!super.getBuffer().getErrors().hasErrors("flightCrewMember")) {
-		//			isAvailable = assignment.getFlightCrewMember().getAvailabilityStatus() == AvailabilityStatus.AVAILABLE;
-		//			super.state(isAvailable, "flightCrewMember", "flight-crew-members.flight-assignment.form.error.not-available");
-		//		}
+		boolean isNotAssignedMultipleLegs, isValidDuty;
 
-		//		// Verificar si el miembro de la tripulación no está asignado a múltiples legs
-		//		isNotAssignedMultipleLegs = this.repository.countByFlightCrewMemberAndLegNotNull(assignment.getFlightCrewMember()) == 0;
-		//		super.state(isNotAssignedMultipleLegs, "flightCrewMember", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
-		//
+		// Verificar si el miembro de la tripulación no está asignado a múltiples legs
+		isNotAssignedMultipleLegs = this.repository.countByFlightCrewMember(assignment.getFlightCrewMember()) == 0;
+		super.state(!isNotAssignedMultipleLegs, "flightCrewMember", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
+
 		//		// Verificar si el Duty es válido (por ejemplo, que sea un "LEAD ATTENDANT" para permitir ciertas operaciones)
 		//		isValidDuty = assignment.getDuty() == Duty.LEAD_ATTENDANT;
 		//		super.state(isValidDuty, "duty", "flight-crew-members.flight-assignment.form.error.invalid-duty");

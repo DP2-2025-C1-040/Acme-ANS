@@ -31,7 +31,7 @@ public class IataCodeValidatorAirline extends AbstractValidator<ValidIataCodeAir
 		boolean result = true;
 
 		if (airline == null || airline.getIataCode() == null)
-			return true;
+			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
 		String iataCode = airline.getIataCode();
 		Integer entityId = airline.getId();

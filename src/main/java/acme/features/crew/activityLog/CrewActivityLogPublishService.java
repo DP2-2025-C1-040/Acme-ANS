@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activity_log.ActivityLog;
@@ -15,7 +14,7 @@ import acme.entities.assignment.FlightAssignment;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
-public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewMembers, ActivityLog> {
+public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrewMembers, ActivityLog> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -32,15 +31,15 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void load() {
-		ActivityLog activityLog = new ActivityLog();
-		activityLog.setRegistrationMoment(MomentHelper.getCurrentMoment());
-		activityLog.setDraftMode(true);
+		int id = super.getRequest().getData("id", int.class);
+		ActivityLog activityLog = this.repository.findActivityLogById(id);
+
 		super.getBuffer().addData(activityLog);
 	}
 
 	@Override
 	public void bind(final ActivityLog activityLog) {
-		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment");
+		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment", "draftMode");
 	}
 
 	@Override
@@ -50,6 +49,7 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void perform(final ActivityLog activityLog) {
+		activityLog.setDraftMode(false);
 		this.repository.save(activityLog);
 	}
 

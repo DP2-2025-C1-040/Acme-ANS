@@ -26,7 +26,7 @@
         <jstl:when test="${_command == 'create'}">
             <acme:submit code="flight-crew-members.activity-log.form.button.create" action="/flight-crew-members/activity-log/create"/>
         </jstl:when>
-        <jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+        <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
             <acme:submit code="flight-crew-members.activity-log.form.button.update" action="/flight-crew-members/activity-log/update"/>
             <acme:submit code="flight-crew-members.activity-log.form.button.delete" action="/flight-crew-members/activity-log/delete"/>
         </jstl:when>
