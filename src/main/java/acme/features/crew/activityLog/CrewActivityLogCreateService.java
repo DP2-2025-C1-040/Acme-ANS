@@ -70,7 +70,9 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 		}
 
 		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment", "draftMode");
-		dataset.put("flightAssignment", choices.getSelected().getKey());
+		if (activityLog.getFlightAssignment() != null)
+			dataset.put("flightAssignment", choices.getSelected().getKey());
+
 		dataset.put("assignments", choices);
 
 		super.getResponse().addData(dataset);
