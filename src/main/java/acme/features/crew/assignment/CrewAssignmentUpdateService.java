@@ -28,7 +28,6 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void authorise() {
-		;
 		int id = super.getRequest().getData("id", int.class);
 		FlightAssignment assignment = this.assignmentRepository.findFlightAssignmentById(id);
 		boolean status = assignment.getDraftMode();
@@ -53,7 +52,26 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void validate(final FlightAssignment assignment) {
-		;
+		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		FlightCrewMembers crewMember = this.repository.findById(userId);
+
+		int assignmentCount = this.repository.countByFlightCrewMember(crewMember);
+		boolean isAssignedMultipleLegs = assignmentCount > 1;
+		super.state(!isAssignedMultipleLegs, "*", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
+
+		Leg selectedLeg = assignment.getLeg();
+		if (selectedLeg != null) {
+			long pilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.PILOT);
+			long coPilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.COPILOT);
+
+			boolean isPilotAssigned = pilotCount > 0;
+			boolean isCoPilotAssigned = coPilotCount > 0;
+
+			super.state(!(isPilotAssigned && assignment.getDuty() == Duty.PILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-pilot-assigned");
+			super.state(!(isCoPilotAssigned && assignment.getDuty() == Duty.COPILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-copilot-assigned");
+		}
+
+		// Otras validaciones pueden ir aquí...
 	}
 
 	@Override
@@ -82,7 +100,9 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
-		dataset.put("leg", choices.getSelected().getKey());
+		if (assignment.getLeg() != null)
+			dataset.put("leg", choices.getSelected().getKey());
+		;
 		dataset.put("legs", choices);
 		dataset.put("duties", duties);
 		dataset.put("statuses", statuses);

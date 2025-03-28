@@ -44,6 +44,7 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 		FlightCrewMembers crewMember = this.repository.findById(userId);
 		assignment.setFlightCrewMember(crewMember);
 		assignment.setMoment(MomentHelper.getCurrentMoment());
+		assignment.setDraftMode(true);
 
 		super.getBuffer().addData(assignment);
 	}
@@ -55,19 +56,26 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void validate(final FlightAssignment assignment) {
-		boolean isNotAssignedMultipleLegs, isValidDuty;
+		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		FlightCrewMembers crewMember = this.repository.findById(userId);
 
-		// Verificar si el miembro de la tripulación no está asignado a múltiples legs
-		isNotAssignedMultipleLegs = this.repository.countByFlightCrewMember(assignment.getFlightCrewMember()) == 0;
-		super.state(!isNotAssignedMultipleLegs, "flightCrewMember", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
+		int assignmentCount = this.repository.countByFlightCrewMember(crewMember);
+		boolean isAssignedMultipleLegs = assignmentCount > 1;
+		super.state(!isAssignedMultipleLegs, "*", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
 
-		//		// Verificar si el Duty es válido (por ejemplo, que sea un "LEAD ATTENDANT" para permitir ciertas operaciones)
-		//		isValidDuty = assignment.getDuty() == Duty.LEAD_ATTENDANT;
-		//		super.state(isValidDuty, "duty", "flight-crew-members.flight-assignment.form.error.invalid-duty");
-		//
-		//		// Verificar si el leg no ha ocurrido (para asegurarse de que no se pueda publicar una asignación en legs ya ocurridos)
-		//		boolean isLegFuture = assignment.getLeg().getScheduledArrival().after(new Date());
-		//		super.state(isLegFuture, "leg", "flight-crew-members.flight-assignment.form.error.leg-already-occurred");
+		Leg selectedLeg = assignment.getLeg();
+		if (selectedLeg != null) {
+			long pilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.PILOT);
+			long coPilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.COPILOT);
+
+			boolean isPilotAssigned = pilotCount > 0;
+			boolean isCoPilotAssigned = coPilotCount > 0;
+
+			super.state(!(isPilotAssigned && assignment.getDuty() == Duty.PILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-pilot-assigned");
+			super.state(!(isCoPilotAssigned && assignment.getDuty() == Duty.COPILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-copilot-assigned");
+		}
+
+		// Otras validaciones pueden ir aquí...
 	}
 
 	@Override
@@ -87,8 +95,8 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
 			String label = leg.getFlightNumber() + " - " + leg.getOriginCity() + " - " + leg.getDestinationCity() + " - " + leg.getFlight().getTag();
-			boolean isSelected = leg.equals(assignment.getLeg());
 
+			boolean isSelected = leg.equals(assignment.getLeg());
 			choices.add(key, label, isSelected);
 		}
 
@@ -96,11 +104,15 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg");
-		dataset.put("leg", choices.getSelected().getKey());
+
+		if (assignment.getLeg() != null)
+			dataset.put("leg", choices.getSelected().getKey());
+
 		dataset.put("legs", choices);
 		dataset.put("duties", duties);
 		dataset.put("statuses", statuses);
 
 		super.getResponse().addData(dataset);
 	}
+
 }

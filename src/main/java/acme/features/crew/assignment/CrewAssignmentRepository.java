@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.activity_log.ActivityLog;
+import acme.entities.assignment.Duty;
 import acme.entities.assignment.FlightAssignment;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
@@ -29,5 +31,11 @@ public interface CrewAssignmentRepository extends AbstractRepository {
 
 	@Query("SELECT l FROM Leg l")
 	Collection<Leg> findAllLegs();
+
+	@Query("SELECT a FROM ActivityLog a WHERE a.flightAssignment.id = :id")
+	Collection<ActivityLog> findActivityLogsByFlightAssignmentId(int id);
+
+	@Query("SELECT COUNT(fa) FROM FlightAssignment fa WHERE fa.leg = :leg AND fa.duty = :duty")
+	long countByLegAndDuty(Leg leg, Duty duty);
 
 }

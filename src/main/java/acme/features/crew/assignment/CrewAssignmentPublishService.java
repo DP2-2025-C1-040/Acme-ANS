@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.assignment.CurrentStatus;
 import acme.entities.assignment.Duty;
 import acme.entities.assignment.FlightAssignment;
 import acme.entities.leg.Leg;
-import acme.realms.crew.AvailabilityStatus;
 import acme.realms.crew.FlightCrewMemberRepository;
 import acme.realms.crew.FlightCrewMembers;
 
@@ -29,10 +29,7 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void authorise() {
-		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		FlightCrewMembers crewMember = this.repository.findById(userId);
-		boolean status = crewMember.getAvailabilityStatus() == AvailabilityStatus.AVAILABLE;
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -53,7 +50,9 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void validate(final FlightAssignment assignment) {
-		;
+		if (assignment.getLeg() != null)
+			if (assignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment()))
+				super.state(false, "leg", "flight-crew-members.flight-assignment.form.error.leg-already-occurred");
 	}
 
 	@Override
