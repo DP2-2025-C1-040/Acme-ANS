@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import acme.client.components.models.Dataset;
 import acme.client.helpers.MomentHelper;
@@ -36,69 +38,71 @@ public class CrewDashboardShowService extends AbstractGuiService<FlightCrewMembe
 		CrewDashboard dashboard = new CrewDashboard();
 		int crewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId(); // Obtener ID del miembro de la tripulación
 
-		// Obtener fechas del mes anterior
 		Date startDate = this.getStartDateForLastMonth();
 		Date endDate = this.getEndDateForLastMonth();
 
-		// Consultas adicionales
-		// 1. Últimos cinco destinos
-		List<String> lastFiveDestinations = this.repository.findLastFiveDestinationsByCrewMemberId(crewMemberId);
-		dashboard.setLastFiveDestinations(lastFiveDestinations);
+		List<String> lastFiveDestinations = this.repository.findLastFiveDestinationsByCrewMemberId(crewMemberId, PageRequest.of(0, 5));
+		String formattedDestinations = String.join(" - ", lastFiveDestinations);
+		dashboard.setLastFiveDestinations(List.of(formattedDestinations));
 
-		// 2. Registros de incidentes por severidad
 		List<Object[]> severityStats = this.repository.findLegsByIncidentSeverity(crewMemberId);
 		Map<String, Integer> legsByIncidentSeverity = new HashMap<>();
-		for (Object[] result : severityStats) {
-			String severityRange = (String) result[0];  // El rango de severidad
-			Long count = (Long) result[1];  // El conteo de registros
-			legsByIncidentSeverity.put(severityRange, count.intValue());
-		}
-		dashboard.setLegsByIncidentSeverity(legsByIncidentSeverity);
 
-		// 3. Miembros de la tripulación en la última pierna de vuelo
+		for (Object[] result : severityStats) {
+			String severityRange = result[0].toString();
+			Integer count = ((Number) result[1]).intValue();
+			legsByIncidentSeverity.put(severityRange, count);
+		}
+		dashboard.setLegsByIncidentSeverity(new LinkedHashMap<>(legsByIncidentSeverity));
+
 		List<FlightCrewMembers> lastLegCrewMembers = this.repository.findCrewMembersInLastLeg(crewMemberId);
 		dashboard.setLastLegCrewMembers(lastLegCrewMembers);
 
-		// 4. Asignaciones de vuelo por estado
 		List<Object[]> flightAssignmentsByStatusRaw = this.repository.findFlightAssignmentsByStatus(crewMemberId);
-		Map<CurrentStatus, List<FlightAssignment>> flightAssignmentsByStatus = new HashMap<>();
-		for (Object[] result : flightAssignmentsByStatusRaw) {
-			CurrentStatus status = (CurrentStatus) result[0];  // CurrentStatus
-			FlightAssignment assignment = (FlightAssignment) result[1];  // FlightAssignment
+		Map<CurrentStatus, List<Map<String, Object>>> flightAssignmentsByStatus = new HashMap<>();
 
-			// Agregar la asignación de vuelo a la lista correspondiente al estado
-			flightAssignmentsByStatus.computeIfAbsent(status, k -> new ArrayList<>())  // Si no existe, inicializa la lista
-				.add(assignment);
+		for (Object[] result : flightAssignmentsByStatusRaw) {
+			CurrentStatus status = (CurrentStatus) result[0];
+			FlightAssignment assignment = (FlightAssignment) result[1];
+
+			Map<String, Object> assignmentDetails = new HashMap<>();
+			assignmentDetails.put("moment", assignment.getMoment());
+			assignmentDetails.put("duty", assignment.getDuty());
+			assignmentDetails.put("flightNumber", assignment.getLeg().getFlightNumber());
+
+			flightAssignmentsByStatus.computeIfAbsent(status, k -> new ArrayList<>()).add(assignmentDetails);
 		}
+
 		dashboard.setFlightAssignmentsByStatus(flightAssignmentsByStatus);
 
-		// 5. Estadísticas del último mes
 		List<Long> counts = this.repository.findFlightAssignmentsCount(crewMemberId, startDate, endDate);
-		double avg = counts.stream().mapToDouble(Long::doubleValue).average().orElse(0.0);
-		double min = counts.stream().mapToDouble(Long::doubleValue).min().orElse(0.0);
-		double max = counts.stream().mapToDouble(Long::doubleValue).max().orElse(0.0);
-		double stddev = this.calculateStandardDeviation(counts);
+		System.out.println("Counts: " + counts);
 
-		// Guardar estadísticas en el dashboard
-		Map<String, Double> stats = new HashMap<>();
-		stats.put("average", avg);
-		stats.put("min", min);
-		stats.put("max", max);
-		stats.put("stddev", stddev);
+		if (counts != null && !counts.isEmpty()) {
+			double avg = counts.stream().mapToDouble(Long::doubleValue).average().orElse(0.0);
+			double min = counts.stream().mapToDouble(Long::doubleValue).min().orElse(0.0);
+			double max = counts.stream().mapToDouble(Long::doubleValue).max().orElse(0.0);
+			double stddev = this.calculateStandardDeviation(counts);
 
-		dashboard.setFlightAssignmentStatsLastMonth(stats);
+			System.out.println("Avg: " + avg + ", Min: " + min + ", Max: " + max + ", Stddev: " + stddev);
 
-		// Agregar al buffer
+			Map<String, Double> stats = new HashMap<>();
+			stats.put("average", avg);
+			stats.put("min", min);
+			stats.put("max", max);
+			stats.put("stddev", stddev);
+
+			System.out.println("Flight Assignment Stats Last Month: " + stats);
+
+			dashboard.setFlightAssignmentStatsLastMonth(stats);
+		}
+
 		super.getBuffer().addData(dashboard);
 	}
 
 	@Override
 	public void unbind(final CrewDashboard dashboard) {
-		Dataset dataset = super.unbindObject(dashboard, //
-			"lastFiveDestinations", "legsByIncidentSeverity", //
-			"lastLegCrewMembers", "flightAssignmentsByStatus", //
-			"flightAssignmentStatsLastMonth");
-
+		Dataset dataset = super.unbindObject(dashboard, "lastFiveDestinations", "legsByIncidentSeverity", "lastLegCrewMembers", "flightAssignmentsByStatus", "flightAssignmentStatsLastMonth");
 		super.getResponse().addData(dataset);
 	}
 
@@ -130,7 +134,6 @@ public class CrewDashboardShowService extends AbstractGuiService<FlightCrewMembe
 		return calendar.getTime();
 	}
 
-	// Método para calcular la desviación estándar
 	private double calculateStandardDeviation(final List<Long> counts) {
 		if (counts.isEmpty())
 			return 0.0;

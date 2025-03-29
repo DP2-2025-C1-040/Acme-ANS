@@ -26,75 +26,60 @@
             <acme:print code="flight-crew-member.dashboard.form.label.last-five-destinations"/>
         </th>
         <td>
-            <jstl:choose>
-                <jstl:when test="${not empty lastFiveDestinations}">
-                    <acme:print value="${lastFiveDestinations}"/>
-                </jstl:when>
-                <jstl:otherwise>
-                    <p>No se encontraron destinos recientes.</p>
-                </jstl:otherwise>
-            </jstl:choose>
-        </td>
+			<acme:print value="${lastFiveDestinations}"/>
+		</td>
     </tr>
     <tr>
-        <th scope="row">
-            <acme:print code="flight-crew-member.dashboard.form.label.legs-by-incident-severity"/>
-        </th>
-        <td>
-            <jstl:choose>
-                <jstl:when test="${not empty legsByIncidentSeverity}">
-                    <acme:print value="${legsByIncidentSeverity}"/>
-                </jstl:when>
-                <jstl:otherwise>
-                    <p>No se encontraron registros de incidentes.</p>
-                </jstl:otherwise>
-            </jstl:choose>
-        </td>
-    </tr>
+    	<th scope="row">
+        <acme:print code="flight-crew-member.dashboard.form.label.legs-by-incident-severity"/>
+    	</th>
+    	<td>
+        <ul>
+            <jstl:forEach var="entry" items="${legsByIncidentSeverity}">
+                <li>${entry.key}: ${entry.value}</li>
+            </jstl:forEach>
+        </ul>
+    	</td>
+	</tr>
+
     <tr>
-        <th scope="row">
-            <acme:print code="flight-crew-member.dashboard.form.label.last-leg-crew-members"/>
-        </th>
-        <td>
-            <jstl:choose>
-                <jstl:when test="${not empty lastLegCrewMembers}">
-                    <acme:print value="${lastLegCrewMembers}"/>
-                </jstl:when>
-                <jstl:otherwise>
-                    <p>No se encontraron miembros de la tripulación en la última pierna de vuelo.</p>
-                </jstl:otherwise>
-            </jstl:choose>
-        </td>
-    </tr>
+    <th scope="row">
+        <acme:print code="flight-crew-member.dashboard.form.label.last-leg-crew-members"/>
+    </th>
+    	<td>
+        	<ul>
+            	<jstl:forEach var="crewMember" items="${lastLegCrewMembers}">
+                	<li>
+                    	<strong>Employee Code:</strong> ${crewMember.employeeCode} <br />
+                    	<strong>Phone Number:</strong> ${crewMember.phoneNumber} <br />
+                    	<strong>Language Skills:</strong> ${crewMember.languageSkills} <br />
+                	</li>
+            	</jstl:forEach>
+        	</ul>
+    	</td>
+	</tr>
+
     <tr>
         <th scope="row">
             <acme:print code="flight-crew-member.dashboard.form.label.flight-assignments-by-status"/>
         </th>
         <td>
-            <jstl:choose>
-                <jstl:when test="${not empty flightAssignmentsByStatus}">
-                    <acme:print value="${flightAssignmentsByStatus}"/>
-                </jstl:when>
-                <jstl:otherwise>
-                    <p>No se encontraron asignaciones de vuelo por estado.</p>
-                </jstl:otherwise>
-            </jstl:choose>
-        </td>
+        <ul>
+            <jstl:forEach var="entry" items="${flightAssignmentsByStatus}">
+                <li>${entry.key}: ${entry.value}</li>
+            </jstl:forEach>
+        </ul>
+    	</td>
     </tr>
-    <tr>
+	<tr>
         <th scope="row">
             <acme:print code="flight-crew-member.dashboard.form.label.flight-assignment-stats-last-month"/>
         </th>
         <td>
-            <jstl:choose>
-                <jstl:when test="${not empty flightAssignmentStatsLastMonth}">
-                    <acme:print value="${flightAssignmentStatsLastMonth}"/>
-                </jstl:when>
-                <jstl:otherwise>
-                    <p>No se encontraron estadísticas de asignaciones de vuelo para el último mes.</p>
-                </jstl:otherwise>
-            </jstl:choose>
-        </td>
+			<jstl:forEach var="entry" items="${flightAssignmentStatsLastMonth}">
+    			<li>${entry.key}: ${entry.value}</li>
+			</jstl:forEach>
+		</td>
     </tr>
 </table>
 

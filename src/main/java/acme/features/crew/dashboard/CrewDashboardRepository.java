@@ -4,6 +4,7 @@ package acme.features.crew.dashboard;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -13,20 +14,20 @@ import acme.realms.crew.FlightCrewMembers;
 @Repository
 public interface CrewDashboardRepository extends AbstractRepository {
 
-	@Query("SELECT DISTINCT f.leg.destinationCity FROM FlightAssignment f WHERE f.flightCrewMember.id = :id ORDER BY f.leg.scheduledDeparture DESC")
-	List<String> findLastFiveDestinationsByCrewMemberId(int id);
+	@Query("SELECT f.leg.destinationCity FROM FlightAssignment f WHERE f.flightCrewMember.id = :id ORDER BY f.leg.scheduledDeparture DESC")
+	List<String> findLastFiveDestinationsByCrewMemberId(int id, Pageable pageable);
 
-	@Query("SELECT CASE " + "WHEN a.severityLevel BETWEEN 0 AND 3 THEN '0-3' " + "WHEN a.severityLevel BETWEEN 4 AND 7 THEN '4-7' " + "WHEN a.severityLevel BETWEEN 8 AND 10 THEN '8-10' END AS severityRange, " + "COUNT(a) " + "FROM ActivityLog a "
-		+ "WHERE a.flightAssignment.flightCrewMember.id = :id " + "GROUP BY severityRange")
+	@Query("SELECT CASE WHEN a.severityLevel BETWEEN 0 AND 3 THEN '0-3' WHEN a.severityLevel BETWEEN 4 AND 7 THEN '4-7' WHEN a.severityLevel BETWEEN 8 AND 10 THEN '8-10' END AS severityRange, COUNT(a) " + "FROM ActivityLog a "
+		+ "WHERE a.flightAssignment.flightCrewMember.id = :id GROUP BY severityRange")
 	List<Object[]> findLegsByIncidentSeverity(int id);
 
 	@Query("SELECT f.flightCrewMember FROM FlightAssignment f WHERE f.leg.id = (SELECT MAX(l.id) FROM Leg l WHERE l.flight.id = f.leg.flight.id) ORDER BY f.flightCrewMember.id")
 	List<FlightCrewMembers> findCrewMembersInLastLeg(int id);
 
-	@Query("SELECT f.currentStatus, f FROM FlightAssignment f WHERE f.flightCrewMember.id = :id GROUP BY f.currentStatus")
+	@Query("SELECT f.currentStatus, f FROM FlightAssignment f WHERE f.flightCrewMember.id = :id")
 	List<Object[]> findFlightAssignmentsByStatus(int id);
 
-	@Query("SELECT COUNT(f) FROM FlightAssignment f " + "WHERE f.flightCrewMember.id = ?1 " + "AND f.leg.scheduledDeparture BETWEEN ?2 AND ?3 " + "GROUP BY f.leg.scheduledDeparture")
+	@Query("SELECT COUNT(f) FROM FlightAssignment f WHERE f.flightCrewMember.id = ?1 AND f.leg.scheduledDeparture BETWEEN ?2 AND ?3 GROUP BY f.leg.scheduledDeparture")
 	List<Long> findFlightAssignmentsCount(int id, Date startDate, Date endDate);
 
 }
