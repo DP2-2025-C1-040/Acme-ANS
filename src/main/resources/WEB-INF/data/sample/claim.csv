@@ -1,4 +1,4 @@
-key,registrationMoment,passengerEmail,description,type,indicator,key:assistanceAgent,key:leg
+key,registrationMoment,passengerEmail,description,type,accepted,key:assistanceAgent,key:leg
 
 #base entity
 claim-01,2002/07/07 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
