@@ -1,57 +1,57 @@
 key,flightNumber,status,scheduledDeparture,scheduledArrival,originCity,destinationCity,key:departureAirport,key:arrivalAirport,key:aircraft,key:flight,key:airline
 # base entity
-leg-01,DEF0001,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-# flightNumber - standard variations
-leg-02,DEF0002,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-# status - standard variations
-leg-03,DEF0003,DELAYED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-04,DEF0004,DELAYED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-05,DEF0005,CANCELLED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-06,DEF0006,CANCELLED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-07,DEF0007,LANDED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-08,DEF0008,LANDED,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-01,DEF0001,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+# flightNumber - standard variations,"","",""
+leg-02,DEF0002,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+# status - standard variations,"","","",""
+leg-03,DEF0003,DELAYED,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-04,DEF0004,DELAYED,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-05,DEF0005,CANCELLED,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-06,DEF0006,CANCELLED,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-07,DEF0007,LANDED,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-08,DEF0008,LANDED,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # scheduledDeparture - standard variations - Not needed as scheduledArrival also needs scheduleDeparture to be changed
 # scheduledArrival - standard variations
-leg-09,DEF0009,ON_TIME,2025/01/01 00:02,2025/01/01 00:03,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-10,DEF0010,ON_TIME,2028/11/13 00:01,2028/11/13 08:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-11,DEF0011,ON_TIME,2025/07/30 20:01,2025/07/31 04:30,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-09,DEF0009,ON_TIME,2018/10/02 00:02,2018/10/02 00:03,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-10,DEF0010,ON_TIME,2020/03/24 00:01,2020/03/24 03:41,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-11,DEF0011,ON_TIME,2028/11/13 00:01,2028/11/13 08:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 leg-12,DEF0012,ON_TIME,2200/12/31 23:58,2200/12/31 23:59,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-# scheduledDeparture - no singular values
-# scheduledArrival - no singular values
+# scheduledDeparture - no singular values,"","","",""
+# scheduledArrival - no singular values,"","",""
 # originCity - standard variations
-leg-13,DEF0013,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lo,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-14,DEF0014,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,โลเร็ม อิปซัม,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-15,DEF0015,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,لوريم إيبسوم,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-16,DEF0016,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,洛伦·伊普森,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-17,DEF0017,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-13,DEF0013,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lo,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-14,DEF0014,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,โลเร็ม อิปซัม,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-15,DEF0015,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,لوريم إيبسوم,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-16,DEF0016,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,洛伦·伊普森,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-17,DEF0017,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # destinationCity - standard variations
-leg-18,DEF0018,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lo,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-19,DEF0019,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,โลเร็ม อิปซัม,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-20,DEF0020,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,لوريم إيبسوم,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-21,DEF0021,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,洛伦·伊普森,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-22,DEF0022,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,"Lorem ipsum dolor sit amet, consectetur adipiscing",airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-18,DEF0018,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lo,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-19,DEF0019,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,โลเร็ม อิปซัม,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-20,DEF0020,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,لوريم إيبسوم,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-21,DEF0021,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,洛伦·伊普森,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-22,DEF0022,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,"Lorem ipsum dolor sit amet, consectetur adipiscing",airport-01,airport-02,aircraft-01,flight-01,airline-01
 # departureAirport - standard variations
-leg-23,DEF0023,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-03,airport-02,aircraft-01,flight-01,airline-01
-leg-24,DEF0024,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-04,airport-02,aircraft-01,flight-01,airline-01
-leg-25,DEF0025,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-05,airport-02,aircraft-01,flight-01,airline-01
-leg-26,DEF0026,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-06,airport-02,aircraft-01,flight-01,airline-01
+leg-23,DEF0023,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-03,airport-02,aircraft-01,flight-01,airline-01
+leg-24,DEF0024,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-04,airport-02,aircraft-01,flight-01,airline-01
+leg-25,DEF0025,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-05,airport-02,aircraft-01,flight-01,airline-01
+leg-26,DEF0026,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-06,airport-02,aircraft-01,flight-01,airline-01
 # destinationAirport - standard variations
-leg-27,DEF0027,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-28,DEF0028,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-29,DEF0029,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
-leg-30,DEF0030,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-27,DEF0027,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-28,DEF0028,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-29,DEF0029,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-30,DEF0030,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # aircraft - standard variations
-leg-31,DEF0031,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-02,flight-01,airline-01
-leg-32,DEF0032,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-03,flight-01,airline-01
-leg-33,DEF0033,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-04,flight-01,airline-01
-leg-34,DEF0034,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-05,flight-01,airline-01
+leg-31,DEF0031,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-02,flight-01,airline-01
+leg-32,DEF0032,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-03,flight-01,airline-01
+leg-33,DEF0033,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-04,flight-01,airline-01
+leg-34,DEF0034,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-05,flight-01,airline-01
 # flight - standard variations
-leg-35,DEF0035,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-02,airline-01
-leg-36,DEF0036,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-03,airline-01
-leg-37,DEF0037,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-04,airline-01
-leg-38,DEF0038,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-05,airline-01
-# airline - standard variations
-leg-39,DEF0039,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-02
-leg-40,DEF0040,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-03
-leg-41,DEF0041,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-04
-leg-42,DEF0042,ON_TIME,2025/01/01 00:01,2025/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-05
+leg-35,DEF0035,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-02,airline-01
+leg-36,DEF0036,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-03,airline-01
+leg-37,DEF0037,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-04,airline-01
+leg-38,DEF0038,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-05,airline-01
+# airline - standard variations,"","","","","",""
+leg-39,DEF0039,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-02
+leg-40,DEF0040,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-03
+leg-41,DEF0041,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-04
+leg-42,DEF0042,ON_TIME,2008/01/01 00:01,2008/01/01 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,airport-01,airport-02,aircraft-01,flight-01,airline-05
