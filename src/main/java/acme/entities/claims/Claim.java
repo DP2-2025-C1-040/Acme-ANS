@@ -56,7 +56,7 @@ public class Claim extends AbstractEntity {
 	@Mandatory
 	@Transient
 	@Automapped
-	private Boolean				acceped;
+	private Boolean				accepted;
 
 	// Derived attributes -----------------------------------------------------
 
