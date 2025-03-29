@@ -1,4 +1,4 @@
-key,last_update_moment,step,resolution_percentage,indicator,resolution,key:claim
+key,last_update_moment,step,resolution_percentage,accepted,resolution,key:claim
 # base entity
 trackingLog-01,2022/03/10 00:00,Reclamación aceptada,100.00,ACCEPTED,Por decidir,claim-01
 # last_update_moment
