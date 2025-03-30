@@ -21,13 +21,13 @@ public interface CrewDashboardRepository extends AbstractRepository {
 		+ "WHERE a.flightAssignment.flightCrewMember.id = :id GROUP BY severityRange")
 	List<Object[]> findLegsByIncidentSeverity(int id);
 
-	@Query("SELECT f.flightCrewMember FROM FlightAssignment f WHERE f.leg.id = (SELECT MAX(l.id) FROM Leg l WHERE l.flight.id = f.leg.flight.id) ORDER BY f.flightCrewMember.id")
+	@Query("SELECT DISTINCT f.flightCrewMember FROM FlightAssignment f WHERE f.leg.id = (SELECT MAX(l.id) FROM Leg l WHERE l.flight.id = f.leg.flight.id) ORDER BY f.flightCrewMember.id")
 	List<FlightCrewMembers> findCrewMembersInLastLeg(int id);
 
 	@Query("SELECT f.currentStatus, f FROM FlightAssignment f WHERE f.flightCrewMember.id = :id")
 	List<Object[]> findFlightAssignmentsByStatus(int id);
 
-	@Query("SELECT COUNT(f) FROM FlightAssignment f WHERE f.flightCrewMember.id = ?1 AND f.leg.scheduledDeparture BETWEEN ?2 AND ?3 GROUP BY f.leg.scheduledDeparture")
-	List<Long> findFlightAssignmentsCount(int id, Date startDate, Date endDate);
+	@Query("SELECT COUNT(f), f.moment FROM FlightAssignment f WHERE f.flightCrewMember.id = ?1 AND f.moment BETWEEN ?2 AND ?3 GROUP BY f.moment ORDER BY f.moment")
+	List<Object[]> findFlightAssignmentsPerMoment(int id, Date startDate, Date endDate);
 
 }

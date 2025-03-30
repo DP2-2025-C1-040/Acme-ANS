@@ -75,24 +75,21 @@ public class CrewDashboardShowService extends AbstractGuiService<FlightCrewMembe
 
 		dashboard.setFlightAssignmentsByStatus(flightAssignmentsByStatus);
 
-		List<Long> counts = this.repository.findFlightAssignmentsCount(crewMemberId, startDate, endDate);
-		System.out.println("Counts: " + counts);
+		List<Object[]> results = this.repository.findFlightAssignmentsPerMoment(crewMemberId, startDate, endDate);
 
-		if (counts != null && !counts.isEmpty()) {
+		List<Long> counts = results.stream().map(r -> (Long) r[0]).toList();
+
+		if (!counts.isEmpty()) {
 			double avg = counts.stream().mapToDouble(Long::doubleValue).average().orElse(0.0);
 			double min = counts.stream().mapToDouble(Long::doubleValue).min().orElse(0.0);
 			double max = counts.stream().mapToDouble(Long::doubleValue).max().orElse(0.0);
 			double stddev = this.calculateStandardDeviation(counts);
-
-			System.out.println("Avg: " + avg + ", Min: " + min + ", Max: " + max + ", Stddev: " + stddev);
 
 			Map<String, Double> stats = new HashMap<>();
 			stats.put("average", avg);
 			stats.put("min", min);
 			stats.put("max", max);
 			stats.put("stddev", stddev);
-
-			System.out.println("Flight Assignment Stats Last Month: " + stats);
 
 			dashboard.setFlightAssignmentStatsLastMonth(stats);
 		}
