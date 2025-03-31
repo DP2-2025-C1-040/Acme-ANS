@@ -1,5 +1,5 @@
 
-package acme.realms;
+package acme.realms.assistanceAgent;
 
 import java.util.Date;
 
@@ -42,7 +42,7 @@ public class AssistanceAgent extends AbstractRole {
 	private String				employeeCode;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				spokenLanguages;
 
@@ -57,7 +57,7 @@ public class AssistanceAgent extends AbstractRole {
 	private String				briefBio;
 
 	@Optional
-	@ValidMoney
+	@ValidMoney(min = 0.00, max = 1000000.00)
 	@Automapped
 	private Money				salary;
 
