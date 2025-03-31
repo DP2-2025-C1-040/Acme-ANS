@@ -19,6 +19,8 @@ acme.validation.pattern-iata-code.message = El código IATA debe ser 3 letras ma
 acme.validation.pattern-phone-number.message = El número debe contener entre 6 y 15 dígitos y puede comenzar opcionalmente con +
 acme.validation.pattern-employee-code.message = El código debe comenzar con 2 o 3 letras mayúsculas, seguidas de exactamente 6 dígitos
 acme.validation.pattern-promo-code.message = El código debe comenzar con exactamente 4 letras mayúsculas, seguidas de un guion (-) y terminar con 2 dígitos numéricos
+acme.validation.service.promo-code.year.message = El código promocional no es válido para este año.
+acme.validation.service.promo-code.unique.message = Este código promocional ya ha sido usado.
 
 flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = Un miembro de la tripulación no puede ser asignado a varias escalas simultáneamente
 flight-crew-members.flight-assignment.form.error.duty-pilot-assigned = La escala solo puede tener un piloto

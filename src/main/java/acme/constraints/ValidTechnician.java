@@ -11,9 +11,8 @@ import javax.validation.Payload;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = PromoCodeValidator.class)
-
-public @interface ValidPromoCode {
+@Constraint(validatedBy = TechnicianValidator.class)
+public @interface ValidTechnician {
 
 	String message() default "";
 
