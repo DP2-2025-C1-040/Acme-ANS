@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.realms;
+package acme.realms.customer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,12 +21,14 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidUniqueCustomerIdentifier;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidUniqueCustomerIdentifier
 public class Customer extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------

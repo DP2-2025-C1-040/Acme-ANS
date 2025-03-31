@@ -4,33 +4,36 @@ aircraft-00,Standard Model,REG-001,180,12000,ACTIVE,Standard configuration,airli
 # model - standard variations
 aircraft-01,L,REG-002,180,12000,ACTIVE,Minimal model,airline-01
 aircraft-02,Lo,REG-003,180,12000,ACTIVE,Short model,airline-01
-aircraft-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",REG-004,180,12000,ACTIVE,Extended model text,airline-01
-aircraft-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",REG-005,180,12000,ACTIVE,Standard model text,airline-01
-# model - no singular values
+aircraft-03,Lorem ipsum dolor sit am,REG-004,180,12000,ACTIVE,Extended model text,airline-01
+aircraft-04,"Lorem ipsum dolor sit amet, consectetur adipiscin",REG-005,180,12000,ACTIVE,Extended model text,airline-01
+aircraft-05,"Lorem ipsum dolor sit amet, consectetur adipiscing",REG-006,180,12000,ACTIVE,Standard model text,airline-01
 # regNumber - standard variations
-aircraft-05,Standard Model,REG-01,180,12000,ACTIVE,Standard configuration,airline-01
-aircraft-06,Standard Model,REG-02,180,12000,ACTIVE,Standard configuration,airline-01
-aircraft-07,Standard Model,"REG-1234567890123456789012345678901234567890123456",180,12000,ACTIVE,Maximum length regNumber,airline-01
-# regNumber - no singular values
+aircraft-06,Standard Model,L,180,12000,ACTIVE,Standard configuration,airline-01
+aircraft-07,Standard Model,Lo,180,12000,ACTIVE,Standard configuration,airline-01
+aircraft-08,Standard Model,Lorem ipsum dolor sit am,180,12000,ACTIVE,Standard configuration,airline-01
+aircraft-09,Standard Model,"Lorem ipsum dolor sit amet,consectetur adipiscin",180,12000,ACTIVE,Standard configuration,airline-01
+aircraft-10,Standard Model,"Lorem ipsum dolor sit amet,consectetur adipiscing",180,12000,ACTIVE,Standard configuration,airline-01
 # capacity - standard variations
-aircraft-08,Standard Model,REG-008,1,12000,ACTIVE,Minimal capacity,airline-01
-aircraft-09,Standard Model,REG-009,1000,12000,ACTIVE,High capacity,airline-01
+aircraft-11,Standard Model,REG-008,1,12000,ACTIVE,Minimal capacity,airline-01
+aircraft-12,Standard Model,REG-009,2,12000,ACTIVE,Minimal capacity,airline-01
+aircraft-13,Standard Model,REG-010,254,12000,ACTIVE,Minimal capacity,airline-01
+aircraft-14,Standard Model,REG-011,255,12000,ACTIVE,High capacity,airline-01
 # capacity - no singular values
 # cargoWeight - standard variations
-aircraft-10,Standard Model,REG-010,180,2000,ACTIVE,Minimum cargo weight,airline-01
-aircraft-11,Standard Model,REG-011,180,2001,ACTIVE,Just above minimum cargo weight,airline-01
-aircraft-12,Standard Model,REG-012,180,49999,ACTIVE,Just below maximum cargo weight,airline-01
-aircraft-13,Standard Model,REG-013,180,50000,ACTIVE,Maximum cargo weight,airline-01
+aircraft-15,Standard Model,REG-012,180,2000,ACTIVE,Minimum cargo weight,airline-01
+aircraft-16,Standard Model,REG-013,180,2001,ACTIVE,Just above minimum cargo weight,airline-01
+aircraft-17,Standard Model,REG-014,180,49999,ACTIVE,Just below maximum cargo weight,airline-01
+aircraft-18,Standard Model,REG-015,180,50000,ACTIVE,Maximum cargo weight,airline-01
 # cargoWeight - no singular values
 # aircraftStatus - standard variations
-aircraft-14,Standard Model,REG-015,180,12000,MAINTENANCE,Under maintenance,airline-01
+aircraft-19,Standard Model,REG-016,180,12000,MAINTENANCE,Under maintenance,airline-01
 # aircraftStatus - no singular values
 # details - standard variations
-aircraft-15,Standard Model,REG-016,180,12000,ACTIVE,D,airline-01
-aircraft-16,Standard Model,REG-017,180,12000,ACTIVE,De,airline-01
-aircraft-17,Standard Model,REG-018,180,12000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscin",airline-01
-aircraft-18,Standard Model,REG-019,180,12000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing",airline-01
+aircraft-20,Standard Model,REG-017,180,12000,ACTIVE,D,airline-01
+aircraft-21,Standard Model,REG-018,180,12000,ACTIVE,De,airline-01
+aircraft-22,Standard Model,REG-019,180,12000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscin",airline-01
+aircraft-23,Standard Model,REG-020,180,12000,ACTIVE,"Lorem ipsum dolor sit amet, consectetur adipiscing",airline-01
 # details - singular values
-aircraft-19,Standard Model,REG-020,180,12000,ACTIVE,"<script>alert('X');</script>",airline-01
-aircraft-20,Standard Model,REG-021,180,12000,ACTIVE,"<marquee>Hacked</marquee>",airline-01
-aircraft-21,Standard Model,REG-022,180,12000,ACTIVE,"' or 'A' = 'A",airline-01
+aircraft-24,Standard Model,REG-021,180,12000,ACTIVE,<script>alert('X');</script>,airline-01
+aircraft-25,Standard Model,REG-022,180,12000,ACTIVE,<marquee>Hacked</marquee>,airline-01
+aircraft-26,Standard Model,REG-023,180,12000,ACTIVE,' or 'A' = 'A,airline-01

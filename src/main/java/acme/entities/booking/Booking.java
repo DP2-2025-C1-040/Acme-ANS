@@ -29,7 +29,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
-import acme.realms.Customer;
+import acme.realms.customer.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -65,7 +65,7 @@ public class Booking extends AbstractEntity {
 	private Money				price;
 
 	@Optional
-	@ValidString(pattern = "\\d{4}")
+	@ValidString(pattern = "^\\d{4}$")
 	@Automapped
 	private String				lastNibble;
 
