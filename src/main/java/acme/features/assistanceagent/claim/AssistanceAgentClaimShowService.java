@@ -56,7 +56,8 @@ public class AssistanceAgentClaimShowService extends AbstractGuiService<Assistan
 		claim = this.repository.findClaimById(claimId);
 		published = claim.getPublished();
 
-		super.getBuffer().addData(claim);
+		if (published)
+			super.getBuffer().addData(claim);
 
 	}
 
