@@ -16,7 +16,9 @@ public class AssistanceAgentClaimController extends AbstractGuiController<Assist
 	//Internal state --------------------------------------------------------------
 
 	@Autowired
-	private AssistanceAgentClaimListService listService;
+	private AssistanceAgentClaimListService	listService;
+
+	private AssistanceAgentClaimShowService	showService;
 
 	//Constructors ----------------------------------------------------------------
 
@@ -24,5 +26,6 @@ public class AssistanceAgentClaimController extends AbstractGuiController<Assist
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 }
