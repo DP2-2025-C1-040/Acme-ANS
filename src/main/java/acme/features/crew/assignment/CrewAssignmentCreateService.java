@@ -51,7 +51,7 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		super.bindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg");
+		super.bindObject(assignment, "duty", "currentStatus", "remarks", "leg");
 	}
 
 	@Override
@@ -84,28 +84,26 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		Collection<Leg> legs;
+		Collection<Leg> legs = this.assignmentRepository.findAllLegs();
 		SelectChoices choices = new SelectChoices();
-		SelectChoices duties;
-		SelectChoices statuses;
 
-		legs = this.assignmentRepository.findAllLegs();
+		// Agregar la opción vacía
+		choices.add("0", "----", assignment.getLeg() == null);
 
+		// Agregar las opciones de legs
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
 			String label = leg.getFlightNumber() + " - " + leg.getOriginCity() + " - " + leg.getDestinationCity() + " - " + leg.getFlight().getTag();
-
 			boolean isSelected = leg.equals(assignment.getLeg());
 			choices.add(key, label, isSelected);
 		}
 
-		duties = SelectChoices.from(Duty.class, assignment.getDuty());
-		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
+		// Opciones para Duties y Statuses
+		SelectChoices duties = SelectChoices.from(Duty.class, assignment.getDuty());
+		SelectChoices statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 
+		// Unbinding de datos
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg");
-
-		if (assignment.getLeg() != null)
-			dataset.put("leg", choices.getSelected().getKey());
 
 		dataset.put("legs", choices);
 		dataset.put("duties", duties);

@@ -30,7 +30,12 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int id = super.getRequest().getData("id", int.class);
+		FlightAssignment assignment = this.repository.findFlightAssignmentById(id);
+
+		boolean status = assignment != null && assignment.getDraftMode() && super.getRequest().getPrincipal().hasRealm(assignment.getFlightCrewMember());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -56,6 +61,9 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 
 		legs = this.repository.findAllLegs();
 
+		// Agregar opción vacía al principio
+		choices.add("0", "----", assignment.getLeg() == null);
+
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
 			String label = leg.getFlightNumber() + " - " + leg.getOriginCity() + " - " + leg.getDestinationCity() + " - " + leg.getFlight().getTag();
@@ -67,7 +75,7 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 		duties = SelectChoices.from(Duty.class, assignment.getDuty());
 		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 		availabilityStatuses = SelectChoices.from(AvailabilityStatus.class, assignment.getFlightCrewMember().getAvailabilityStatus());
-		legStatuses = SelectChoices.from(LegStatus.class, assignment.getLeg().getStatus());
+		legStatuses = SelectChoices.from(LegStatus.class, assignment.getLeg() != null ? assignment.getLeg().getStatus() : null);
 
 		dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
 
@@ -99,12 +107,13 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 			dataset.put("leg.airline", leg.getAirline().getName());
 		}
 
+		// Si la leg es nula, la opción vacía ("0") será seleccionada
+		dataset.put("leg", assignment.getLeg() != null ? choices.getSelected().getKey() : "0");
 		dataset.put("confirmation", false);
 		dataset.put("duties", duties);
 		dataset.put("statuses", statuses);
 		dataset.put("availabilityStatuses", availabilityStatuses);
 		dataset.put("legStatuses", legStatuses);
-		dataset.put("leg", choices.getSelected().getKey());
 		dataset.put("legs", choices);
 
 		super.getResponse().addData(dataset);

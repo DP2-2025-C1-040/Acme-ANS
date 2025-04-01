@@ -17,7 +17,7 @@
 
 <acme:form readonly="${readonly}">
     <acme:input-select code="flight-crew-members.flight-assignment.form.label.duty" path="duty" choices="${duties}"/>
-    <acme:input-moment code="flight-crew-members.flight-assignment.form.label.moment" path="moment"/>    
+    <acme:input-moment code="flight-crew-members.flight-assignment.form.label.moment" path="moment" readonly="true"/>    
     <acme:input-select code="flight-crew-members.flight-assignment.form.label.currentStatus" path="currentStatus" choices="${statuses}"/>
     <acme:input-textarea code="flight-crew-members.flight-assignment.form.label.remarks" path="remarks"/>
 

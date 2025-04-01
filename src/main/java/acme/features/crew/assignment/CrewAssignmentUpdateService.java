@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.assignment.CurrentStatus;
@@ -30,7 +31,9 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 	public void authorise() {
 		int id = super.getRequest().getData("id", int.class);
 		FlightAssignment assignment = this.assignmentRepository.findFlightAssignmentById(id);
-		boolean status = assignment.getDraftMode();
+
+		boolean status = assignment != null && assignment.getDraftMode() && super.getRequest().getPrincipal().hasRealm(assignment.getFlightCrewMember());
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -47,7 +50,7 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		super.bindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg");
+		super.bindObject(assignment, "duty", "currentStatus", "remarks", "leg");
 	}
 
 	@Override
@@ -70,12 +73,11 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 			super.state(!(isPilotAssigned && assignment.getDuty() == Duty.PILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-pilot-assigned");
 			super.state(!(isCoPilotAssigned && assignment.getDuty() == Duty.COPILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-copilot-assigned");
 		}
-
-		// Otras validaciones pueden ir aquí...
 	}
 
 	@Override
 	public void perform(final FlightAssignment assignment) {
+		assignment.setMoment(MomentHelper.getCurrentMoment());
 		this.repository.save(assignment);
 	}
 
@@ -87,6 +89,9 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		SelectChoices statuses;
 
 		legs = this.assignmentRepository.findAllLegs();
+
+		// Agregar la opción vacía al inicio
+		choices.add("0", "----", assignment.getLeg() == null);
 
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
@@ -100,9 +105,10 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
-		if (assignment.getLeg() != null)
-			dataset.put("leg", choices.getSelected().getKey());
-		;
+
+		// Si la leg es nula, se asigna la opción vacía
+		dataset.put("leg", assignment.getLeg() != null ? choices.getSelected().getKey() : "0");
+
 		dataset.put("legs", choices);
 		dataset.put("duties", duties);
 		dataset.put("statuses", statuses);
