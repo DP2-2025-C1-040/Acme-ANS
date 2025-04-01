@@ -21,7 +21,7 @@ administrator.airline.form.label.webSite = Web Site:
 administrator.airline.form.label.type = Type:
 administrator.airline.form.label.foundationMoment = Foundation Moment:
 administrator.airline.form.label.emailAddress = Email Address:
-administrator.airline.form.label.contactPhoneNumber = Contact Phone Number:
+administrator.airline.form.label.phoneNumber = Phone Number:
 
 administrator.airline.form.button.create = Create
 administrator.airline.form.button.update = Update

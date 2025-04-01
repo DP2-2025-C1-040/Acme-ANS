@@ -22,7 +22,7 @@
 	<acme:input-select code="administrator.airline.form.label.type" path="types" choices="${types}"/>
 	<acme:input-moment code="administrator.airline.form.label.foundationMoment" path="foundationMoment"/>
 	<acme:input-email code="administrator.airline.form.label.emailAddress" path="emailAddress"/>
-	<acme:input-textbox code="administrator.airline.form.label.contactPhoneNumber" path="contactPhoneNumber"/>
+	<acme:input-textbox code="administrator.airline.form.label.phoneNumber" path="phoneNumber"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
