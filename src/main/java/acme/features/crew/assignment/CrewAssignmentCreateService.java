@@ -75,7 +75,6 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 			super.state(!(isCoPilotAssigned && assignment.getDuty() == Duty.COPILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-copilot-assigned");
 		}
 
-		// Otras validaciones pueden ir aquí...
 	}
 
 	@Override

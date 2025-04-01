@@ -17,9 +17,9 @@
 
 <acme:form readonly="${readonly}">
     <acme:input-select code="flight-crew-members.flight-assignment.form.label.duty" path="duty" choices="${duties}"/>
-    <acme:input-textbox code="flight-crew-members.flight-assignment.form.label.moment" path="moment"/>    
+    <acme:input-moment code="flight-crew-members.flight-assignment.form.label.moment" path="moment"/>    
     <acme:input-select code="flight-crew-members.flight-assignment.form.label.currentStatus" path="currentStatus" choices="${statuses}"/>
-    <acme:input-textbox code="flight-crew-members.flight-assignment.form.label.remarks" path="remarks"/>
+    <acme:input-textarea code="flight-crew-members.flight-assignment.form.label.remarks" path="remarks"/>
 
     <jstl:choose>
     	<jstl:when test="${_command == 'show' && draftMode == false}">
@@ -32,8 +32,8 @@
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber" path="flightCrewMember.phoneNumber" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills" path="flightCrewMember.languageSkills" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus" path="flightCrewMember.availabilityStatus" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.salary" path="flightCrewMember.salary" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
+			<acme:input-money code="flight-crew-members.flight-assignment.form.label.flightCrewMember.salary" path="flightCrewMember.salary" readonly="true"/>
+			<acme:input-integer code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.airline" path="flightCrewMember.airline" readonly="true"/>
 
     		<!-- Datos de Leg -->
@@ -42,8 +42,8 @@
 			</span>
     		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flightNumber" path="leg.flightNumber" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.status" path="leg.status" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture" path="leg.scheduledDeparture" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledArrival" path="leg.scheduledArrival" readonly="true"/>
+			<acme:input-moment code="flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture" path="leg.scheduledDeparture" readonly="true"/>
+			<acme:input-moment code="flight-crew-members.flight-assignment.form.label.leg.scheduledArrival" path="leg.scheduledArrival" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.originCity" path="leg.originCity" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.destinationCity" path="leg.destinationCity" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.departureAirport" path="leg.departureAirport" readonly="true"/>
@@ -62,8 +62,8 @@
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber" path="flightCrewMember.phoneNumber" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills" path="flightCrewMember.languageSkills" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus" path="flightCrewMember.availabilityStatus" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.salary" path="flightCrewMember.salary" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
+			<acme:input-money code="flight-crew-members.flight-assignment.form.label.flightCrewMember.salary" path="flightCrewMember.salary" readonly="true"/>
+			<acme:input-integer code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.airline" path="flightCrewMember.airline" readonly="true"/>
 
     		<!-- Datos de Leg -->
@@ -72,8 +72,8 @@
 			</span>
     		<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flightNumber" path="leg.flightNumber" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.status" path="leg.status" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture" path="leg.scheduledDeparture" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.scheduledArrival" path="leg.scheduledArrival" readonly="true"/>
+			<acme:input-moment code="flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture" path="leg.scheduledDeparture" readonly="true"/>
+			<acme:input-moment code="flight-crew-members.flight-assignment.form.label.leg.scheduledArrival" path="leg.scheduledArrival" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.originCity" path="leg.originCity" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.destinationCity" path="leg.destinationCity" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.departureAirport" path="leg.departureAirport" readonly="true"/>
