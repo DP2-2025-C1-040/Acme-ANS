@@ -4,15 +4,15 @@ package acme.features.administrator.airline;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.principals.Administrator;
-import acme.client.services.AbstractService;
+import acme.client.services.AbstractGuiService;
+import acme.client.services.GuiService;
 import acme.entities.airline.Airline;
 
-@Service
-public class AdministratorAirlineListService extends AbstractService<Administrator, Airline> {
+@GuiService
+public class AdministratorAirlineListService extends AbstractGuiService<Administrator, Airline> {
 
 	// Internal state ---------------------------------------------------------
 

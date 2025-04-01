@@ -2,17 +2,17 @@
 package acme.features.administrator.airline;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.principals.Administrator;
 import acme.client.components.views.SelectChoices;
-import acme.client.services.AbstractService;
+import acme.client.services.AbstractGuiService;
+import acme.client.services.GuiService;
 import acme.entities.airline.Airline;
 import acme.entities.airline.AirlineType;
 
-@Service
-public class AdministratorAirlineShowService extends AbstractService<Administrator, Airline> {
+@GuiService
+public class AdministratorAirlineShowService extends AbstractGuiService<Administrator, Airline> {
 
 	// Internal state ---------------------------------------------------------
 
