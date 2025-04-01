@@ -8,10 +8,12 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = IataCodeValidatorAirport.class)
+@ReportAsSingleViolation
 public @interface ValidIataCodeAirport {
 
 	String message() default "";

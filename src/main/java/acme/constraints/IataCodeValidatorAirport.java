@@ -28,18 +28,30 @@ public class IataCodeValidatorAirport extends AbstractValidator<ValidIataCodeAir
 	public boolean isValid(final Airport airport, final ConstraintValidatorContext context) {
 		assert context != null;
 
-		boolean result = true;
+		boolean result = true; // Inicialmente asumimos que es válido
 
-		if (airport == null || airport.getIataCode() == null)
+		// 🚨 Si el aeropuerto o el código IATA es nulo, marcar error
+		if (airport == null || airport.getIataCode() == null) {
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-		else {
+			result = false;
+		} else {
 			String iataCode = airport.getIataCode();
-			Integer entityId = airport.getId();
-			boolean exists = this.airportRepository.existsByIataCodeAndIdNot(iataCode, entityId);
 
-			super.state(context, !exists, "iataCode", "acme.validation.airport.duplicated-iata-code.message");
+			// 🚨 Si el patrón no es correcto, no hacer validación personalizada
+			if (!iataCode.matches("[A-Z]{3}"))
+				result = true; // Evitamos ejecutar la validación personalizada
+			else {
+				// 🛑 Validación personalizada: Verificar si el código ya existe
+				Integer entityId = airport.getId();
+				boolean exists = this.airportRepository.existsByIataCodeAndIdNot(iataCode, entityId);
+
+				if (exists) {
+					super.state(context, false, "iataCode", "acme.validation.airport.duplicated-iata-code.message");
+					result = false;
+				}
+			}
 		}
-		result = !super.hasErrors(context);
+
 		return result;
 	}
 
