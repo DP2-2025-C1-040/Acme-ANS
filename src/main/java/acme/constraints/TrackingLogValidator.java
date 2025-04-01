@@ -25,7 +25,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 		if (trackingLog == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			TrackingLogStatus trackingLogStatus = trackingLog.getAccepted();
+			TrackingLogStatus trackingLogStatus = trackingLog.getStatus();
 			{
 				double percentage = trackingLog.getResolutionPercentage();
 				boolean correctStatusUncompleted = percentage < 100.00 && trackingLogStatus.equals(TrackingLogStatus.PENDING);

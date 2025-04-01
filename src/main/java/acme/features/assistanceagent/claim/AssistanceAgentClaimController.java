@@ -18,6 +18,7 @@ public class AssistanceAgentClaimController extends AbstractGuiController<Assist
 	@Autowired
 	private AssistanceAgentClaimListService	listService;
 
+	@Autowired
 	private AssistanceAgentClaimShowService	showService;
 
 	//Constructors ----------------------------------------------------------------

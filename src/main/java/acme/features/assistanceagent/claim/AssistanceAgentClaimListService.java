@@ -48,13 +48,14 @@ public class AssistanceAgentClaimListService extends AbstractGuiService<Assistan
 		ClaimStatus status;
 
 		Boolean published = claim.getPublished();
-		status = claim.getAccepted();
+		status = claim.getStatus();
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type");
 		dataset.put("status", status);
 		super.addPayload(dataset, claim, "registrationMoment", "description");
 
-		super.getResponse().addData(dataset);
+		if (published)
+			super.getResponse().addData(dataset);
 
 	}
 
