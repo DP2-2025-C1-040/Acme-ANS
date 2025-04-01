@@ -12,7 +12,7 @@ import acme.entities.airline.Airline;
 import acme.entities.airline.AirlineType;
 
 @GuiService
-public class AdministratorAirlineShowService extends AbstractGuiService<Administrator, Airline> {
+public class AdministratorAirlineCreateService extends AbstractGuiService<Administrator, Airline> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -29,23 +29,37 @@ public class AdministratorAirlineShowService extends AbstractGuiService<Administ
 
 	@Override
 	public void load() {
-		Airline airline;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		airline = this.repository.findAirlineById(id);
-
+		Airline airline = new Airline();
 		super.getBuffer().addData(airline);
+	}
+
+	@Override
+	public void bind(final Airline airline) {
+		super.bindObject(airline, "name", "iataCode", "webSite", "foundationMoment", "emailAddress", "phoneNumber", "type");
+	}
+
+	@Override
+	public void validate(final Airline airline) {
+		{
+			boolean confirmation;
+
+			confirmation = super.getRequest().getData("confirmation", boolean.class);
+			super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+		}
+	}
+
+	@Override
+	public void perform(final Airline airline) {
+		this.repository.save(airline);
 	}
 
 	@Override
 	public void unbind(final Airline airline) {
 		SelectChoices choices;
-		Dataset dataset;
 
 		choices = SelectChoices.from(AirlineType.class, airline.getType());
 
-		dataset = super.unbindObject(airline, "name", "iataCode", "webSite", "foundationMoment", "emailAddress", "phoneNumber", "type");
+		Dataset dataset = super.unbindObject(airline, "name", "iataCode", "webSite", "foundationMoment", "emailAddress", "phoneNumber", "type");
 		dataset.put("confirmation", false);
 		dataset.put("types", choices);
 

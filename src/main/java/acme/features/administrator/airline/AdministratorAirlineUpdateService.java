@@ -12,7 +12,7 @@ import acme.entities.airline.Airline;
 import acme.entities.airline.AirlineType;
 
 @GuiService
-public class AdministratorAirlineShowService extends AbstractGuiService<Administrator, Airline> {
+public class AdministratorAirlineUpdateService extends AbstractGuiService<Administrator, Airline> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -29,24 +29,43 @@ public class AdministratorAirlineShowService extends AbstractGuiService<Administ
 
 	@Override
 	public void load() {
-		Airline airline;
+		Airline Airline;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		airline = this.repository.findAirlineById(id);
+		Airline = this.repository.findAirlineById(id);
 
-		super.getBuffer().addData(airline);
+		super.getBuffer().addData(Airline);
 	}
 
 	@Override
-	public void unbind(final Airline airline) {
+	public void bind(final Airline Airline) {
+		super.bindObject(Airline, "name", "iataCode", "webSite", "foundationMoment", "emailAddress", "phoneNumber", "type");
+	}
+
+	@Override
+	public void validate(final Airline Airline) {
+		{
+			boolean confirmation;
+
+			confirmation = super.getRequest().getData("confirmation", boolean.class);
+			super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+		}
+	}
+
+	@Override
+	public void perform(final Airline Airline) {
+		this.repository.save(Airline);
+	}
+
+	@Override
+	public void unbind(final Airline Airline) {
 		SelectChoices choices;
 		Dataset dataset;
 
-		choices = SelectChoices.from(AirlineType.class, airline.getType());
+		choices = SelectChoices.from(AirlineType.class, Airline.getType());
 
-		dataset = super.unbindObject(airline, "name", "iataCode", "webSite", "foundationMoment", "emailAddress", "phoneNumber", "type");
-		dataset.put("confirmation", false);
+		dataset = super.unbindObject(Airline, "name", "iataCode", "webSite", "foundationMoment", "emailAddress", "phoneNumber", "type");
 		dataset.put("types", choices);
 
 		super.getResponse().addData(dataset);
