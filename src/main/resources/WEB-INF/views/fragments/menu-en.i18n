@@ -22,6 +22,7 @@ master.menu.anonymous.javier = ****0609: Aponte Pozon, Javier
 
 master.menu.administrator = Administrator
 master.menu.administrator.airport = Airports
+master.menu.administrator.airline = Airline
 master.menu.administrator.list-user-accounts = List user accounts
 master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
