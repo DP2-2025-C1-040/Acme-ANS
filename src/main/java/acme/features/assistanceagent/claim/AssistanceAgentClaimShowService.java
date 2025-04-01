@@ -1,14 +1,20 @@
 
 package acme.features.assistanceagent.claim;
 
+import java.util.Collection;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
+import acme.entities.claims.ClaimStatus;
 import acme.entities.claims.ClaimType;
+import acme.entities.leg.Leg;
 import acme.realms.assistanceAgent.AssistanceAgent;
 
 @GuiService
@@ -25,7 +31,20 @@ public class AssistanceAgentClaimShowService extends AbstractGuiService<Assistan
 	//Seguro?
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Claim claim;
+		int claimId;
+		int clainAgentId;
+		int agentId;
+		boolean owned;
+
+		claimId = super.getRequest().getData("id", int.class);
+		claim = this.repository.findClaimById(claimId);
+
+		agentId = super.getRequest().getPrincipal().getAccountId();
+		clainAgentId = claim.getAssistanceAgent().getUserAccount().getId();
+		owned = clainAgentId == agentId;
+
+		super.getResponse().setAuthorised(owned);
 
 	}
 
@@ -33,24 +52,42 @@ public class AssistanceAgentClaimShowService extends AbstractGuiService<Assistan
 	public void load() {
 		Claim claim;
 		int claimId;
+		Boolean published;
 
 		claimId = super.getRequest().getData("id", int.class);
 		claim = this.repository.findClaimById(claimId);
+		published = claim.getPublished();
 
 		super.getBuffer().addData(claim);
 
 	}
 
+	//Revisar este metodo ya que hay cosas inconclusa 
+	//CUANDO SE ARREGLE EL BUG TEMPORAL DE LAS LEGS SE USARA LA LINEA COMENTADA
 	@Override
 	public void unbind(final Claim claim) {
+
 		Dataset dataset;
-		SelectChoices choices;
+		ClaimStatus indicator;
+		Collection<Leg> legs;
+		SelectChoices typesChoices;
+		SelectChoices legsChoices;
 
-		choices = SelectChoices.from(ClaimType.class, claim.getType());
+		Date actualMoment;
 
-		dataset = super.unbindObject(claim, "registrationMoment", "status", "leg", "type");
-		dataset.put("type", choices);
+		actualMoment = MomentHelper.getCurrentMoment();
+
+		indicator = claim.getStatus();
+		typesChoices = SelectChoices.from(ClaimType.class, claim.getType());
+		legs = this.repository.findAllLeg();
+		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
+
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "status", "published");
+		dataset.put("types", typesChoices);
+		dataset.put("leg", legsChoices.getSelected().getKey());
+		dataset.put("legs", legsChoices);
 
 		super.getResponse().addData(dataset);
+
 	}
 }

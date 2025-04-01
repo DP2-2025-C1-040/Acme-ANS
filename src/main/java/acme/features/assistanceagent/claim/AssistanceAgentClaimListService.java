@@ -54,7 +54,7 @@ public class AssistanceAgentClaimListService extends AbstractGuiService<Assistan
 		dataset.put("status", status);
 		super.addPayload(dataset, claim, "registrationMoment", "description");
 
-		if (published)
+		if (published && (status == ClaimStatus.ACCEPTED || status == ClaimStatus.REJECTED))
 			super.getResponse().addData(dataset);
 
 	}
