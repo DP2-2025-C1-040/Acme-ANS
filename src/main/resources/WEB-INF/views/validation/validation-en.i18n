@@ -17,3 +17,5 @@ acme.validation.service.promo-code.year.message = This promo code is not valid f
 acme.validation.flight-crew-member.duplicated-employee-code.message = The employee code must be unique.
 acme.validation.airport.duplicated-iata-code.message = The IATA code must be unique.
 acme.validation.airline.duplicated-iata-code.message = The IATA code must be unique.
+acme.validation.assistanceagent.employeeCode.duplicated.message = The employee code must be unique.
+acme.validation.assistanceagent.employeeCode.message= The employee code is incorrect.
