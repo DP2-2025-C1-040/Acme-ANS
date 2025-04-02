@@ -1,0 +1,40 @@
+# defaults-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+## LIST #######################################################
+
+technician.task.list.title = List of Tasks
+
+technician.task.list.label.type = Type
+technician.task.list.label.description = Description
+technician.task.list.label.priority = Priority
+technician.task.list.label.estimatedDuration = Estimated duration
+
+## FORM #######################################################
+
+technician.task.form.title = Task
+
+technician.task.form.label.type = Type:
+technician.task.form.label.description = Description:
+technician.task.form.label.priority = Priority:
+technician.task.form.label.estimatedDuration = Estimated duration:
+technician.task.form.label.draftMode = Draft mode
+
+technician.task.form.placeholder.priority = 0 - 10
+technician.task.form.placeholder.priority = 0 - 1000
+
+## BUTTONS ####################################################
+
+technician.task.list.button.create = Create
+
+technician.task.form.button.update = Update
+technician.task.form.button.publish = Publish
+technician.task.form.button.delete = Delete
+technician.task.form.button.create = Create
