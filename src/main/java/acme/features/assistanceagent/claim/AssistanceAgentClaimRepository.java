@@ -2,6 +2,7 @@
 package acme.features.assistanceagent.claim;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -31,5 +32,8 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 
 	@Query("SELECT tl FROM TrackingLog tl WHERE tl.claim.id = :claimId")
 	Collection<TrackingLog> findTrackingLogsByClaimId(int claimId);
+
+	@Query("SELECT l FROM Leg l WHERE l.scheduledDeparture <= :actualMoment OR l.scheduledArrival <= :actualMoment")
+	Collection<Leg> findAllLegsBefore(Date actualMoment);
 
 }
