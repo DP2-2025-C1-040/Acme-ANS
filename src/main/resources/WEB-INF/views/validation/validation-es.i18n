@@ -17,3 +17,6 @@ acme.validation.airport.duplicated-iata-code.message = El código IATA debe ser 
 acme.validation.airline.duplicated-iata-code.message = El código IATA debe ser único.
 acme.validation.assistanceagent.employeeCode.duplicated.message = El código del empleado debe ser único.
 acme.validation.assistanceagent.employeeCode.message= El código del empleado es incorrecto.
+acme.validation.claim.delete-when-published= Una reclamación publicada no puede ser eliminada
+acme.validation.claim.delete-trackinglogs-published = Una reclamación con seguimientos publicados no puede ser eliminada
+	

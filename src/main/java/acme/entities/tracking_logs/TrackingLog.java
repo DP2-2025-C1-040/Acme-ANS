@@ -58,6 +58,11 @@ public class TrackingLog extends AbstractEntity {
 	@Automapped
 	private String				resolution;
 
+	@Mandatory
+	@Valid
+	@Automapped
+	public Boolean				published;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
