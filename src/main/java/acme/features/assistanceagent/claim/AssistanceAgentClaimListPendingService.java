@@ -13,7 +13,7 @@ import acme.entities.claims.ClaimStatus;
 import acme.realms.assistanceAgent.AssistanceAgent;
 
 @GuiService
-public class AssistanceAgentClaimListService extends AbstractGuiService<AssistanceAgent, Claim> {
+public class AssistanceAgentClaimListPendingService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	//Internal state ---------------------------------------------
 
@@ -54,7 +54,7 @@ public class AssistanceAgentClaimListService extends AbstractGuiService<Assistan
 		dataset.put("status", status);
 		super.addPayload(dataset, claim, "registrationMoment", "description");
 
-		if (published == true && (status == ClaimStatus.ACCEPTED || status == ClaimStatus.REJECTED))
+		if (published == false && status==ClaimStatus.PENDING)
 			super.getResponse().addData(dataset);
 
 	}
