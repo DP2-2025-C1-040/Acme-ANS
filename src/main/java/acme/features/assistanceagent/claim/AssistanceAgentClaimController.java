@@ -41,7 +41,7 @@ public class AssistanceAgentClaimController extends AbstractGuiController<Assist
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("delete", this.deleteService);
-		super.addBasicCommand("update", this.createService);
+		super.addBasicCommand("update", this.updateService);
 
 		super.addCustomCommand("list-pending", "list", this.listPendingService);
 	}
