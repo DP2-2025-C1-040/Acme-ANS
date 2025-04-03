@@ -16,6 +16,15 @@ acme.validation.assistance-agent.employee-code.message = The employeeCode is inc
 acme.validation.service.promo-code.year.message = This promo code is not valid for this year.
 acme.validation.service.promo-code.unique.message = This promo code has been used.
 acme.validation.flight-crew-member.duplicated-employee-code.message = The employee code must be unique.
+
+acme.validation.airport.duplicated-iata-code.message = The IATA code must be unique.
+acme.validation.airline.duplicated-iata-code.message = The IATA code must be unique.
+acme.validation.assistanceagent.employeeCode.duplicated.message = The employee code must be unique.
+acme.validation.assistanceagent.employeeCode.message= The employee code is incorrect.
+acme.validation.claim.delete-when-published= A published claim cannot be delete.
+acme.validation.claim.delete-trackinglogs-published= A claim with tracking logs published cannot be delete.
+acme.validation.claim.publish-not-completed = This claim isn't completed, It can't be published.
+
 flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = A flight crew member cannot be assigned to multiple legs simultaneously
 flight-crew-members.flight-assignment.form.error.duty-pilot-assigned = The leg can only have one pilot
 flight-crew-members.flight-assignment.form.error.duty-copilot-assigned = The leg can only have one copilot

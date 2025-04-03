@@ -39,6 +39,12 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-system-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.assistance-agent.claims" access="hasRealm('AssistanceAgent')">
+			<acme:menu-suboption code="master.menu.assistance-agent.claims.claims-list" action="/assistance-agent/claim/list"/>
+			<acme:menu-suboption code="master.menu.assistance-agent.claims.list-claims-pending" action="/assistance-agent/claim/list-pending"/>	
+			
+		</acme:menu-option>	
 
     <acme:menu-option code="master.menu.flightCrewMember" access="hasRealm('FlightCrewMembers')">
 			<acme:menu-suboption code="master.menu.flightCrewMember.assignments.list-landed" action="/flight-crew-members/flight-assignment/list-landed"/>

@@ -60,3 +60,9 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
+
+#master.menu.assistance-agent.claims ####################################################
+
+master.menu.assistance-agent.claims= Claims
+master.menu.assistance-agent.claims.claims-list = List claims
+master.menu.assistance-agent.claims.list-claims-pending = List pending claims

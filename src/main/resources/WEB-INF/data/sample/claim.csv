@@ -1,39 +1,51 @@
-key,registrationMoment,passengerEmail,description,type,accepted,key:assistanceAgent,key:leg
 
-#base entity
-claim-01,2002/07/07 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
+key,registrationMoment,passengerEmail,description,type,published,key:assistanceAgent,key:leg
+# base entity
+claim-01,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
 
-#registrationMoment
-claim-02,2003/10/23 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-03,2015/12/16 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-04,2022/04/10 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-05,2015/12/02 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-06,2005/09/22 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
+# registrationMoment - standard variations
+claim-02,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-03,2000/01/01 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-04,2000/01/01 00:01,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-05,2024/12/31 23:59,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-06,2025/01/01 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
 
-#passengerEmail
-claim-07,2002/07/07 00:00,thisisotherexample@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-08,2002/07/07 00:00,correoejemplo@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-09,2002/07/07 00:00,algo@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-10,2002/07/07 00:00,otroejemplo@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-11,2002/07/07 00:00,elultimo@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-01
+# passengerEmail - standard variations
+claim-07,2012/07/02 00:00,"acme@lorem-ipsum.org","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-08,2012/07/02 00:00,"acmepassword@lorem-ipsum.org","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-09,2012/07/02 00:00,"a@b.e","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-10,2012/07/02 00:00,"a@b.es","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-11,2012/07/02 00:00,"a@b.esx","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-12,2012/07/02 00:00,"lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-13,2012/07/02 00:00,"lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
 
-#description
-claim-12,2002/07/07 00:00,example@email.com,Desaparecido,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-13,2002/07/07 00:00,example@email.com,Dañado,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-14,2002/07/07 00:00,example@email.com,Missing,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-15,2002/07/07 00:00,example@email.com,Wrong luggage,LUGGAGE_ISSUES,false,agent-01,leg-01
-claim-16,2002/07/07 00:00,example@email.com,This is not my luggage,LUGGAGE_ISSUES,false,agent-01,leg-01
+# description - standard variations
+claim-14,2012/07/02 00:00,"joel@acme.com",Lorem ipsum dolor sit amet. consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-15,2012/07/02 00:00,"joel@acme.com",L,LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-16,2012/07/02 00:00,"joel@acme.com",Lo,LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-17,2012/07/02 00:00,"joel@acme.com",Lorem ipsum dolor sit amet. consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-18,2012/07/02 00:00,"joel@acme.com",Lorem ipsum dolor sit amet. consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,LUGGAGE_ISSUES,true,agent-01,leg-01
 
-#type
-claim-17,2002/07/07 00:00,example@email.com,Perdido,FLIGHT_ISSUES,false,agent-01,leg-01
-claim-18,2002/07/07 00:00,example@email.com,Perdido,SECURITY_INCIDENT,false,agent-01,leg-01
-claim-19,2002/07/07 00:00,example@email.com,Perdido,OTHER_ISSUES,false,agent-01,leg-01
+# description - no singular values
+claim-19,2012/07/02 00:00,"joel@acme.com","โลเร็ม อิปซัม",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-20,2012/07/02 00:00,"joel@acme.com",โلوريم إيبسوم,LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-21,2012/07/02 00:00,"joel@acme.com","洛伦·伊普森",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-22,2012/07/02 00:00,"joel@acme.com","<marquee>Hacked</marquee>",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-23,2012/07/02 00:00,"joel@acme.com","<script>alert(‘Hacked!’);</script>",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-24,2012/07/02 00:00,"joel@acme.com","' or 'A' = 'A",LUGGAGE_ISSUES,true,agent-01,leg-01
 
-#indicator
-claim-20,2002/07/07 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,true,agent-01,leg-01
+# type - standard variations
+claim-25,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
+claim-26,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",FLIGHT_ISSUES,true,agent-01,leg-01
+claim-27,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",SECURITY_INCIDENT,true,agent-01,leg-01
+claim-28,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",OTHER_ISSUES,true,agent-01,leg-01
 
-#agent
-claim-21,2002/07/07 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-02,leg-01
+# status - standard variations
+claim-29,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,false,agent-01,leg-01
+claim-30,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,false,agent-01,leg-01
 
-#leg
-claim-22,2002/07/07 00:00,example@email.com,Perdido,LUGGAGE_ISSUES,false,agent-01,leg-02
+# published - standard variations
+claim-31,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,false,agent-01,leg-01
+claim-32,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,false,agent-01,leg-01
+
+
