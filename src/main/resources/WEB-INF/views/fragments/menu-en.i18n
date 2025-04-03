@@ -23,6 +23,7 @@ master.menu.anonymous.javier = ****0609: Aponte Pozon, Javier
 master.menu.administrator = Administrator
 master.menu.administrator.airport = Airports
 master.menu.administrator.airline = Airline
+master.menu.administrator.aircraft = Aircrafts
 master.menu.administrator.list-user-accounts = List user accounts
 master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
@@ -35,6 +36,11 @@ master.menu.flightCrewMember.assignments.list-landed = Flight Assignments Landed
 master.menu.flightCrewMember.assignments.list-programmed = Flight Assignments Programmed
 master.menu.flightCrewMember.activityLogs.list = Activity Logs
 master.menu.flightCrewMember.show-flight-crew-member-dashboard = Dashboard
+
+# master.menu.technician ######################################################
+
+master.menu.technician = Technician
+master.menu.technician.list-task = List tasks
 
 # master.menu.provider ########################################################
 

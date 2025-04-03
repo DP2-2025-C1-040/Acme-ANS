@@ -30,6 +30,7 @@
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.airport" action="/administrator/airport/list"/>
 			<acme:menu-suboption code="master.menu.administrator.airline" action="/administrator/airline/list"/>
+			<acme:menu-suboption code="master.menu.administrator.aircraft" action="/administrator/aircraft/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.list-user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -38,13 +39,17 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-system-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.flightCrewMember" access="hasRealm('FlightCrewMembers')">
+
+    <acme:menu-option code="master.menu.flightCrewMember" access="hasRealm('FlightCrewMembers')">
 			<acme:menu-suboption code="master.menu.flightCrewMember.assignments.list-landed" action="/flight-crew-members/flight-assignment/list-landed"/>
 			<acme:menu-suboption code="master.menu.flightCrewMember.assignments.list-programmed" action="/flight-crew-members/flight-assignment/list-programmed"/>
 			<acme:menu-suboption code="master.menu.flightCrewMember.activityLogs.list" action="/flight-crew-members/activity-log/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.flightCrewMember.show-flight-crew-member-dashboard" action="/flight-crew-members/crew-dashboard/show"/>
+		</acme:menu-option>
+  
+		<acme:menu-option code="master.menu.technician" access="hasRealm('Technician')">
+			<acme:menu-suboption code="master.menu.technician.list-task" action="/technician/task/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRealm('Provider')">
