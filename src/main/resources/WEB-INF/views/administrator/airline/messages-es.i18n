@@ -25,6 +25,6 @@ administrator.airline.form.label.phoneNumber = Número de teléfono:
 
 administrator.airline.form.button.create = Crear
 administrator.airline.form.button.update = Actualizar
-administrator.airline.form.label.confirmation = Confirma que el aeropuerto es correcto.
+administrator.airline.form.label.confirmation = Confirma que la aerolínea es correcta.
 
 administrator.airline.list.button.create = Crear
