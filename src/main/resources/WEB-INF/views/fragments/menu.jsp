@@ -39,7 +39,15 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-system-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
-		
+
+    <acme:menu-option code="master.menu.flightCrewMember" access="hasRealm('FlightCrewMembers')">
+			<acme:menu-suboption code="master.menu.flightCrewMember.assignments.list-landed" action="/flight-crew-members/flight-assignment/list-landed"/>
+			<acme:menu-suboption code="master.menu.flightCrewMember.assignments.list-programmed" action="/flight-crew-members/flight-assignment/list-programmed"/>
+			<acme:menu-suboption code="master.menu.flightCrewMember.activityLogs.list" action="/flight-crew-members/activity-log/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.flightCrewMember.show-flight-crew-member-dashboard" action="/flight-crew-members/crew-dashboard/show"/>
+		</acme:menu-option>
+  
 		<acme:menu-option code="master.menu.technician" access="hasRealm('Technician')">
 			<acme:menu-suboption code="master.menu.technician.list-task" action="/technician/task/list"/>
 		</acme:menu-option>
