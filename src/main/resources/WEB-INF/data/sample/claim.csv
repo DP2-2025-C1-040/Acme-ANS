@@ -1,4 +1,3 @@
-
 key,registrationMoment,passengerEmail,description,type,published,key:assistanceAgent,key:leg
 # base entity
 claim-01,2012/07/02 00:00,"joel@acme.com","Viaje ruidoso",LUGGAGE_ISSUES,true,agent-01,leg-01
