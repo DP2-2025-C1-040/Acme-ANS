@@ -1,24 +1,40 @@
-key,locatorCode,purchaseMoment,travelClass,price,lastNibble,draftMode,key:customer
+key,locatorCode,purchaseMoment,travelClass,price,lastNibble,draftMode,key:customer,key:flight
 # base entity
-booking-00,ABC123,2024/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1
+booking-00,ABC123,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
 # locatorCode - standard variations
-booking-01,A1B2C3,2024/12/30 12:00,ECONOMY,EUR 150.00,2345,TRUE,customer1
-booking-02,ABCD123,2024/12/29 11:30,ECONOMY,EUR 200.00,3456,TRUE,customer2
-booking-03,ABCDEFG8,2024/12/28 10:15,ECONOMY,EUR 250.00,4567,TRUE,customer2
+booking-01,AAAAAA,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-02,000000,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-03,AAA000,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-04,JKLM059,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-05,99999999,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-06,ZZZZ9999,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
 # purchaseMoment - standard variations (momentos pasados)
-booking-04,XYZ789,2020/05/20 15:30,ECONOMY,EUR 120.00,5678,TRUE,customer1
-booking-05,LMN456,2019/12/31 23:59,ECONOMY,EUR 80.00,6789,TRUE,customer1
+booking-07,ABC124,2000/01/01 00:00,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-08,ABC125,2000/01/01 00:01,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-09,ABC126,2012/02/29 14:15,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-10,ABC127,2024/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
+booking-11,ABC128,2025/01/01 00:00,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-01
 # travelClass - standard variations
-booking-06,OPQ123,2024/12/27 09:00,BUSINESS,EUR 300.00,7890,TRUE,customer1
-booking-07,OPR456,2024/12/26 08:45,BUSINESS,EUR 350.00,8901,TRUE,customer1
+booking-12,ABC123,2022/12/31 23:59,BUSINESS,EUR 100.00,1234,TRUE,customer1,flight-01
 # price - standard variations
-booking-08,STU789,2024/12/25 07:30,ECONOMY,EUR 0.01,9012,TRUE,customer1
-booking-09,STV012,2024/12/24 06:15,ECONOMY,EUR 9999.99,0123,TRUE,customer1
-# lastNibble - standard variations
-booking-10,UVW345,2024/12/23 05:00,ECONOMY,EUR 180.00,,TRUE,customer1
-booking-11,UVW678,2024/12/22 04:45,ECONOMY,EUR 190.00,5678,TRUE,customer1
-# lastNibble
-booking-12,XYZ901,2024/12/21 03:30,ECONOMY,EUR 210.00,0000,TRUE,customer1
+booking-13,ABC129,2022/12/31 23:59,ECONOMY,EUR 0.01,1234,TRUE,customer1,flight-01
+booking-14,ABC130,2022/12/31 23:59,ECONOMY,EUR 0.02,1234,TRUE,customer1,flight-01
+booking-15,ABC131,2022/12/31 23:59,ECONOMY,EUR 500000.00,1234,TRUE,customer1,flight-01
+booking-16,ABC132,2022/12/31 23:59,ECONOMY,EUR 999999.98,1234,TRUE,customer1,flight-01
+booking-17,ABC133,2022/12/31 23:59,ECONOMY,EUR 999999.99,1234,TRUE,customer1,flight-01
+# lastNible - standard variations
+booking-18,ABC134,2022/12/31 23:59,ECONOMY,EUR 100.00,0000,TRUE,customer1,flight-01
+booking-19,ABC135,2022/12/31 23:59,ECONOMY,EUR 100.00,0001,TRUE,customer1,flight-01
+booking-20,ABC136,2022/12/31 23:59,ECONOMY,EUR 100.00,5555,TRUE,customer1,flight-01
+booking-21,ABC137,2022/12/31 23:59,ECONOMY,EUR 100.00,9998,TRUE,customer1,flight-01
+booking-22,ABC138,2022/12/31 23:59,ECONOMY,EUR 100.00,9999,TRUE,customer1,flight-01
 # draftMode - variaciones
-booking-13,ABCDEF,2024/12/20 02:15,BUSINESS,EUR 220.00,3456,FALSE,customer1
-booking-14,ABC1234,2024/12/19 01:00,BUSINESS,EUR 230.00,7890,TRUE,customer1
+booking-23,ABC139,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,FALSE,customer1,flight-01
+# customer - standard variations
+booking-24,ABC140,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer2,flight-01
+booking-25,ABC141,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer2,flight-01
+booking-26,ABC142,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer2,flight-01
+# flight - standard variations
+booking-27,ABC143,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-02
+booking-28,ABC144,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-03
+booking-29,ABC145,2022/12/31 23:59,ECONOMY,EUR 100.00,1234,TRUE,customer1,flight-03
