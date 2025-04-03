@@ -58,6 +58,10 @@
 			<acme:menu-suboption code="master.menu.technician.list-task" action="/technician/task/list"/>
 		</acme:menu-option>
 
+		<acme:menu-option code="master.menu.customer" access="hasRealm('Customer')">
+			<acme:menu-suboption code="master.menu.customer.booking" action="/customer/booking/list"/>
+		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.provider" access="hasRealm('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>

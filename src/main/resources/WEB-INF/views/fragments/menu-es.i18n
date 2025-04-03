@@ -18,6 +18,10 @@ master.menu.anonymous.juliavirginia = ****7404: Angeles Burgos, Julia Virginia
 master.menu.anonymous.paulamaria = ****7641: Suarez Linares, Paula Maria
 master.menu.anonymous.javier = ****0609: Aponte Pozon, Javier
 
+# master.menu.customer ########################################################
+master.menu.customer = Cliente
+master.menu.customer.booking = Reserva
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador

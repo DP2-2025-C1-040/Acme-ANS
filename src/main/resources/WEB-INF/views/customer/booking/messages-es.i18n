@@ -1,0 +1,28 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+customer.booking.list.title = Lista de reservas
+customer.booking.form.title = Reserva
+
+customer.booking.list.label.locatorCode = Código de localización
+customer.booking.list.label.travelClass = Tipo de reserva
+customer.booking.list.label.price = Precio
+customer.booking.list.button.create = Crear
+
+customer.booking.form.label.locatorCode = Código de localización
+customer.booking.form.label.purchaseMoment = Momento de compra
+customer.booking.form.label.type = Tipo de reserva
+customer.booking.form.label.price = Precio
+customer.booking.form.label.emailAddress = 4 últimos dígitos de tarjeta de crédito
+customer.booking.form.label.flight = Vuelo
+
+customer.booking.form.button.update = Actualizar
+customer.booking.form.button.create = Crear
+customer.booking.form.label.confirmation = Confirme que la reserva es correcta
