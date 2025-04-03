@@ -19,4 +19,5 @@ acme.validation.assistanceagent.employeeCode.duplicated.message = El código del
 acme.validation.assistanceagent.employeeCode.message= El código del empleado es incorrecto.
 acme.validation.claim.delete-when-published= Una reclamación publicada no puede ser eliminada
 acme.validation.claim.delete-trackinglogs-published = Una reclamación con seguimientos publicados no puede ser eliminada
+acme.validation.claim.publish-not-completed= ESta reclamación no ha sido completada. No puede ser publicada.
 	
