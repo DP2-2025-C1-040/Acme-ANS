@@ -16,7 +16,7 @@ import acme.entities.airline.Airline;
 import acme.features.administrator.airline.AdministratorAirlineRepository;
 
 @GuiService
-public class AdministratorAircraftDeleteService extends AbstractGuiService<Administrator, Aircraft> {
+public class AdministratorAircraftDisableService extends AbstractGuiService<Administrator, Aircraft> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -53,7 +53,7 @@ public class AdministratorAircraftDeleteService extends AbstractGuiService<Admin
 		airlineId = super.getRequest().getData("airline", int.class);
 		airline = this.airlineRepository.findAirlineById(airlineId);
 
-		super.bindObject(aircraft, "model", "regNumber", "capacity", "cargoWeight", "aircraftStatus", "details");
+		super.bindObject(aircraft, "model", "regNumber", "capacity", "cargoWeight", "details");
 		aircraft.setAirline(airline);
 	}
 
@@ -65,25 +65,22 @@ public class AdministratorAircraftDeleteService extends AbstractGuiService<Admin
 
 	@Override
 	public void perform(final Aircraft aircraft) {
-		this.repository.delete(aircraft);
+		aircraft.setAircraftStatus(AircraftStatus.MAINTENANCE);
+		this.repository.save(aircraft);
 	}
 
 	@Override
 	public void unbind(final Aircraft aircraft) {
-		SelectChoices choices;
 		SelectChoices choicesAirlines;
 		Dataset dataset;
 		Collection<Airline> airlines;
 
 		airlines = this.airlineRepository.findAllAirlines();
 
-		choices = SelectChoices.from(AircraftStatus.class, aircraft.getAircraftStatus());
 		choicesAirlines = SelectChoices.from(airlines, "name", aircraft.getAirline());
 
 		dataset = super.unbindObject(aircraft, "model", "regNumber", "capacity", "cargoWeight", "aircraftStatus", "details", "airline");
-
 		dataset.put("confirmation", false);
-		dataset.put("statuses", choices);
 		dataset.put("airlines", choicesAirlines);
 
 		super.getResponse().addData(dataset);

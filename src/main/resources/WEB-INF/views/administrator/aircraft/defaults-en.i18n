@@ -29,4 +29,4 @@ administrator.aircraft.form.label.confirmation = Confirm that the aircraft data 
 
 administrator.aircraft.form.button.create = Create
 administrator.aircraft.form.button.update = Update
-administrator.aircraft.form.button.delete = Delete
+administrator.aircraft.form.button.disable = Disable
