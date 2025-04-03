@@ -51,33 +51,24 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		SelectChoices duties;
-		SelectChoices statuses;
-		SelectChoices availabilityStatuses;
-		SelectChoices legStatuses;
+		Collection<Leg> legs = this.repository.findPublishedLegs();
 		SelectChoices choices = new SelectChoices();
-		Collection<Leg> legs;
-		Dataset dataset;
 
-		legs = this.repository.findAllLegs();
-
-		// Agregar opción vacía al principio
 		choices.add("0", "----", assignment.getLeg() == null);
 
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
 			String label = leg.getFlightNumber() + " - " + leg.getOriginCity() + " - " + leg.getDestinationCity() + " - " + leg.getFlight().getTag();
 			boolean isSelected = leg.equals(assignment.getLeg());
-
 			choices.add(key, label, isSelected);
 		}
 
-		duties = SelectChoices.from(Duty.class, assignment.getDuty());
-		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
-		availabilityStatuses = SelectChoices.from(AvailabilityStatus.class, assignment.getFlightCrewMember().getAvailabilityStatus());
-		legStatuses = SelectChoices.from(LegStatus.class, assignment.getLeg() != null ? assignment.getLeg().getStatus() : null);
+		SelectChoices duties = SelectChoices.from(Duty.class, assignment.getDuty());
+		SelectChoices statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
+		SelectChoices availabilityStatuses = SelectChoices.from(AvailabilityStatus.class, assignment.getFlightCrewMember().getAvailabilityStatus());
+		SelectChoices legStatuses = SelectChoices.from(LegStatus.class, assignment.getLeg() != null ? assignment.getLeg().getStatus() : null);
 
-		dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
+		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
 
 		if (assignment.getFlightCrewMember() != null) {
 			FlightCrewMembers crewMember = assignment.getFlightCrewMember();
@@ -107,8 +98,9 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 			dataset.put("leg.airline", leg.getAirline().getName());
 		}
 
-		// Si la leg es nula, la opción vacía ("0") será seleccionada
-		dataset.put("leg", assignment.getLeg() != null ? choices.getSelected().getKey() : "0");
+		// Usamos el mismo enfoque que en `create`
+		dataset.put("leg", assignment.getLeg() != null ? Integer.toString(assignment.getLeg().getId()) : "0");
+
 		dataset.put("confirmation", false);
 		dataset.put("duties", duties);
 		dataset.put("statuses", statuses);

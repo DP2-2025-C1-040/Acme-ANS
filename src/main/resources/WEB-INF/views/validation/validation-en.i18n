@@ -24,6 +24,7 @@ acme.validation.pattern-iata-code.message = The IATA code must be 3 upper case l
 acme.validation.pattern-phone-number.message = The number must contain between 6 and 15 digits and can optionally begin with +
 acme.validation.pattern-employee-code.message = The code must begin with 2 or 3 upper case letters, followed by exactly 6 digits
 acme.validation.pattern-promo-code.message = The code must begin with exactly 4 capital letters, followed by a hyphen (-) and end with 2 numeric digits
+acme.validation.activityLog.leg.notLanded = The leg has not landed yet
 
 flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = A flight crew member cannot be assigned to multiple legs simultaneously
 flight-crew-members.flight-assignment.form.error.duty-pilot-assigned = The leg can only have one pilot

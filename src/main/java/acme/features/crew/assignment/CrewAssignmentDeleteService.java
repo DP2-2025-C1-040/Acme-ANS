@@ -71,7 +71,7 @@ public class CrewAssignmentDeleteService extends AbstractGuiService<FlightCrewMe
 		SelectChoices duties;
 		SelectChoices statuses;
 
-		legs = this.repository.findAllLegs();
+		legs = this.repository.findPublishedLegs();
 
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());

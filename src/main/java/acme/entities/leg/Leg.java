@@ -65,6 +65,11 @@ public class Leg extends AbstractEntity {
 	@Automapped
 	private String				destinationCity;
 
+	@Mandatory
+	@Valid
+	@Automapped
+	private Boolean				draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 

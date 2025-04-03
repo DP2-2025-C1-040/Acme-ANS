@@ -88,9 +88,8 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		SelectChoices duties;
 		SelectChoices statuses;
 
-		legs = this.assignmentRepository.findAllLegs();
+		legs = this.assignmentRepository.findPublishedLegs();
 
-		// Agregar la opción vacía al inicio
 		choices.add("0", "----", assignment.getLeg() == null);
 
 		for (Leg leg : legs) {
@@ -106,7 +105,6 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
 
-		// Si la leg es nula, se asigna la opción vacía
 		dataset.put("leg", assignment.getLeg() != null ? choices.getSelected().getKey() : "0");
 
 		dataset.put("legs", choices);

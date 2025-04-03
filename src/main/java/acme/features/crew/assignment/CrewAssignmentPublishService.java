@@ -63,30 +63,35 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		Collection<Leg> legs;
+		// Cargar las opciones de legs desde el repositorio
+		Collection<Leg> legs = this.assignmentRepository.findPublishedLegs();
 		SelectChoices choices = new SelectChoices();
 		SelectChoices duties;
 		SelectChoices statuses;
 
-		legs = this.assignmentRepository.findAllLegs();
-
+		// Construir las opciones de 'legs' en base a la lista de 'legs'
+		choices.add("0", "----", assignment.getLeg() == null); // Agregar opción por defecto
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
 			String label = leg.getFlightNumber() + " - " + leg.getOriginCity() + " - " + leg.getDestinationCity() + " - " + leg.getFlight().getTag();
 			boolean isSelected = leg.equals(assignment.getLeg());
-
 			choices.add(key, label, isSelected);
 		}
 
+		// Obtener las opciones de 'duties' y 'statuses' de los enums correspondientes
 		duties = SelectChoices.from(Duty.class, assignment.getDuty());
 		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 
+		// Desvincular el objeto 'assignment' y generar el dataset
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
-		dataset.put("leg", choices.getSelected().getKey());
-		dataset.put("legs", choices);
-		dataset.put("duties", duties);
-		dataset.put("statuses", statuses);
 
+		// Agregar al dataset las opciones seleccionadas y las listas completas
+		dataset.put("leg", choices.getSelected().getKey());  // Se agrega el 'key' del 'leg' seleccionado
+		dataset.put("legs", choices);  // Se agrega la lista completa de opciones de 'legs'
+		dataset.put("duties", duties);  // Agregar las opciones de 'duties'
+		dataset.put("statuses", statuses);  // Agregar las opciones de 'statuses'
+
+		// Enviar el dataset como respuesta
 		super.getResponse().addData(dataset);
 	}
 

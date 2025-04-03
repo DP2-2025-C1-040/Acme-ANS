@@ -84,13 +84,11 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		Collection<Leg> legs = this.assignmentRepository.findAllLegs();
+		Collection<Leg> legs = this.assignmentRepository.findPublishedLegs();
 		SelectChoices choices = new SelectChoices();
 
-		// Agregar la opción vacía
 		choices.add("0", "----", assignment.getLeg() == null);
 
-		// Agregar las opciones de legs
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
 			String label = leg.getFlightNumber() + " - " + leg.getOriginCity() + " - " + leg.getDestinationCity() + " - " + leg.getFlight().getTag();
@@ -98,11 +96,9 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 			choices.add(key, label, isSelected);
 		}
 
-		// Opciones para Duties y Statuses
 		SelectChoices duties = SelectChoices.from(Duty.class, assignment.getDuty());
 		SelectChoices statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 
-		// Unbinding de datos
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg");
 
 		dataset.put("legs", choices);
