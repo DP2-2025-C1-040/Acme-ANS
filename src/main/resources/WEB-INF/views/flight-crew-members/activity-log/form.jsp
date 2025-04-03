@@ -15,7 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 <acme:form readonly="${readonly}">
-    <acme:input-moment code="flight-crew-members.activity-log.form.label.registrationMoment" path="registrationMoment"/>
+    <acme:input-moment code="flight-crew-members.activity-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
     <acme:input-textbox code="flight-crew-members.activity-log.form.label.typeOfIncident" path="typeOfIncident"/>    
     <acme:input-textbox code="flight-crew-members.activity-log.form.label.description" path="description"/>
     <acme:input-double code="flight-crew-members.activity-log.form.label.severityLevel" path="severityLevel"/>

@@ -24,8 +24,8 @@ public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, Ac
 
 		boolean result = true;
 
-		if (activityLog == null || activityLog.getFlightAssignment().getLeg() == null) {
-			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+		if (activityLog == null || activityLog.getFlightAssignment() == null || activityLog.getFlightAssignment().getLeg() == null) {
+			super.state(context, false, "flightAssignment", "javax.validation.constraints.NotNull.message");
 			result = false;
 		} else {
 

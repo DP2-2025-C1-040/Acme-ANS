@@ -17,18 +17,16 @@ import acme.realms.crew.FlightCrewMembers;
 public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrewMembers, ActivityLog> {
 
 	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	private CrewActivityLogRepository repository;
 
+
 	// AbstractGuiService interface -------------------------------------------
-
-
 	@Override
 	public void authorise() {
 		int id = super.getRequest().getData("id", int.class);
 		ActivityLog activityLog = this.repository.findActivityLogById(id);
-		boolean status = activityLog != null && activityLog.getDraftMode() && !activityLog.getFlightAssignment().getDraftMode();
+		boolean status = activityLog != null && activityLog.getDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -36,7 +34,6 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 	public void load() {
 		int id = super.getRequest().getData("id", int.class);
 		ActivityLog activityLog = this.repository.findActivityLogById(id);
-
 		super.getBuffer().addData(activityLog);
 	}
 
@@ -47,11 +44,18 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 
 	@Override
 	public void validate(final ActivityLog activityLog) {
-		;
+		// Validar si 'flightAssignment' o 'draftMode' son nulos
+		if (activityLog != null && activityLog.getFlightAssignment() != null) {
+			boolean isDraftMode = activityLog.getFlightAssignment().getDraftMode();
+			if (isDraftMode)
+				// Si 'draftMode' es verdadero, agregar un mensaje de error
+				super.state(false, "*", "acme.validation.activity-log.flight-assignment.draftMode");
+		}
 	}
 
 	@Override
 	public void perform(final ActivityLog activityLog) {
+		// Establecer draftMode a false y guardar el activityLog
 		activityLog.setDraftMode(false);
 		this.repository.save(activityLog);
 	}
@@ -79,5 +83,4 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 
 		super.getResponse().addData(dataset);
 	}
-
 }
