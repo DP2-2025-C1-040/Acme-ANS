@@ -13,13 +13,26 @@ acme.validation.leg.flight-number.message = El número de vuelo no coincide con 
 acme.validation.leg.airline-manager-format.message = El identificador del gestor de aerolínea no coincide con el formato esperado.
 acme.validation.leg.airline-manager-initials.message = Las primeras dos letras del identificador del gestor de aerolínea no coinciden con las iniciales del gestor de aerolínea.
 acme.validation.flight-crew-member.duplicated-employee-code.message = El código del empleado debe ser único.
+acme.validation.airport.duplicated-iata-code.message = El código IATA debe ser único.
+acme.validation.airline.duplicated-iata-code.message = El código IATA debe ser único.
+acme.validation.assistanceagent.employeeCode.duplicated.message = El código del empleado debe ser único.
+acme.validation.assistanceagent.employeeCode.message= El código del empleado es incorrecto.
+acme.validation.claim.delete-when-published= Una reclamación publicada no puede ser eliminada
+acme.validation.claim.delete-trackinglogs-published = Una reclamación con seguimientos publicados no puede ser eliminada
+acme.validation.claim.publish-not-completed= ESta reclamación no ha sido completada. No puede ser publicada.
+
+flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = Un miembro de la tripulación no puede ser asignado a varias escalas simultáneamente
+flight-crew-members.flight-assignment.form.error.duty-pilot-assigned = La escala solo puede tener un piloto
+flight-crew-members.flight-assignment.form.error.duty-copilot-assigned = La escala solo puede tener un copiloto
 acme.validation.airport.duplicated-iata-code.message = El código IATA debe ser único
 acme.validation.airline.duplicated-iata-code.message = El código IATA debe ser único
 acme.validation.pattern-iata-code.message = El código IATA debe ser 3 letras mayúsculas
 acme.validation.pattern-phone-number.message = El número debe contener entre 6 y 15 dígitos y puede comenzar opcionalmente con +
 acme.validation.pattern-employee-code.message = El código debe comenzar con 2 o 3 letras mayúsculas, seguidas de exactamente 6 dígitos
 acme.validation.pattern-promo-code.message = El código debe comenzar con exactamente 4 letras mayúsculas, seguidas de un guion (-) y terminar con 2 dígitos numéricos
+acme.validation.activityLog.leg.notLanded = La escala no ha aterrizado todavía
+acme.validation.activity-log.flight-assignment.draftMode = El vuelo asignado no está publicado
+acme.validation.service.promo-code.year.message = El código promocional no es válido para este año.
+acme.validation.service.promo-code.unique.message = Este código promocional ya ha sido usado.
 
-flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = Un miembro de la tripulación no puede ser asignado a varias escalas simultáneamente
-flight-crew-members.flight-assignment.form.error.duty-pilot-assigned = La escala solo puede tener un piloto
-flight-crew-members.flight-assignment.form.error.duty-copilot-assigned = La escala solo puede tener un copiloto
+

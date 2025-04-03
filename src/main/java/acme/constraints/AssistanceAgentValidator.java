@@ -3,15 +3,22 @@ package acme.constraints;
 
 import javax.validation.ConstraintValidatorContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import acme.client.components.principals.DefaultUserIdentity;
 import acme.client.components.validation.AbstractValidator;
-import acme.realms.AssistanceAgent;
+import acme.realms.assistanceAgent.AssistanceAgent;
+import acme.realms.assistanceAgent.AssistanceAgentRepository;
 
 public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceAgent, AssistanceAgent> {
 
 	// Internal state ---------------------------------------------------------
 
+	@Autowired
+	AssistanceAgentRepository repository;
+
 	// Initialiser ------------------------------------------------------------
+
 
 	@Override
 	public void initialise(final ValidAssistanceAgent annotation) {
@@ -32,6 +39,12 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 			result = !super.hasErrors(context);
 
 		} else {
+			Boolean uniqueAssistanceAgent;
+			AssistanceAgent existingAssistanceAgent;
+
+			existingAssistanceAgent = this.repository.findAgentyByEmployeeCode(assistanceAgent.getEmployeeCode());
+			uniqueAssistanceAgent = existingAssistanceAgent == null || existingAssistanceAgent.equals(assistanceAgent);
+			super.state(context, uniqueAssistanceAgent, "employeeCode", "acme.validation.assistanceagent.employeeCode.duplicated.message");
 
 			DefaultUserIdentity identity = assistanceAgent.getIdentity();
 			String employeeCode = assistanceAgent.getEmployeeCode();
@@ -44,7 +57,7 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 			char surnameFirstChar = Character.toUpperCase(surname.charAt(0));
 
 			if (!(employeeCodeFirstChar == nameFirstChar && employeeCodeSecondChar == surnameFirstChar))
-				super.state(context, false, "EmployeeCode", "acme.validation.assistance-agent.employee-code.message");
+				super.state(context, false, "employeeCode", "acme.validation.assistanceagent.employeeCode.message");
 			result = !super.hasErrors(context);
 		}
 		return result;

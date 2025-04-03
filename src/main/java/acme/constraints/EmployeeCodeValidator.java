@@ -30,14 +30,24 @@ public class EmployeeCodeValidator extends AbstractValidator<ValidEmployeeCode, 
 
 		boolean result = true;
 
-		if (member == null || member.getEmployeeCode() == null)
-			return true;
+		if (member == null || member.getEmployeeCode() == null) {
+			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+			result = false;
+		} else {
+			String employeeCode = member.getEmployeeCode();
 
-		boolean exists = this.crewRepository.existsByEmployeeCodeAndIdNot(member.getEmployeeCode(), member.getId());
+			if (!employeeCode.matches("^[A-Z]{2,3}\\d{6}$"))
+				result = true;
+			else {
+				boolean exists = this.crewRepository.existsByEmployeeCodeAndIdNot(employeeCode, member.getId());
 
-		super.state(context, !exists, "employeeCode", "acme.validation.flight-crew-member.duplicated-employee-code.message");
+				super.state(context, !exists, "employeeCode", "acme.validation.flight-crew-member.duplicated-employee-code.message");
 
-		result = !super.hasErrors(context);
+				result = !super.hasErrors(context);
+			}
+		}
+
 		return result;
 	}
+
 }

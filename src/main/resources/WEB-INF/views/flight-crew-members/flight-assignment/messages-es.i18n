@@ -1,0 +1,54 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+flight-crew-members.flight-assignment.list.title = Lista de asignaciones de vuelos programados
+
+flight-crew-members.flight-assignment.list.label.duty = Función
+flight-crew-members.flight-assignment.list.label.moment = Fecha
+
+flight-crew-members.flight-assignment.form.title = Asignación de vuelo
+flight-crew-members.flight-assignment.form.label.duty = Función:
+flight-crew-members.flight-assignment.form.label.moment = Fecha:
+flight-crew-members.flight-assignment.form.label.currentStatus = Estado:
+flight-crew-members.flight-assignment.form.label.remarks = Comentarios:
+
+flight-crew-members.flight-assignment.form.label.flightCrewMember.title = Tripulante de vuelo:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.employeeCode = Código de empleado:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.phoneNumber = Número de teléfono:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills = Conocimientos lingüísticos:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus = Estado de disponibilidad:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.salary = Salario:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience = Años de experiencia:
+flight-crew-members.flight-assignment.form.label.flightCrewMember.airline = Aerolínea:
+
+flight-crew-members.flight-assignment.form.label.leg.title = Escala:
+flight-crew-members.flight-assignment.form.label.leg.flightNumber = Número de vuelo:
+flight-crew-members.flight-assignment.form.label.leg.status = Estado:
+flight-crew-members.flight-assignment.form.label.leg.scheduledDeparture = Salida programada:
+flight-crew-members.flight-assignment.form.label.leg.scheduledArrival = Llegada programada:
+flight-crew-members.flight-assignment.form.label.leg.originCity = Ciudad de origen:
+flight-crew-members.flight-assignment.form.label.leg.destinationCity = Ciudad de destino:
+flight-crew-members.flight-assignment.form.label.leg.departureAirport = Aeropuerto de salida:
+flight-crew-members.flight-assignment.form.label.leg.arrivalAirport = Aeropuerto de llegada:
+flight-crew-members.flight-assignment.form.label.leg.aircraft = Avión:
+flight-crew-members.flight-assignment.form.label.leg.flight = Vuelo:
+flight-crew-members.flight-assignment.form.label.leg.airline = Aerolínea:
+
+flight-crew-members.flight-assignment.form.label.leg = Escala:
+
+flight-crew-members.flight-assignment.form.button.create = Crear
+flight-crew-members.flight-assignment.form.button.update = Actualizar
+flight-crew-members.flight-assignment.form.button.publish = Publicar
+flight-crew-members.flight-assignment.form.button.delete = Borrar
+
+flight-crew-members.flight-assignment.form.error.not-available = El tripulante de vuelo no está disponible
+flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = El tripulante de vuelo está asignado a varias escalas
+flight-assignment.form.error.invalid-duty = El tripulante de vuelo no tiene función LEAD_ATTENDANT
+flight-crew-members.flight-assignment.form.error.leg-already-occurred = La escala ya ha ocurrido

@@ -23,6 +23,7 @@ master.menu.anonymous.javier = ****0609: Aponte Pozon, Javier
 master.menu.administrator = Administrator
 master.menu.administrator.airport = Airports
 master.menu.administrator.airline = Airline
+master.menu.administrator.aircraft = Aircrafts
 master.menu.administrator.list-user-accounts = List user accounts
 master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
@@ -31,6 +32,18 @@ master.menu.administrator.shut-system-down = Shut system down
 # master.menu.customer ########################################################
 master.menu.customer = Customer
 master.menu.customer.booking = Booking
+# master.menu.flightCrewMember ########################################################
+
+master.menu.flightCrewMember = Flight Crew Member
+master.menu.flightCrewMember.assignments.list-landed = Flight Assignments Landed
+master.menu.flightCrewMember.assignments.list-programmed = Flight Assignments Programmed
+master.menu.flightCrewMember.activityLogs.list = Activity Logs
+master.menu.flightCrewMember.show-flight-crew-member-dashboard = Dashboard
+
+# master.menu.technician ######################################################
+
+master.menu.technician = Technician
+master.menu.technician.list-task = List tasks
 
 # master.menu.provider ########################################################
 
@@ -50,3 +63,9 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
+
+#master.menu.assistance-agent.claims ####################################################
+
+master.menu.assistance-agent.claims= Claims
+master.menu.assistance-agent.claims.claims-list = List claims
+master.menu.assistance-agent.claims.list-claims-pending = List pending claims

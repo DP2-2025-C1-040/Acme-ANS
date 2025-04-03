@@ -19,8 +19,8 @@ user-account-administrator2,true,"UserIdentity{name: 'Pete', surname: 'Admin', e
 user-account-agent-01,true,"UserIdentity{name: 'Carmela', surname: 'Aranda', email: 'carmela@acme.com'}",agent1,agent1
 user-account-agent-02,true,"UserIdentity{name: 'Juan', surname: 'Sánchez', email: 'juan@acme.com'}",agent2,agent2
 user-account-agent-03,true,"UserIdentity{name: 'Carla', surname: 'Petit', email: 'carla@acme.com'}",agent3,agent3
-user-account-member-01,true,"UserIdentity{name: 'John', surname: 'Smith', email: 'johnsmith@acme.com'}",member-01,member-01
-user-account-member-02,true,"UserIdentity{name: 'Emily', surname: 'Johnson', email: 'emilyjohnson@acme.com'}",member-02,member-02
-user-account-member-03,true,"UserIdentity{name: 'Carlos', surname: 'Méndez', email: 'carlosmendez@acme.com'}",member-03,member-03
-user-account-member-04,true,"UserIdentity{name: 'Sophia', surname: 'Lee', email: 'sophialee@acme.com'}",member-04,member-04
+user-account-member-01,true,"UserIdentity{name: 'John', surname: 'Smith', email: 'johnsmith@acme.com'}",member1,member1
+user-account-member-02,true,"UserIdentity{name: 'Emily', surname: 'Johnson', email: 'emilyjohnson@acme.com'}",member2,member2
+user-account-member-03,true,"UserIdentity{name: 'Carlos', surname: 'Méndez', email: 'carlosmendez@acme.com'}",member3,member3
+user-account-member-04,true,"UserIdentity{name: 'Sophia', surname: 'Lee', email: 'sophialee@acme.com'}",member4,member4
 user-account-member,true,"UserIdentity{name: 'Michael', surname: 'Brown', email: 'michaelbrown@acme.com'}",member,member

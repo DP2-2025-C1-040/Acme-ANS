@@ -14,7 +14,6 @@ import javax.validation.Payload;
 @Constraint(validatedBy = PromoCodeValidator.class)
 
 public @interface ValidPromoCode {
-	// Standard validation properties -----------------------------------------
 
 	String message() default "";
 

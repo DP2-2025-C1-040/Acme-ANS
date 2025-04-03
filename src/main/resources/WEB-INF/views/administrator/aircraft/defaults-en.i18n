@@ -1,0 +1,32 @@
+# defaults-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.aircraft.list.title = List of Aircrafts
+
+administrator.aircraft.list.label.model = Model
+administrator.aircraft.list.label.regNumber = Registration Number
+administrator.aircraft.list.label.capacity = Capacity
+administrator.aircraft.list.label.aircraftStatus = Status
+
+administrator.aircraft.list.button.create = Create
+
+administrator.aircraft.form.title = Aircraft
+administrator.aircraft.form.label.model = Model:
+administrator.aircraft.form.label.regNumber = Registration Number:
+administrator.aircraft.form.label.capacity = Capacity:
+administrator.aircraft.form.label.cargoWeight = Cargo Weight:
+administrator.aircraft.form.label.aircraftStatus = Status:
+administrator.aircraft.form.label.details = Details:
+administrator.aircraft.form.label.airline = Airline:
+administrator.aircraft.form.label.confirmation = Confirm that the aircraft data is correct.
+
+administrator.aircraft.form.button.create = Create
+administrator.aircraft.form.button.update = Update
+administrator.aircraft.form.button.disable = Disable
