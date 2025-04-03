@@ -1,7 +1,6 @@
 
 package acme.entities.services;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import acme.client.components.basis.AbstractEntity;
@@ -44,8 +43,8 @@ public class Service extends AbstractEntity {
 	private Double				avgDwellTime;
 
 	@Optional
-	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
-	@Column(unique = true, nullable = true)
+	@ValidString(message = "{acme.validation.pattern-promo-code.message}", pattern = "^[A-Z]{4}-[0-9]{2}$")
+	@Automapped
 	private String				promoCode;
 
 	@Optional

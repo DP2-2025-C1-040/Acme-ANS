@@ -61,6 +61,7 @@ public class Claim extends AbstractEntity {
 	@Automapped
 	private Boolean				published;
 
+
 	// Derived attributes -----------------------------------------------------
 
 

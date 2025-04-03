@@ -1,0 +1,19 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+flight-crew-members.crew-dashboard.form.title = Estadísticas del Tripulante de Vuelo
+
+flight-crew-member.dashboard.form.title.general-indicators = Indicadores
+
+flight-crew-member.dashboard.form.label.last-five-destinations = Últimos 5 destinos
+flight-crew-member.dashboard.form.label.legs-by-incident-severity = Escalas ordenadas por la severidad de los incidentes
+flight-crew-member.dashboard.form.label.last-leg-crew-members = Tripulantes de vuelo en la última escala
+flight-crew-member.dashboard.form.label.flight-assignments-by-status = Asignaciones de vuelo agrupadas por estado
+flight-crew-member.dashboard.form.label.flight-assignment-stats-last-month = Estadísticas de las asignaciones de vuelo del último mes
