@@ -16,12 +16,12 @@ import acme.entities.airline.Airline;
 import acme.features.administrator.airline.AdministratorAirlineRepository;
 
 @GuiService
-public class AdministratorAircraftShowService extends AbstractGuiService<Administrator, Aircraft> {
+public class AdministratorAircraftDeleteService extends AbstractGuiService<Administrator, Aircraft> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AdministratorAircraftRepository	aircraftRepository;
+	private AdministratorAircraftRepository	repository;
 
 	@Autowired
 	private AdministratorAirlineRepository	airlineRepository;
@@ -40,9 +40,32 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		aircraft = this.aircraftRepository.findAircraftById(id);
+		aircraft = this.repository.findAircraftById(id);
 
 		super.getBuffer().addData(aircraft);
+	}
+
+	@Override
+	public void bind(final Aircraft aircraft) {
+		int airlineId;
+		Airline airline;
+
+		airlineId = super.getRequest().getData("airline", int.class);
+		airline = this.airlineRepository.findAirlineById(airlineId);
+
+		super.bindObject(aircraft, "model", "regNumber", "capacity", "cargoWeight", "aircraftStatus", "details");
+		aircraft.setAirline(airline);
+	}
+
+	@Override
+	public void validate(final Aircraft aircraft) {
+		boolean confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+	}
+
+	@Override
+	public void perform(final Aircraft aircraft) {
+		this.repository.delete(aircraft);
 	}
 
 	@Override
