@@ -9,12 +9,12 @@ service-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com
 # name - no singular values
 # picture - standard variations
 service-05,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,ABAB-25,50
-service-06,Lorem ipsum dolor sit ame,ftp://a,50.5,ABBA-25,50
-service-07,Lorem ipsum dolor sit ame,ftp://a.b,50.5,ABBB-25,50
+service-06,Lorem ipsum dolor sit ame,https://acme.com/a,50.5,ABBA-25,50
+service-07,Lorem ipsum dolor sit ame,https://a.b,50.5,ABBB-25,50
 service-08,Lorem ipsum dolor sit ame,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",50.5,BAAA-25,50
 service-09,Lorem ipsum dolor sit ame,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",50.5,BAAB-25,50
 service-10,Lorem ipsum dolor sit ame,https://www.lorem-ipsum.org,50.5,BABA-25,50
-service-11,Lorem ipsum dolor sit ame,ftp://www.lorem-ipsum.org,50.5,BABB-25,50
+service-11,Lorem ipsum dolor sit ame,https://acme.com,50.5,BABB-25,50
 service-12,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html,50.5,BBAA-25,50
 service-13,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html#dolor,50.5,BBAB-25,50
 service-14,Lorem ipsum dolor sit ame,http://example.org?a=1&b=2,50.5,BBBA-25,50

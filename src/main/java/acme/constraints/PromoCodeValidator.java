@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.helpers.MomentHelper;
-import acme.entities.services.Service;
-import acme.entities.services.ServiceRepository;
+import acme.entities.service.Service;
+import acme.entities.service.ServiceRepository;
 
 public class PromoCodeValidator extends AbstractValidator<ValidPromoCode, Service> {
 

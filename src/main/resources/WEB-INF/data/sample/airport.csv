@@ -51,7 +51,7 @@ airport-38,Lorem,FKL,INTERNATIONAL,Lorem,' or 'A' = 'A,"http://lorem.com/ipsum",
 # country - no singular values
 # web-site - standard variations
 airport-39,Lorem,VME,INTERNATIONAL,Lorem,Lorem,"http://example.org?a=1&b=2","acme@lorem-ipsum.org",+123456
-airport-40,Lorem,WER,INTERNATIONAL,Lorem,Lorem,"ftp://a.b","acme@lorem-ipsum.org",+123456
+airport-40,Lorem,WER,INTERNATIONAL,Lorem,Lorem,"https://acme.com/a","acme@lorem-ipsum.org",+123456
 airport-41,Lorem,VSO,INTERNATIONAL,Lorem,Lorem,"https://www.lorem-ipsum.org","acme@lorem-ipsum.org",+123456
 airport-42,Lorem,EFR,INTERNATIONAL,Lorem,Lorem,"http://www.lorem-ipsum.org/dolor/sit.html","acme@lorem-ipsum.org",+123456
 airport-43,Lorem,QER,INTERNATIONAL,Lorem,Lorem,"http://example.org/a/b?","acme@lorem-ipsum.org",+123456

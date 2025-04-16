@@ -23,7 +23,7 @@ airline-16,Lorem,WXY,"http://lorem.com/ipsum",LUXURY,2020/02/10 14:35,"acme@lore
 # iata-code - no singular values
 # web-site - standard variations
 airline-17,Lorem,ZAB,"http://example.org?a=1&b=2",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
-airline-18,Lorem,CDE,"ftp://a.b",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
+airline-18,Lorem,CDE,"https://acme.com/a",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
 airline-19,Lorem,FGH,"https://www.lorem-ipsum.org",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
 airline-20,Lorem,IJK,"http://www.lorem-ipsum.org/dolor/sit.html",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
 airline-21,Lorem,LMN,"http://example.org/a/b?",LUXURY,2020/02/10 14:35,"acme@lorem-ipsum.org",+123456
