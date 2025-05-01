@@ -30,4 +30,7 @@ public interface CrewDashboardRepository extends AbstractRepository {
 	@Query("SELECT COUNT(f), f.moment FROM FlightAssignment f WHERE f.flightCrewMember.id = ?1 AND f.moment BETWEEN ?2 AND ?3 GROUP BY f.moment ORDER BY f.moment")
 	List<Object[]> findFlightAssignmentsPerMoment(int id, Date startDate, Date endDate);
 
+	@Query("SELECT f FROM FlightCrewMembers f WHERE f.id = :id")
+	FlightCrewMembers findFlightCrewMemberById(int id);
+
 }
