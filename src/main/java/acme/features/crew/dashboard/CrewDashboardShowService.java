@@ -30,7 +30,11 @@ public class CrewDashboardShowService extends AbstractGuiService<FlightCrewMembe
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int id = super.getRequest().getData("id", int.class);
+		FlightCrewMembers crewMember = this.repository.findFlightCrewMemberById(id);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRealm(crewMember);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
