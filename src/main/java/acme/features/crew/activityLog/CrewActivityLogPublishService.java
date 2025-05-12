@@ -27,7 +27,27 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 		int id = super.getRequest().getData("id", int.class);
 		ActivityLog activityLog = this.repository.findActivityLogById(id);
 
-		boolean status = activityLog != null && activityLog.getDraftMode() && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
+		boolean status = false;
+
+		if (activityLog != null && activityLog.getDraftMode()) {
+			int activeUserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			boolean userOwnsActivityLog = activityLog.getFlightAssignment().getFlightCrewMember().getId() == activeUserId;
+
+			Object assignmentData = super.getRequest().getData().get("flightAssignment");
+
+			if (assignmentData instanceof String assignmentKey) {
+				assignmentKey = assignmentKey.trim();
+
+				if (assignmentKey.equals("0"))
+					status = userOwnsActivityLog;
+				else if (assignmentKey.matches("\\d+")) {
+					int assignmentId = Integer.parseInt(assignmentKey);
+					FlightAssignment assignment = this.repository.findFlightAssignmentById(assignmentId);
+					boolean assignmentIsValid = assignment != null && this.repository.findAllFlightAssignments().contains(assignment);
+					status = userOwnsActivityLog && assignmentIsValid;
+				}
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -41,23 +61,20 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 
 	@Override
 	public void bind(final ActivityLog activityLog) {
-		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment");
+		super.bindObject(activityLog, "typeOfIncident", "description", "severityLevel", "flightAssignment");
 	}
 
 	@Override
 	public void validate(final ActivityLog activityLog) {
-		// Validar si 'flightAssignment' o 'draftMode' son nulos
 		if (activityLog != null && activityLog.getFlightAssignment() != null) {
 			boolean isDraftMode = activityLog.getFlightAssignment().getDraftMode();
 			if (isDraftMode)
-				// Si 'draftMode' es verdadero, agregar un mensaje de error
 				super.state(false, "*", "acme.validation.activity-log.flight-assignment.draftMode");
 		}
 	}
 
 	@Override
 	public void perform(final ActivityLog activityLog) {
-		// Establecer draftMode a false y guardar el activityLog
 		activityLog.setDraftMode(false);
 		this.repository.save(activityLog);
 	}
@@ -69,6 +86,8 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 		SelectChoices choices = new SelectChoices();
 
 		assignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
+
+		choices.add("0", "----", activityLog.getFlightAssignment() == null); // Opción vacía
 
 		for (FlightAssignment assignment : assignments) {
 			String key = Integer.toString(assignment.getId());

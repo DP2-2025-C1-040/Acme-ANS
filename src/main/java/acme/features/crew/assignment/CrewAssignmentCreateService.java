@@ -32,7 +32,28 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 	public void authorise() {
 		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		FlightCrewMembers crewMember = this.repository.findById(userId);
-		boolean status = crewMember.getAvailabilityStatus() == AvailabilityStatus.AVAILABLE;
+
+		boolean status = false;
+
+		if (crewMember != null && crewMember.getAvailabilityStatus() == AvailabilityStatus.AVAILABLE) {
+			Object legData = super.getRequest().getData().get("leg");
+
+			if (legData == null)
+				status = true;
+			else if (legData instanceof String legKey) {
+				legKey = legKey.trim();
+
+				if (legKey.equals("0"))
+					status = true;
+				else if (legKey.matches("\\d+")) {
+					int legId = Integer.parseInt(legKey);
+					Collection<Leg> validLegs = this.assignmentRepository.findAllLegs();
+					boolean legIsValid = validLegs.stream().anyMatch(leg -> leg.getId() == legId);
+					status = legIsValid;
+				}
+			}
+		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -64,6 +85,11 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 		super.state(!isAssignedMultipleLegs, "*", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
 
 		Leg selectedLeg = assignment.getLeg();
+
+		Collection<Leg> validLegs = this.assignmentRepository.findPublishedLegs();
+		boolean legIsValid = selectedLeg == null || validLegs.contains(selectedLeg);
+		super.state(legIsValid, "leg", "flight-crew-members.flight-assignment.form.error.invalid-leg");
+
 		if (selectedLeg != null) {
 			long pilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.PILOT);
 			long coPilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.COPILOT);
@@ -74,7 +100,6 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 			super.state(!(isPilotAssigned && assignment.getDuty() == Duty.PILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-pilot-assigned");
 			super.state(!(isCoPilotAssigned && assignment.getDuty() == Duty.COPILOT), "duty", "flight-crew-members.flight-assignment.form.error.duty-copilot-assigned");
 		}
-
 	}
 
 	@Override
