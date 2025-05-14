@@ -109,7 +109,6 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 			dataset.put("leg.airline", leg.getAirline().getName());
 		}
 
-		// Usamos el mismo enfoque que en `create`
 		dataset.put("leg", assignment.getLeg() != null ? Integer.toString(assignment.getLeg().getId()) : "0");
 
 		dataset.put("confirmation", false);
