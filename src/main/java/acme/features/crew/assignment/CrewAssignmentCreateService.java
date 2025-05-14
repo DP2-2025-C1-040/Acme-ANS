@@ -86,10 +86,6 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 		Leg selectedLeg = assignment.getLeg();
 
-		Collection<Leg> validLegs = this.assignmentRepository.findPublishedLegs();
-		boolean legIsValid = selectedLeg == null || validLegs.contains(selectedLeg);
-		super.state(legIsValid, "leg", "flight-crew-members.flight-assignment.form.error.invalid-leg");
-
 		if (selectedLeg != null) {
 			long pilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.PILOT);
 			long coPilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.COPILOT);

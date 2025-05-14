@@ -70,7 +70,7 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		super.bindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg");
+		super.bindObject(assignment, "duty", "currentStatus", "remarks", "leg");
 	}
 
 	@Override
