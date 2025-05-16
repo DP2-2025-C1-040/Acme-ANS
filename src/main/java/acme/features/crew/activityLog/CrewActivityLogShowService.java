@@ -29,7 +29,11 @@ public class CrewActivityLogShowService extends AbstractGuiService<FlightCrewMem
 		int id = super.getRequest().getData("id", int.class);
 		ActivityLog activityLog = this.repository.findActivityLogById(id);
 
-		boolean status = activityLog != null && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
+		boolean isOwner = activityLog != null && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
+
+		boolean isPublished = activityLog != null && !activityLog.getDraftMode();
+
+		boolean status = isOwner || isPublished;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,24 +53,31 @@ public class CrewActivityLogShowService extends AbstractGuiService<FlightCrewMem
 	public void unbind(final ActivityLog activityLog) {
 		int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		Collection<FlightAssignment> assignments;
-		SelectChoices choices = new SelectChoices();
 
 		assignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
 
-		choices.add("0", "----", activityLog.getFlightAssignment() == null);
+		FlightAssignment currentAssignment = activityLog.getFlightAssignment();
+		if (currentAssignment != null && assignments.stream().noneMatch(a -> a.getId() == currentAssignment.getId()))
+			assignments.add(currentAssignment);
+
+		SelectChoices choices = new SelectChoices();
 
 		for (FlightAssignment assignment : assignments) {
 			String key = Integer.toString(assignment.getId());
 			String label = assignment.getMoment() + " - " + assignment.getDuty() + " - " + assignment.getCurrentStatus() + " - " + assignment.getLeg().getFlightNumber();
-			boolean isSelected = assignment.equals(activityLog.getFlightAssignment());
+			boolean isSelected = assignment.equals(currentAssignment);
 
 			choices.add(key, label, isSelected);
 		}
 
+		choices.add("0", "----", false);
+
 		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment", "draftMode");
 
-		if (activityLog.getFlightAssignment() != null)
+		if (choices.getSelected() != null)
 			dataset.put("flightAssignment", choices.getSelected().getKey());
+		else
+			dataset.put("flightAssignment", "0");
 
 		dataset.put("assignments", choices);
 

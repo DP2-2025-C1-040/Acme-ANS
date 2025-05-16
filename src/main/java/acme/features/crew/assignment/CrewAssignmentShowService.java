@@ -33,18 +33,11 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 		int id = super.getRequest().getData("id", int.class);
 		FlightAssignment assignment = this.repository.findFlightAssignmentById(id);
 
-		boolean status = false;
-		if (assignment != null) {
-			int activeUserId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			int ownerId = assignment.getFlightCrewMember().getId();
+		boolean isOwner = assignment != null && super.getRequest().getPrincipal().hasRealm(assignment.getFlightCrewMember());
 
-			boolean userOwnsAssignment = activeUserId == ownerId;
+		boolean isPublished = assignment != null && !assignment.getDraftMode();
 
-			Collection<Leg> validLegs = this.repository.findAllLegs();
-			boolean legIsValid = assignment.getLeg() == null || validLegs.contains(assignment.getLeg());
-
-			status = userOwnsAssignment && legIsValid;
-		}
+		boolean status = isOwner || isPublished;
 
 		super.getResponse().setAuthorised(status);
 	}
