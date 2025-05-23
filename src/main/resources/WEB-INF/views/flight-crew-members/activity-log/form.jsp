@@ -5,7 +5,7 @@
 <acme:form readonly="${readonly}">
     <acme:input-moment code="flight-crew-members.activity-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
     <acme:input-textbox code="flight-crew-members.activity-log.form.label.typeOfIncident" path="typeOfIncident"/>    
-    <acme:input-textbox code="flight-crew-members.activity-log.form.label.description" path="description"/>
+    <acme:input-textarea code="flight-crew-members.activity-log.form.label.description" path="description"/>
     <acme:input-double code="flight-crew-members.activity-log.form.label.severityLevel" path="severityLevel"/>
     <acme:input-select code="flight-crew-members.activity-log.form.label.flightAssignment" path="flightAssignment" choices="${assignments}"/>
 

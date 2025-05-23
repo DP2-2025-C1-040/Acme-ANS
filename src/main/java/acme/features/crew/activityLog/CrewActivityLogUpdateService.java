@@ -87,7 +87,7 @@ public class CrewActivityLogUpdateService extends AbstractGuiService<FlightCrewM
 
 		assignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
 
-		choices.add("0", "----", activityLog.getFlightAssignment() == null); // Opción vacía
+		choices.add("0", "----", activityLog.getFlightAssignment() == null);
 
 		for (FlightAssignment assignment : assignments) {
 			String key = Integer.toString(assignment.getId());
