@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
@@ -15,7 +16,7 @@ import acme.entities.flight.Flight;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerBookingCreateService extends AbstractGuiService<Customer, Booking> {
+public class CustomerBookingPublishService extends AbstractGuiService<Customer, Booking> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -28,16 +29,20 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	@Override
 	public void authorise() {
 		boolean status;
+		int bookingId;
 		int flightId;
 		Flight flight;
+		Booking booking;
 
-		if (super.getRequest().getMethod().equals("GET"))
-			status = true;
-		else {
-			flightId = super.getRequest().getData("flight", int.class);
-			flight = this.repository.findOneFlightPublishedById(flightId);
-			status = flightId == 0 || flight != null;
-		}
+		// Comprueba pertenencia y si está en draftMode
+		bookingId = super.getRequest().getData("id", int.class);
+		booking = this.repository.findBookingById(bookingId);
+		status = booking != null && super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) && booking.getDraftMode();
+
+		// Comprueba si el flight asignado es adecuado
+		flightId = super.getRequest().getData("flight", int.class);
+		flight = this.repository.findOneFlightPublishedById(flightId);
+		status = status && (flightId == 0 || flight != null);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -45,20 +50,18 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	@Override
 	public void load() {
 		Booking booking;
-		Customer customer;
+		int id;
 
-		customer = this.repository.findOneCustomerById(super.getRequest().getPrincipal().getActiveRealm().getId());
+		id = super.getRequest().getData("id", int.class);
+		booking = this.repository.findBookingById(id);
 
-		booking = new Booking();
-		booking.setDraftMode(true);
-		booking.setCustomer(customer);
 		super.getBuffer().addData(booking);
-
 	}
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "flight");
+		super.bindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "flight");
+		booking.setPurchaseMoment(MomentHelper.getCurrentMoment());
 	}
 
 	@Override
@@ -72,8 +75,9 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	}
 
 	@Override
-	public void perform(final Booking Booking) {
-		this.repository.save(Booking);
+	public void perform(final Booking booking) {
+		booking.setDraftMode(false);
+		this.repository.save(booking);
 	}
 
 	@Override

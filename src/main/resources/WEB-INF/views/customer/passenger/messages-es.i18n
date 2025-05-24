@@ -1,0 +1,30 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+customer.booking.list.title = Lista de pasajeros
+customer.booking.form.title = Formulario para pasajero
+
+customer.booking.list.label.fullName = Nombre completo
+customer.booking.list.label.passportNumber = Número de pasaporte
+customer.booking.list.label.specialNeeds = Necesidades especiales
+customer.booking.list.button.create = Crear
+
+customer.booking.form.label.fullName = Nombre completo
+customer.booking.form.label.passportNumber = Número de pasaporte
+customer.booking.form.label.specialNeeds = Necesidades especiales
+customer.booking.form.label.dateOfBirdth = Fecha de nacimiento
+customer.booking.form.label.email = Correo electrónico
+
+customer.booking.form.button.update = Actualizar
+customer.booking.form.button.create = Crear
+customer.booking.form.label.confirmation = Confirme que el pasajero es correcta
+
+customer.booking.unique.locatorCode = El código de localización debe ser único
+customer.booking.publishing.nibble = Debe almacenar los 4 últimos dígitos de tarjeta de crédito antes de publicar
