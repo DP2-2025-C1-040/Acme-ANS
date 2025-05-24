@@ -1,0 +1,17 @@
+key,key:booking,key:passenger
+# One passenger, all in draftMode
+record-00,booking-00,passenger-00
+# More than one passenger (3), all in draftMode
+record-01,booking-01,passenger-01
+record-02,booking-01,passenger-02
+record-03,booking-01,passenger-06
+# More than one passenger (2), one in draftMode and the other not, and booking in draftMode
+record-04,booking-02,passenger-21
+record-05,booking-03,passenger-26
+# One passenger not in draftMode, and booking in draftMode 
+record-06,booking-04,passenger-27
+# One passenger, all not in draftMode
+record-07,booking-18,passenger-28
+# Records for customer 2
+record-08,booking-19,passenger-29
+record-09,booking-20,passenger-30

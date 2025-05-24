@@ -19,13 +19,11 @@
 	<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode"/>
 	<acme:input-moment code="customer.booking.form.label.purchaseMoment" path="purchaseMoment" readonly="true"/>
 	<acme:input-select code="customer.booking.form.label.type" path="travelClass" choices="${travelClasses}"/>
-	<acme:input-money code="customer.booking.form.label.price" path="price"/>
+	<jstl:if test="${_command != 'create'}">
+		<acme:input-money code="customer.booking.form.label.price" path="price" readonly="true" />
+	</jstl:if>
 	<acme:input-textbox code="customer.booking.form.label.emailAddress" path="lastNibble"/>
 	<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}"/>
-
-	<jstl:if test="${draftMode}">
-		<acme:input-checkbox code="customer.booking.form.label.confirmation" path="confirmation"/>
-	</jstl:if>
 
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && draftMode == false}">

@@ -41,12 +41,7 @@ public class CustomerPassangerCreateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void validate(final Passenger passenger) {
-		{
-			boolean confirmation;
 
-			confirmation = super.getRequest().getData("confirmation", boolean.class);
-			super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
-		}
 	}
 
 	@Override
@@ -58,7 +53,6 @@ public class CustomerPassangerCreateService extends AbstractGuiService<Customer,
 	public void unbind(final Passenger Passenger) {
 
 		Dataset dataset = super.unbindObject(Passenger, "fullName", "email", "passportNumber", "dateOfBirdth", "specialNeeds", "draftMode");
-		dataset.put("confirmation", false);
 
 		super.getResponse().addData(dataset);
 	}

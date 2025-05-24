@@ -29,7 +29,9 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT b FROM Booking b WHERE b.locatorCode = :locatorCode")
 	Booking findBookingByLocatorCode(String locatorCode);
 
-	// TODO - Add draftMode when Flight has it
-	@Query("SELECT f FROM Flight f WHERE f.id = :flightId")
+	@Query("SELECT f FROM Flight f WHERE f.id = :flightId AND f.draftMode = TRUE")
 	Flight findOneFlightPublishedById(int flightId);
+
+	@Query("SELECT COUNT(*) FROM BookingRecord br WHERE br.booking.id = :id")
+	Integer countPassengersAssociatedToBooking(int id);
 }

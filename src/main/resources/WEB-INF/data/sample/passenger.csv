@@ -35,7 +35,7 @@ passenger-25,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,"Lorem ipsum 
 # draftMode - standard variations
 passenger-26,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,FALSE,customer1
 passenger-27,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,FALSE,customer1
+passenger-28,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,FALSE,customer1
 # customer - standard variations
-passenger-28,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer2
 passenger-29,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer2
 passenger-30,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer2

@@ -60,18 +60,13 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "flight");
+		super.bindObject(booking, "locatorCode", "travelClass", "lastNibble", "flight");
 		booking.setPurchaseMoment(MomentHelper.getCurrentMoment());
 	}
 
 	@Override
 	public void validate(final Booking booking) {
-		{
-			boolean confirmation;
 
-			confirmation = super.getRequest().getData("confirmation", boolean.class);
-			super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
-		}
 	}
 
 	@Override
@@ -91,10 +86,10 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		choicesFlights = SelectChoices.from(flights, "tag", booking.getFlight());
 		choicesTravelClasses = SelectChoices.from(TravelClassEnum.class, booking.getTravelClass());
 
-		Dataset dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "draftMode", "flight");
-		dataset.put("confirmation", false);
+		Dataset dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "lastNibble", "draftMode", "flight");
 		dataset.put("travelClasses", choicesTravelClasses);
 		dataset.put("flights", choicesFlights);
+		dataset.put("price", booking.getPrice());
 
 		super.getResponse().addData(dataset);
 	}

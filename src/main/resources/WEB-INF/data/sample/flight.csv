@@ -1,22 +1,24 @@
-key,tag,selfTransfer,cost,description,key:airline-manager
+key,tag,selfTransfer,cost,description,key:airline-manager,draftMode
 # base entity
-flight-01,Lorem ipsum dolor sit amet,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01
+flight-01,Lorem ipsum dolor sit amet,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01,false
 # tag - standard variations
-flight-02,Lo,No,"USD 75,000",One-stop flight from ORD to MIA,manager-02
-flight-03,"Lorem ipsum dolor sit amet, consectetur adipiscing",Yes,"USD 75,000",Private charter flight from SFO to DFW,manager-03
-flight-04,โลเร็ม อิปซัม,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01
-flight-05,لوريم إيبسوم,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01
-flight-06,洛伦·伊普森,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01
-flight-07,"Lorem ipsum dolor sit amet, consectetur adipiscing",True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01
+flight-02,Lo,No,"USD 75,000",One-stop flight from ORD to MIA,manager-02,false
+flight-03,"Lorem ipsum dolor sit amet, consectetur adipiscing",Yes,"USD 75,000",Private charter flight from SFO to DFW,manager-03,false
+flight-04,โลเร็ม อิปซัม,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01,false
+flight-05,لوريم إيبسوم,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01,false
+flight-06,洛伦·伊普森,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01,false
+flight-07,"Lorem ipsum dolor sit amet, consectetur adipiscing",True,"USD 75,000",Lorem ipsum dolor sit ame,manager-01,false
 # selfTransfer - standard variations
-flight-08,Lorem ipsum dolor sit amet,False,"USD 75,000",Lorem ipsum dolor sit ame,manager-01
+flight-08,Lorem ipsum dolor sit amet,False,"USD 75,000",Lorem ipsum dolor sit ame,manager-01,false
 # cost - standard variations
-flight-09,Lorem ipsum dolor sit amet,True,"USD 82,500",Lorem ipsum dolor sit ame,manager-01
-flight-10,Lorem ipsum dolor sit amet,True,"USD 70,000",Lorem ipsum dolor sit ame,manager-01
-flight-11,Lorem ipsum dolor sit amet,True,"EUR 999999.99",Lorem ipsum dolor sit ame,manager-01
-flight-12,Lorem ipsum dolor sit amet,True,"EUR 12341.12",Lorem ipsum dolor sit ame,manager-01
+flight-09,Lorem ipsum dolor sit amet,True,"USD 82,500",Lorem ipsum dolor sit ame,manager-01,false
+flight-10,Lorem ipsum dolor sit amet,True,"USD 70,000",Lorem ipsum dolor sit ame,manager-01,false
+flight-11,Lorem ipsum dolor sit amet,True,"EUR 999999.99",Lorem ipsum dolor sit ame,manager-01,false
+flight-12,Lorem ipsum dolor sit amet,True,"EUR 12341.12",Lorem ipsum dolor sit ame,manager-01,false
 # description - standard variations
-flight-13,Lorem ipsum dolor sit amet,True,"USD 75,000",,manager-01
-flight-14,Lorem ipsum dolor sit amet,True,"USD 75,000",L,manager-01
+flight-13,Lorem ipsum dolor sit amet,True,"USD 75,000",,manager-01,false
+flight-14,Lorem ipsum dolor sit amet,True,"USD 75,000",L,manager-01,false
 # manager - standard variations
-flight-15,Lorem ipsum dolor sit amet,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-02
+flight-15,Lorem ipsum dolor sit amet,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-02,false
+# draftMode - standard variations
+flight-16,Lorem ipsum dolor sit amet,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-02,true

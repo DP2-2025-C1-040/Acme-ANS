@@ -22,15 +22,11 @@
 	<acme:input-moment code="customer.passenger.form.label.dateOfBirdth" path="dateOfBirdth"/>
 	<acme:input-textbox code="customer.passenger.form.label.email" path="email"/>
 
-	<jstl:if test="${draftMode}">
-		<acme:input-checkbox code="customer.passenger.form.label.confirmation" path="confirmation"/>
-	</jstl:if>
-
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode}">
 			<acme:submit code="customer.passenger.form.button.update" action="/customer/passenger/update"/>
 			<acme:submit code="customer.passenger.form.button.publish" action="/customer/passenger/publish"/>
-			<acme:submit code="customer.passenger.form.button.update" action="/customer/passenger/delete"/>
+			<acme:submit code="customer.passenger.form.button.delete" action="/customer/passenger/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="customer.passenger.form.button.create" action="/customer/passenger/create"/>

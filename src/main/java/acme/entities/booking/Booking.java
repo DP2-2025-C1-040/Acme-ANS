@@ -19,6 +19,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -27,10 +28,11 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.client.helpers.SpringHelper;
 import acme.constraints.ValidBooking;
 import acme.entities.flight.Flight;
+import acme.features.customer.bookings.CustomerBookingRepository;
 import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
@@ -62,11 +64,6 @@ public class Booking extends AbstractEntity {
 	@Automapped
 	private TravelClassEnum		travelClass;
 
-	@Mandatory
-	@ValidMoney(min = 0.01)
-	@Automapped
-	private Money				price;
-
 	@Optional
 	@ValidString(pattern = "^\\d{4}$")
 	@Automapped
@@ -79,16 +76,39 @@ public class Booking extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
+
+	@Transient
+	public Money getPrice() {
+		Money result;
+		Integer numPassengers;
+		CustomerBookingRepository repository;
+
+		result = new Money();
+		result.setAmount(0.0);
+		result.setCurrency("EUR");
+
+		if (this.flight != null && this.flight.getCost() != null) {
+			repository = SpringHelper.getBean(CustomerBookingRepository.class);
+			numPassengers = repository.countPassengersAssociatedToBooking(this.getId());
+			result.setAmount(this.flight.getCost().getAmount() * numPassengers);
+			result.setCurrency(this.flight.getCost().getCurrency());
+		}
+
+		return result;
+
+	}
+
 	// Relationships ----------------------------------------------------------
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Flight				flight;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Customer			customer;
+	private Flight		flight;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Customer	customer;
 
 }

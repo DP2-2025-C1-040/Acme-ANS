@@ -24,6 +24,8 @@ customer.booking.form.label.email = Correo electrónico
 
 customer.booking.form.button.update = Actualizar
 customer.booking.form.button.create = Crear
+customer.passenger.form.button.publish = Publicar
+customer.passenger.form.button.delete = Eliminar
 customer.booking.form.label.confirmation = Confirme que el pasajero es correcta
 
 customer.booking.unique.locatorCode = El código de localización debe ser único
