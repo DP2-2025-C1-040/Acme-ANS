@@ -50,5 +50,4 @@ flight-crew-members.flight-assignment.form.button.delete = Delete
 
 flight-crew-members.flight-assignment.form.error.not-available = The flight crew member has no available status
 flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = The flight crew member is assigned to multiple legs
-flight-assignment.form.error.invalid-duty = The flight crew member has no LEAD_ATTENDANT duty
 flight-crew-members.flight-assignment.form.error.leg-already-occurred = The leg already occurred

@@ -32,7 +32,41 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		int id = super.getRequest().getData("id", int.class);
 		FlightAssignment assignment = this.assignmentRepository.findFlightAssignmentById(id);
 
-		boolean status = assignment != null && assignment.getDraftMode() && super.getRequest().getPrincipal().hasRealm(assignment.getFlightCrewMember());
+		boolean status = false;
+
+		if (assignment != null && assignment.getDraftMode()) {
+			int activeUserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			boolean userOwnsAssignment = assignment.getFlightCrewMember().getId() == activeUserId;
+
+			Object legData = super.getRequest().getData().get("leg");
+			Object assignmentIdData = super.getRequest().getData().get("id");
+
+			boolean legIsValid = false;
+			boolean idIsValid = false;
+
+			if (legData == null)
+				legIsValid = true;
+			else if (legData instanceof String legKey) {
+				legKey = legKey.trim();
+
+				if (!legKey.isEmpty())
+					if (legKey.equals("0"))
+						legIsValid = true;
+					else if (legKey.matches("\\d+")) {
+						int legId = Integer.parseInt(legKey);
+						Leg leg = this.assignmentRepository.findLegById(legId);
+						legIsValid = leg != null && this.assignmentRepository.findAllLegs().contains(leg);
+					}
+			}
+			if (assignmentIdData == null)
+				idIsValid = true;
+			else if (assignmentIdData instanceof String idKey) {
+				idKey = idKey.trim();
+				if (!idKey.isEmpty() && idKey.matches("\\d+"))
+					idIsValid = true;
+			}
+			status = userOwnsAssignment && legIsValid && idIsValid;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}

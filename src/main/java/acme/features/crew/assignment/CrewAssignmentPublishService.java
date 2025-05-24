@@ -32,7 +32,41 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 		int id = super.getRequest().getData("id", int.class);
 		FlightAssignment assignment = this.assignmentRepository.findFlightAssignmentById(id);
 
-		boolean status = assignment != null && assignment.getDraftMode() && super.getRequest().getPrincipal().hasRealm(assignment.getFlightCrewMember());
+		boolean status = false;
+
+		if (assignment != null && assignment.getDraftMode()) {
+			int activeUserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			boolean userOwnsAssignment = assignment.getFlightCrewMember().getId() == activeUserId;
+
+			Object legData = super.getRequest().getData().get("leg");
+			Object assignmentIdData = super.getRequest().getData().get("id");
+
+			boolean legIsValid = false;
+			boolean idIsValid = false;
+
+			if (legData == null)
+				legIsValid = true;
+			else if (legData instanceof String legKey) {
+				legKey = legKey.trim();
+
+				if (!legKey.isEmpty())
+					if (legKey.equals("0"))
+						legIsValid = true;
+					else if (legKey.matches("\\d+")) {
+						int legId = Integer.parseInt(legKey);
+						Leg leg = this.assignmentRepository.findLegById(legId);
+						legIsValid = leg != null && this.assignmentRepository.findAllLegs().contains(leg);
+					}
+			}
+			if (assignmentIdData == null)
+				idIsValid = true;
+			else if (assignmentIdData instanceof String idKey) {
+				idKey = idKey.trim();
+				if (!idKey.isEmpty() && idKey.matches("\\d+"))
+					idIsValid = true;
+			}
+			status = userOwnsAssignment && legIsValid && idIsValid;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -50,7 +84,7 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		super.bindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg");
+		super.bindObject(assignment, "duty", "currentStatus", "remarks", "leg");
 	}
 
 	@Override
@@ -68,14 +102,12 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		// Cargar las opciones de legs desde el repositorio
 		Collection<Leg> legs = this.assignmentRepository.findPublishedLegs();
 		SelectChoices choices = new SelectChoices();
 		SelectChoices duties;
 		SelectChoices statuses;
 
-		// Construir las opciones de 'legs' en base a la lista de 'legs'
-		choices.add("0", "----", assignment.getLeg() == null); // Agregar opción por defecto
+		choices.add("0", "----", assignment.getLeg() == null);
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
 			String label = leg.getFlightNumber() + " - " + leg.getOriginCity() + " - " + leg.getDestinationCity() + " - " + leg.getFlight().getTag();
@@ -83,20 +115,16 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 			choices.add(key, label, isSelected);
 		}
 
-		// Obtener las opciones de 'duties' y 'statuses' de los enums correspondientes
 		duties = SelectChoices.from(Duty.class, assignment.getDuty());
 		statuses = SelectChoices.from(CurrentStatus.class, assignment.getCurrentStatus());
 
-		// Desvincular el objeto 'assignment' y generar el dataset
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
 
-		// Agregar al dataset las opciones seleccionadas y las listas completas
-		dataset.put("leg", choices.getSelected().getKey());  // Se agrega el 'key' del 'leg' seleccionado
-		dataset.put("legs", choices);  // Se agrega la lista completa de opciones de 'legs'
-		dataset.put("duties", duties);  // Agregar las opciones de 'duties'
-		dataset.put("statuses", statuses);  // Agregar las opciones de 'statuses'
+		dataset.put("leg", choices.getSelected().getKey());
+		dataset.put("legs", choices);
+		dataset.put("duties", duties);
+		dataset.put("statuses", statuses);
 
-		// Enviar el dataset como respuesta
 		super.getResponse().addData(dataset);
 	}
 

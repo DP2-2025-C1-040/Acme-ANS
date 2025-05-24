@@ -33,7 +33,7 @@
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills" path="flightCrewMember.languageSkills" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus" path="flightCrewMember.availabilityStatus" readonly="true"/>
 			<acme:input-money code="flight-crew-members.flight-assignment.form.label.flightCrewMember.salary" path="flightCrewMember.salary" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
+			<acme:input-integer code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.airline" path="flightCrewMember.airline" readonly="true"/>
 
     		<!-- Datos de Leg -->
@@ -63,7 +63,7 @@
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.languageSkills" path="flightCrewMember.languageSkills" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.availabilityStatus" path="flightCrewMember.availabilityStatus" readonly="true"/>
 			<acme:input-money code="flight-crew-members.flight-assignment.form.label.flightCrewMember.salary" path="flightCrewMember.salary" readonly="true"/>
-			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
+			<acme:input-integer code="flight-crew-members.flight-assignment.form.label.flightCrewMember.yearsOfExperience" path="flightCrewMember.yearsOfExperience" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.flightCrewMember.airline" path="flightCrewMember.airline" readonly="true"/>
 
     		<!-- Datos de Leg -->

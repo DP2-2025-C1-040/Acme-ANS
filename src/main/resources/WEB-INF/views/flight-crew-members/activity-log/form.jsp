@@ -1,15 +1,3 @@
-<%--
-- form.jsp
--
-- Copyright (C) 2012-2025 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
-
 <%@page%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -17,7 +5,7 @@
 <acme:form readonly="${readonly}">
     <acme:input-moment code="flight-crew-members.activity-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
     <acme:input-textbox code="flight-crew-members.activity-log.form.label.typeOfIncident" path="typeOfIncident"/>    
-    <acme:input-textbox code="flight-crew-members.activity-log.form.label.description" path="description"/>
+    <acme:input-textarea code="flight-crew-members.activity-log.form.label.description" path="description"/>
     <acme:input-double code="flight-crew-members.activity-log.form.label.severityLevel" path="severityLevel"/>
     <acme:input-select code="flight-crew-members.activity-log.form.label.flightAssignment" path="flightAssignment" choices="${assignments}"/>
 
