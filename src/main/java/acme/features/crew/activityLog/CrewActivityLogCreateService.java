@@ -37,22 +37,35 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 
 		if (crewMember != null) {
 			Object assignmentData = super.getRequest().getData().get("flightAssignment");
+			Object activityLogIdData = super.getRequest().getData().get("id");
+
+			boolean assignmentIsValid = false;
+			boolean idIsValid = false;
 
 			if (assignmentData == null || "".equals(assignmentData))
-				status = true;
+				assignmentIsValid = true;
 			else if (assignmentData instanceof String assignmentKey) {
 				assignmentKey = assignmentKey.trim();
 
-				if (assignmentKey.equals("0"))
-					status = true;
-				else if (assignmentKey.matches("\\d+")) {
-					int assignmentId = Integer.parseInt(assignmentKey);
-					Collection<FlightAssignment> validAssignments = this.repository.findAllFlightAssignments();
-					boolean assignmentIsValid = validAssignments.stream().anyMatch(assignment -> assignment.getId() == assignmentId);
-					status = assignmentIsValid;
-				} else
-					status = false;
+				if (!assignmentKey.isEmpty())
+					if (assignmentKey.equals("0"))
+						assignmentIsValid = true;
+					else if (assignmentKey.matches("\\d+")) {
+						int assignmentId = Integer.parseInt(assignmentKey);
+						Collection<FlightAssignment> validAssignments = this.repository.findAllFlightAssignments();
+						assignmentIsValid = validAssignments.stream().anyMatch(assignment -> assignment.getId() == assignmentId);
+					}
 			}
+			if (activityLogIdData == null)
+				idIsValid = true;
+			else if (activityLogIdData instanceof String idKey) {
+				idKey = idKey.trim();
+
+				if (!idKey.isEmpty() && idKey.matches("\\d+"))
+					idIsValid = true;
+			}
+
+			status = assignmentIsValid && idIsValid;
 		}
 
 		super.getResponse().setAuthorised(status);

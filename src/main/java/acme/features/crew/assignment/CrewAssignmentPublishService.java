@@ -39,19 +39,33 @@ public class CrewAssignmentPublishService extends AbstractGuiService<FlightCrewM
 			boolean userOwnsAssignment = assignment.getFlightCrewMember().getId() == activeUserId;
 
 			Object legData = super.getRequest().getData().get("leg");
+			Object assignmentIdData = super.getRequest().getData().get("id");
 
-			if (legData instanceof String legKey) {
+			boolean legIsValid = false;
+			boolean idIsValid = false;
+
+			if (legData == null)
+				legIsValid = true;
+			else if (legData instanceof String legKey) {
 				legKey = legKey.trim();
 
-				if (legKey.equals("0"))
-					status = userOwnsAssignment;
-				else if (legKey.matches("\\d+")) {
-					int legId = Integer.parseInt(legKey);
-					Leg leg = this.assignmentRepository.findLegById(legId);
-					boolean legIsValid = leg != null && this.assignmentRepository.findAllLegs().contains(leg);
-					status = userOwnsAssignment && legIsValid;
-				}
+				if (!legKey.isEmpty())
+					if (legKey.equals("0"))
+						legIsValid = true;
+					else if (legKey.matches("\\d+")) {
+						int legId = Integer.parseInt(legKey);
+						Leg leg = this.assignmentRepository.findLegById(legId);
+						legIsValid = leg != null && this.assignmentRepository.findAllLegs().contains(leg);
+					}
 			}
+			if (assignmentIdData == null)
+				idIsValid = true;
+			else if (assignmentIdData instanceof String idKey) {
+				idKey = idKey.trim();
+				if (!idKey.isEmpty() && idKey.matches("\\d+"))
+					idIsValid = true;
+			}
+			status = userOwnsAssignment && legIsValid && idIsValid;
 		}
 
 		super.getResponse().setAuthorised(status);

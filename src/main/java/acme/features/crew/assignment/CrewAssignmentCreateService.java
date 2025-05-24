@@ -37,21 +37,36 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 		if (crewMember != null && crewMember.getAvailabilityStatus() == AvailabilityStatus.AVAILABLE) {
 			Object legData = super.getRequest().getData().get("leg");
+			Object assignmentIdData = super.getRequest().getData().get("id");
+
+			boolean legValid = false;
+			boolean idValid = false;
 
 			if (legData == null)
-				status = true;
+				legValid = true;
 			else if (legData instanceof String legKey) {
 				legKey = legKey.trim();
 
-				if (legKey.equals("0"))
-					status = true;
-				else if (legKey.matches("\\d+")) {
-					int legId = Integer.parseInt(legKey);
-					Collection<Leg> validLegs = this.assignmentRepository.findAllLegs();
-					boolean legIsValid = validLegs.stream().anyMatch(leg -> leg.getId() == legId);
-					status = legIsValid;
-				}
+				if (!legKey.isEmpty())
+					if (legKey.equals("0"))
+						legValid = true;
+					else if (legKey.matches("\\d+")) {
+						int legId = Integer.parseInt(legKey);
+						Collection<Leg> validLegs = this.assignmentRepository.findAllLegs();
+						legValid = validLegs.stream().anyMatch(leg -> leg.getId() == legId);
+					}
 			}
+
+			if (assignmentIdData == null)
+				idValid = true;
+			else if (assignmentIdData instanceof String idKey) {
+				idKey = idKey.trim();
+
+				if (!idKey.isEmpty() && idKey.matches("\\d+"))
+					idValid = true;
+			}
+
+			status = legValid && idValid;
 		}
 
 		super.getResponse().setAuthorised(status);
