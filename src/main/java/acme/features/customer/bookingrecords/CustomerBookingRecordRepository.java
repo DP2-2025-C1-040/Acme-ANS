@@ -49,9 +49,12 @@ public interface CustomerBookingRecordRepository extends AbstractRepository {
 	@Query("SELECT p FROM Passenger p WHERE p.id = :id")
 	Passenger findPassengerById(Integer id);
 
-	@Query("SELECT br FROM BookingRecord br WHERE br.booking.id = :bookingId AND br.passenger.id = :passengerId")
+	@Query("SELECT COUNT(br) = 0 FROM BookingRecord br WHERE br.booking.id = :bookingId AND br.passenger.id = :passengerId")
 	boolean notExistsThisPassengerAndBooking(int bookingId, int passengerId);
 
-	@Query("SELECT p FROM Passenger p JOIN BookingRecord br ON p.id = br.passenger.id WHERE br.booking.id != :id")
-	Collection<Passenger> findAllPassengersNotInBookingId(int id);
+	@Query("SELECT p FROM Passenger p WHERE p.id NOT IN (SELECT br.passenger.id FROM BookingRecord br WHERE br.booking.id = :bookingId) AND p.customer.id = :customerId")
+	Collection<Passenger> findAllPassengersNotInBookingIdAndCustomerId(int bookingId, int customerId);
+
+	@Query("SELECT br.passenger FROM BookingRecord br WHERE br.booking.id = :bookingId")
+	Collection<Passenger> findAllPassengersInBookingId(int bookingId);
 }
