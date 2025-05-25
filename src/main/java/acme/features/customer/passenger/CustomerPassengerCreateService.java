@@ -1,5 +1,5 @@
 
-package acme.features.customer.passangers;
+package acme.features.customer.passenger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,12 +10,12 @@ import acme.entities.passengers.Passenger;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerPassangerUpdateService extends AbstractGuiService<Customer, Passenger> {
+public class CustomerPassengerCreateService extends AbstractGuiService<Customer, Passenger> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerPassangerRepository repository;
+	private CustomerPassengerRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -28,17 +28,19 @@ public class CustomerPassangerUpdateService extends AbstractGuiService<Customer,
 	@Override
 	public void load() {
 		Passenger passenger;
-		int id;
+		Customer customer;
 
-		id = super.getRequest().getData("id", int.class);
-		passenger = this.repository.findPassengerById(id);
+		customer = this.repository.findOneCustomerById(super.getRequest().getPrincipal().getActiveRealm().getId());
 
+		passenger = new Passenger();
+		passenger.setDraftMode(true);
+		passenger.setCustomer(customer);
 		super.getBuffer().addData(passenger);
 	}
 
 	@Override
 	public void bind(final Passenger passenger) {
-		super.bindObject(passenger, "fullName", "email", "passportNumber", "dateOfBirdth", "specialNeeds", "draftMode");
+		super.bindObject(passenger, "fullName", "email", "passportNumber", "dateOfBirdth", "specialNeeds");
 	}
 
 	@Override
@@ -52,10 +54,9 @@ public class CustomerPassangerUpdateService extends AbstractGuiService<Customer,
 	}
 
 	@Override
-	public void unbind(final Passenger Passenger) {
-		Dataset dataset;
+	public void unbind(final Passenger passenger) {
 
-		dataset = super.unbindObject(Passenger, "fullName", "email", "passportNumber", "dateOfBirdth", "specialNeeds", "draftMode");
+		Dataset dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "dateOfBirdth", "specialNeeds", "draftMode");
 
 		super.getResponse().addData(dataset);
 	}

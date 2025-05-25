@@ -50,7 +50,7 @@ public class Booking extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
+	@ValidString(pattern = "^[A-Z0-9]{6,8}$", message = "{customer.booking.form.locatorCode}")
 	@Column(unique = true)
 	private String				locatorCode;
 
@@ -65,7 +65,7 @@ public class Booking extends AbstractEntity {
 	private TravelClassEnum		travelClass;
 
 	@Optional
-	@ValidString(pattern = "^\\d{4}$")
+	@ValidString(pattern = "^\\d{4}$", message = "{customer.booking.form.lastNibble}")
 	@Automapped
 	private String				lastNibble;
 

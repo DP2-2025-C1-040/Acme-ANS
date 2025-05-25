@@ -20,7 +20,7 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT b FROM Booking b WHERE b.id = :id")
 	Booking findBookingById(int id);
 
-	@Query("SELECT f FROM Flight f")
+	@Query("SELECT f FROM Flight f WHERE f.draftMode = FALSE")
 	Collection<Flight> findAllFlights();
 
 	@Query("SELECT c FROM Customer c WHERE c.id = :id")
@@ -29,7 +29,7 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT b FROM Booking b WHERE b.locatorCode = :locatorCode")
 	Booking findBookingByLocatorCode(String locatorCode);
 
-	@Query("SELECT f FROM Flight f WHERE f.id = :flightId AND f.draftMode = TRUE")
+	@Query("SELECT f FROM Flight f WHERE f.id = :flightId AND f.draftMode = FALSE")
 	Flight findOneFlightPublishedById(int flightId);
 
 	@Query("SELECT COUNT(*) FROM BookingRecord br WHERE br.booking.id = :id")

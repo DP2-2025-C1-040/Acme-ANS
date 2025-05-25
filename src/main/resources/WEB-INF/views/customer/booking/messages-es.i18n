@@ -20,7 +20,7 @@ customer.booking.form.label.locatorCode = Código de localización
 customer.booking.form.label.purchaseMoment = Momento de compra
 customer.booking.form.label.type = Tipo de reserva
 customer.booking.form.label.price = Precio
-customer.booking.form.label.emailAddress = 4 últimos dígitos de tarjeta de crédito
+customer.booking.form.label.lastNibble = 4 últimos dígitos de tarjeta de crédito
 customer.booking.form.label.flight = Vuelo
 
 customer.booking.form.button.update = Actualizar

@@ -40,3 +40,7 @@ acme.validation.activity-log.flight-assignment.draftMode = The flight assignment
 flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = A flight crew member cannot be assigned to multiple legs simultaneously
 flight-crew-members.flight-assignment.form.error.duty-pilot-assigned = The leg can only have one pilot
 flight-crew-members.flight-assignment.form.error.duty-copilot-assigned = The leg can only have one copilot
+
+customer.booking.form.locatorCode = The locatorCode must have between 6 and 8 characters, that can go from A to Z and 0 to 9
+customer.booking.form.lastNibble = The last nibble must have only four digits
+customer.passenger.form.passportNumber = The passport number must have between 6 and 9 characters, that can go from A to Z and 0 to 9

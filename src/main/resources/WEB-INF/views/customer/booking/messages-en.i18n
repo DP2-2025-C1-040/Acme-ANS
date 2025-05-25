@@ -20,7 +20,7 @@ customer.booking.form.label.locatorCode = Locator Code
 customer.booking.form.label.purchaseMoment = Purchase Moment
 customer.booking.form.label.type = Travel Class
 customer.booking.form.label.price = Price
-customer.booking.form.label.emailAddress = Last 4 Nibbles
+customer.booking.form.label.lastNibble = Last 4 Nibbles
 customer.booking.form.label.flight = Flight
 
 customer.booking.form.button.update = Update

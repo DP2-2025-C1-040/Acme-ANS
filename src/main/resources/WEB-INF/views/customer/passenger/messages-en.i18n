@@ -26,7 +26,7 @@ customer.passenger.form.button.update = Update
 customer.passenger.form.button.create = Create
 customer.passenger.form.button.publish = Publish
 customer.passenger.form.button.delete = Delete
-customer.passenger.form.label.confirmation = Confirm that the passanger is correct
+customer.passenger.form.label.confirmation = Confirm that the passenger is correct
 
 customer.passenger.unique.locatorCode = The locator code must be unique
 customer.passenger.publishing.nibble = You must have stored the last 4 nibbles before publishing
