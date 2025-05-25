@@ -27,7 +27,6 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 	@Override
 	public void authorise() {
-		// TODO - COMO EN UPDATE. Considerar la no repetición
 		boolean status;
 		int bookingId;
 		int passengerId;
@@ -35,7 +34,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		Passenger passenger;
 
 		// Comprueba pertenencia y si está en draftMode
-		bookingId = super.getRequest().getData("id", int.class);
+		bookingId = super.getRequest().getData("bookingId", int.class);
 		booking = this.repository.findBookingById(bookingId);
 		status = booking != null && super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) && booking.getDraftMode();
 
@@ -83,11 +82,19 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		Collection<Passenger> passengers;
 		SelectChoices choices;
 		Dataset dataset;
+		int bookingId;
+		int customerId;
 
-		passengers = this.repository.findAllPassengersNotInBookingId(0);
+		bookingId = super.getRequest().getData("bookingId", int.class);
+		customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		passengers = this.repository.findAllPassengersNotInBookingIdAndCustomerId(bookingId, customerId);
+		choices = SelectChoices.from(passengers, "fullName", bookingRecord.getPassenger());
 
-		dataset = super.unbindObject(bookingRecord, "passenger", "booking");
-		dataset.put(null, dataset);
+		dataset = super.unbindObject(bookingRecord, "passenger");
+		dataset.put("passengers", choices);
+		dataset.put("tag", bookingRecord.getBooking().getFlight().getTag());
+		dataset.put("locatorCode", bookingRecord.getBooking().getLocatorCode());
+		dataset.put("bookingId", bookingId);
 
 		super.getResponse().addData(dataset);
 	}
