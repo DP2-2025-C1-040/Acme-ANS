@@ -1,4 +1,4 @@
-# validation-es.i18n
+	# validation-es.i18n
 #
 # Copyright (C) 2012-2025 Rafael Corchuelo.
 #
@@ -19,7 +19,9 @@ acme.validation.assistanceagent.employeeCode.duplicated.message = El código del
 acme.validation.assistanceagent.employeeCode.message= El código del empleado es incorrecto.
 acme.validation.claim.delete-when-published= Una reclamación publicada no puede ser eliminada
 acme.validation.claim.delete-trackinglogs-published = Una reclamación con seguimientos publicados no puede ser eliminada
-acme.validation.claim.publish-not-completed= ESta reclamación no ha sido completada. No puede ser publicada.
+acme.validation.claim.publish-not-completed= Esta reclamación no ha sido completada. No puede ser publicada.
+acme.validation.tracking-log.percentage.message= El estado y el porcentaje de resolución no son compatibles
+acme.validation.tracking-log.resolutionDescription.message= La descripción solo debe rellenarse cuando la reclamación sea completada
 
 flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = Un miembro de la tripulación no puede ser asignado a varias escalas simultáneamente
 flight-crew-members.flight-assignment.form.error.duty-pilot-assigned = La escala solo puede tener un piloto
@@ -38,3 +40,4 @@ acme.validation.service.promo-code.unique.message = Este código promocional ya 
 customer.booking.form.locatorCode = El código de localización debe tener entre 6 y 8 caracteres, y debe ir de la A a la Z y del 0 al 9
 customer.booking.form.lastNibble = Los últimos dígitos de la tarjeta de crédito deben contener solo 4 dígitos
 customer.passenger.form.passportNumber = El número de pasaporte debe tener entre 6 y 8 caracteres, y debe ir de la A a la Z y del 0 al 9
+
