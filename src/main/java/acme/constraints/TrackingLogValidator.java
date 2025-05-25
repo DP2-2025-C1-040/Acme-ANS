@@ -34,7 +34,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 				boolean correctStatus = correctStatusCompleted || correctStatusUncompleted;
 
-				super.state(context, correctStatus, "*", "acme.validation.percentage.message");
+				super.state(context, correctStatus, "status", "acme.validation.tracking-log.percentage.message");
 
 			}
 			{
@@ -44,7 +44,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 				boolean correctDescription = correctDescriptionCompleted || correctDescriptionUncompleted;
 
-				super.state(context, correctDescription, "*", "acme.validation.resolutionDescription.message");
+				super.state(context, correctDescription, "resolution", "acme.validation.tracking-log.resolutionDescription.message");
 			}
 		}
 

@@ -38,7 +38,6 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		Claim claim;
 		AssistanceAgent agent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
 
-		//El momento cogeremos el actual ficticio
 		Date registrationMoment = MomentHelper.getCurrentMoment();
 
 		claim = new Claim();
@@ -62,8 +61,8 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 			if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
 				super.state(claim.getLeg().getScheduledArrival().before(claim.getRegistrationMoment()), "registrationMoment", "assistanceAgent.claim.form.error.registration-before-leg");
 
-		if (!super.getBuffer().getErrors().hasErrors("leg"))
-			super.state(claim.getLeg() != null && claim.getLeg().isTransient(), "leg", "assistanceAgent.claim.form.error.leg-null");
+		//if (!super.getBuffer().getErrors().hasErrors("leg"))
+		//super.state(claim.getLeg() != null && claim.getLeg().isTransient(), "leg", "assistanceAgent.claim.form.error.leg-null");
 		;
 	}
 
