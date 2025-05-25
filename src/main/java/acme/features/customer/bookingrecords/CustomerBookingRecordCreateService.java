@@ -27,7 +27,6 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 	@Override
 	public void authorise() {
-		// TODO - COMO EN UPDATE. Considerar la no repetición
 		boolean status;
 		int bookingId;
 		int passengerId;

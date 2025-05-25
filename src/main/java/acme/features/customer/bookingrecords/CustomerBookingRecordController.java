@@ -25,7 +25,7 @@ public class CustomerBookingRecordController extends AbstractGuiController<Custo
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
-		//		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }
