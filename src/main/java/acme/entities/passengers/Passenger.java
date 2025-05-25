@@ -14,6 +14,7 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.realms.Customer;
 import lombok.Getter;
@@ -41,12 +42,12 @@ public class Passenger extends AbstractEntity {
 	private String				email;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,9}$")
+	@ValidString(pattern = "^[A-Z0-9]{6,9}$", message = "{customer.passenger.form.passportNumber}")
 	@Automapped
 	private String				passportNumber;
 
 	@Mandatory
-	@Valid
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				dateOfBirdth;
 

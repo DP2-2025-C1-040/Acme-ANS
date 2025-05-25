@@ -1,5 +1,5 @@
 
-package acme.features.customer.passangers;
+package acme.features.customer.passenger;
 
 import java.util.Collection;
 
@@ -12,12 +12,12 @@ import acme.entities.passengers.Passenger;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerPassangerListService extends AbstractGuiService<Customer, Passenger> {
+public class CustomerPassengerListService extends AbstractGuiService<Customer, Passenger> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerPassangerRepository repository;
+	private CustomerPassengerRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -31,7 +31,8 @@ public class CustomerPassangerListService extends AbstractGuiService<Customer, P
 	public void load() {
 		Collection<Passenger> passengers;
 
-		passengers = this.repository.findAllPassengers();
+		int id = super.getRequest().getPrincipal().getActiveRealm().getId();
+		passengers = this.repository.findAllMyPassengers(id);
 
 		super.getBuffer().addData(passengers);
 	}

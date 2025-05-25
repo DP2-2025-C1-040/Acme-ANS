@@ -29,19 +29,20 @@ public class CustomerBookingListService extends AbstractGuiService<Customer, Boo
 
 	@Override
 	public void load() {
-		Collection<Booking> Bookings;
+		Collection<Booking> bookings;
 
 		int id = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Bookings = this.repository.findAllMyBookings(id);
+		bookings = this.repository.findAllMyBookings(id);
 
-		super.getBuffer().addData(Bookings);
+		super.getBuffer().addData(bookings);
 	}
 
 	@Override
 	public void unbind(final Booking booking) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price");
+		dataset = super.unbindObject(booking, "locatorCode", "travelClass");
+		dataset.put("price", booking.getPrice());
 
 		super.getResponse().addData(dataset);
 	}

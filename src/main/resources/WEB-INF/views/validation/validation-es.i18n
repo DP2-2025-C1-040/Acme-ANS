@@ -35,4 +35,6 @@ acme.validation.activity-log.flight-assignment.draftMode = El vuelo asignado no 
 acme.validation.service.promo-code.year.message = El código promocional no es válido para este año.
 acme.validation.service.promo-code.unique.message = Este código promocional ya ha sido usado.
 
-
+customer.booking.form.locatorCode = El código de localización debe tener entre 6 y 8 caracteres, y debe ir de la A a la Z y del 0 al 9
+customer.booking.form.lastNibble = Los últimos dígitos de la tarjeta de crédito deben contener solo 4 dígitos
+customer.passenger.form.passportNumber = El número de pasaporte debe tener entre 6 y 8 caracteres, y debe ir de la A a la Z y del 0 al 9
