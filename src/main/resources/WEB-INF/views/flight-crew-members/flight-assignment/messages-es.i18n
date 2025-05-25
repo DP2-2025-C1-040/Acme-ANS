@@ -50,5 +50,4 @@ flight-crew-members.flight-assignment.form.button.delete = Borrar
 
 flight-crew-members.flight-assignment.form.error.not-available = El tripulante de vuelo no está disponible
 flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = El tripulante de vuelo está asignado a varias escalas
-flight-assignment.form.error.invalid-duty = El tripulante de vuelo no tiene función LEAD_ATTENDANT
 flight-crew-members.flight-assignment.form.error.leg-already-occurred = La escala ya ha ocurrido

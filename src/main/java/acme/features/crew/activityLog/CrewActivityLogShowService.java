@@ -29,7 +29,11 @@ public class CrewActivityLogShowService extends AbstractGuiService<FlightCrewMem
 		int id = super.getRequest().getData("id", int.class);
 		ActivityLog activityLog = this.repository.findActivityLogById(id);
 
-		boolean status = activityLog != null && activityLog.getDraftMode() && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
+		boolean isOwner = activityLog != null && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
+
+		boolean isPublished = activityLog != null && !activityLog.getDraftMode();
+
+		boolean status = isOwner || isPublished;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,34 +53,34 @@ public class CrewActivityLogShowService extends AbstractGuiService<FlightCrewMem
 	public void unbind(final ActivityLog activityLog) {
 		int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		Collection<FlightAssignment> assignments;
-		SelectChoices choices = new SelectChoices();
 
-		// Obtener las asignaciones de vuelo para el miembro
 		assignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
 
-		// Agregar una opción vacía si flightAssignment es null
-		choices.add("0", "----", activityLog.getFlightAssignment() == null); // Opción vacía
+		FlightAssignment currentAssignment = activityLog.getFlightAssignment();
+		if (currentAssignment != null && assignments.stream().noneMatch(a -> a.getId() == currentAssignment.getId()))
+			assignments.add(currentAssignment);
 
-		// Agregar todas las asignaciones a las opciones
+		SelectChoices choices = new SelectChoices();
+
 		for (FlightAssignment assignment : assignments) {
 			String key = Integer.toString(assignment.getId());
 			String label = assignment.getMoment() + " - " + assignment.getDuty() + " - " + assignment.getCurrentStatus() + " - " + assignment.getLeg().getFlightNumber();
-			boolean isSelected = assignment.equals(activityLog.getFlightAssignment());
+			boolean isSelected = assignment.equals(currentAssignment);
 
 			choices.add(key, label, isSelected);
 		}
 
-		// Crear el dataset con los campos a desvincular
+		choices.add("0", "----", false);
+
 		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment", "draftMode");
 
-		// Si el 'flightAssignment' es distinto de null, poner su valor en el dataset
-		if (activityLog.getFlightAssignment() != null)
+		if (choices.getSelected() != null)
 			dataset.put("flightAssignment", choices.getSelected().getKey());
+		else
+			dataset.put("flightAssignment", "0");
 
-		// Agregar la lista de asignaciones al dataset
 		dataset.put("assignments", choices);
 
-		// Enviar el dataset como respuesta
 		super.getResponse().addData(dataset);
 	}
 

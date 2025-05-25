@@ -36,12 +36,12 @@ public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, Ac
 				boolean isLegLanded = MomentHelper.isBefore(leg.getScheduledDeparture(), MomentHelper.getCurrentMoment());
 
 				if (!isLegLanded) {
-					super.state(context, false, "leg", "acme.validation.activityLog.leg.notLanded");
+					super.state(context, false, "flightAssignment", "acme.validation.activityLog.leg.notLanded");
 					result = false;
 				}
 			} else {
 
-				super.state(context, false, "leg", "javax.validation.constraints.NotNull.message");
+				super.state(context, false, "flightAssignment", "javax.validation.constraints.NotNull.message");
 				result = false;
 			}
 		}
