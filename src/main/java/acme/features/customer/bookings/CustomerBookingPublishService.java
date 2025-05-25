@@ -66,7 +66,18 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void validate(final Booking booking) {
+		{
+			boolean allPassengersPublished;
+			boolean hasPassengers;
+			int bookingId;
 
+			bookingId = super.getRequest().getData("id", int.class);
+			allPassengersPublished = this.repository.countPassengersInDraftModeFor(bookingId);
+			hasPassengers = this.repository.existsPassengersFor(bookingId);
+
+			super.state(allPassengersPublished, "*", "acme.validation.customer.booking.all-passengers-published");
+			super.state(hasPassengers, "*", "acme.validation.customer.booking.one-passenger-minimum");
+		}
 	}
 
 	@Override
