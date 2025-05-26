@@ -31,7 +31,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "agent_id"), @Index(columnList = "leg_id, duty")
+	@Index(columnList = "assistance_agent_id"), @Index(columnList = "leg_id, duty")
 })
 public class Claim extends AbstractEntity {
 
