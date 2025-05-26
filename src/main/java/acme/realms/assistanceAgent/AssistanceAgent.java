@@ -31,7 +31,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "employeeCode")
+	@Index(columnList = "employee_code")
 })
 public class AssistanceAgent extends AbstractRole {
 
