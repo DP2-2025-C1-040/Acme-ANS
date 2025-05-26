@@ -19,6 +19,4 @@ flight-12,Lorem ipsum dolor sit amet,True,"EUR 12341.12",Lorem ipsum dolor sit a
 flight-13,Lorem ipsum dolor sit amet,True,"USD 75,000",,manager-01,false
 flight-14,Lorem ipsum dolor sit amet,True,"USD 75,000",L,manager-01,false
 # manager - standard variations
-flight-15,Lorem ipsum dolor sit amet,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-02,false
-# draftMode - standard variations
-flight-16,Lorem ipsum dolor sit amet,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-02,true
+flight-15,Lorem ipsum dolor sit amet,True,"USD 75,000",Lorem ipsum dolor sit ame,manager-02,true

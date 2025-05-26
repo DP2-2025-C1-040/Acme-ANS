@@ -25,5 +25,5 @@
 		</jstl:when>		
 	</jstl:choose>
 	
-	<acme:button code="assistance-agent.claim.form.button.tracking-log" action="/assistance-agent/tracking-log/list"/>
+	<acme:button code="assistance-agent.claim.form.button.tracking-log" action="/assistance-agent/tracking-log/list?claimId=${id}"/>
 </acme:form>
