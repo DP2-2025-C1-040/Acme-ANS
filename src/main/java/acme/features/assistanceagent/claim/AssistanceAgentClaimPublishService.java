@@ -91,7 +91,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		legs = this.repository.findAllLeg();
 		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "status", "published");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "published");
 		dataset.put("types", typesChoices);
 		dataset.put("legs", legsChoices);
 
