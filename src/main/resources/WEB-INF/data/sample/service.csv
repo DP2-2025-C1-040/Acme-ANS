@@ -1,11 +1,11 @@
 ﻿key,name,picture,avgDwellTime,promoCode,promoDiscount
 #base entity
-service-00,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,AAAA-25,50
+service-00,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,AAAA-25,50
 # name - standard variations
-service-01,L,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,AAAB-25,50
-service-02,Lo,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,AABA-25,50
-service-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,AABB-25,50
-service-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,ABAA-25,50
+service-01,L,http://lorem.com/ipsum,50.5,AAAB-25,50
+service-02,Lo,http://lorem.com/ipsum,50.5,AABA-25,50
+service-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",http://lorem.com/ipsum,50.5,AABB-25,50
+service-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,50.5,ABAA-25,50
 # name - no singular values
 # picture - standard variations
 service-05,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,ABAB-25,50
@@ -28,19 +28,19 @@ service-21,Lorem ipsum dolor sit ame,http://example.org/a/b?,50.5,ACCA-25,50
 service-22,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,50.5,ACCC-25,50
 # picture - no singular values
 # avgDwellTime - standard variations
-service-23,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,1,CAAA-25,50
-service-24,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,1.01,CAAC-25,50
-service-25,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,99.99,CACA-25,50
-service-26,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,100,CACC-25,50
+service-23,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,1,CAAA-25,50
+service-24,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,1.01,CAAC-25,50
+service-25,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,99.99,CACA-25,50
+service-26,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,100,CACC-25,50
 # avgDwellTime - no singular values
 # promoCode - standard variations
-service-27,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,"",50
-service-28,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,ABCD-25,50
-service-29,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,WXYZ-25,50
+service-27,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,"",50
+service-28,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,ABCD-25,50
+service-29,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,WXYZ-25,50
 # promoCode - no singular values,"","","",""
 # promoDiscount - standard variations
-service-30,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,CCAA-25,0
-service-31,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,CCAC-25,0.01
-service-32,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,CCCA-25,99.99
-service-33,Lorem ipsum dolor sit ame,https://img.freepik.com/foto-gratis/lugar-vuelo-cielo-atardecer_1112-1132.jpg?semt=ais_hybrid&w=740,50.5,CCCC-25,100
+service-30,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,CCAA-25,0
+service-31,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,CCAC-25,0.01
+service-32,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,CCCA-25,99.99
+service-33,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.5,CCCC-25,100
 # promoDiscount - no singular values
