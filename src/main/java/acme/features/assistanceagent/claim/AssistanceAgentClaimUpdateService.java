@@ -13,6 +13,7 @@ import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
+import acme.entities.claims.ClaimStatus;
 import acme.entities.claims.ClaimType;
 import acme.entities.leg.Leg;
 import acme.realms.assistanceAgent.AssistanceAgent;
@@ -30,15 +31,22 @@ public class AssistanceAgentClaimUpdateService extends AbstractGuiService<Assist
 
 	@Override
 	public void authorise() {
-		Claim claim;
-		int claimId;
-		int agentId;
-		boolean status;
 
+		boolean status;
+		int claimId;
+		Claim claim;
+		int legId;
+		Leg leg;
+
+		// Comprueba pertenencia y si está en draftMode
 		claimId = super.getRequest().getData("id", int.class);
 		claim = this.repository.findClaimById(claimId);
-		agentId = claim == null ? null : super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = claim != null && !claim.getPublished() && claim.getAssistanceAgent().getId() == agentId;
+		status = claim != null && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent()) && claim.getStatus() == ClaimStatus.PENDING;
+
+		// Comprueba si el flight asignado es adecuado
+		legId = super.getRequest().getData("leg", int.class);
+		leg = this.repository.findPublishedLeg(legId);
+		status = status && (legId == 0 || leg != null);
 
 		super.getResponse().setAuthorised(status);
 	}
