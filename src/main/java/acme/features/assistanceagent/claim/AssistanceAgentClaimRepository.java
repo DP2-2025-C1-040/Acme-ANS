@@ -33,7 +33,10 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 	@Query("SELECT tl FROM TrackingLog tl WHERE tl.claim.id = :claimId")
 	Collection<TrackingLog> findTrackingLogsByClaimId(int claimId);
 
-	@Query("SELECT l FROM Leg l WHERE l.scheduledDeparture <= :actualMoment OR l.scheduledArrival <= :actualMoment")
+	@Query("SELECT l FROM Leg l WHERE (l.scheduledDeparture <= :actualMoment OR l.scheduledArrival <= :actualMoment) AND draftMode=false") //borrador, es decir los que tienen drafMode=0 que son los que no estan publicados
 	Collection<Leg> findAllLegsBefore(Date actualMoment);
+
+	@Query("Select l FROM Leg l WHERE l.id =:legId AND l.draftMode=false")
+	Leg findPublishedLeg(int legId);
 
 }

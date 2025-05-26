@@ -29,15 +29,17 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 	@Override
 	public void authorise() {
-		Claim claim;
-		int claimId;
-		int agentId;
 		boolean status;
+		int legId;
+		Leg leg;
 
-		claimId = super.getRequest().getData("claimId", int.class);
-		claim = this.repository.findClaimById(claimId);
-		agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = claim != null && !claim.isTransient() && claim.getAssistanceAgent().getId() == agentId;
+		if (super.getRequest().getMethod().equals("GET"))
+			status = true;
+		else {
+			legId = super.getRequest().getData("leg", int.class);
+			leg = this.repository.findPublishedLeg(legId);
+			status = legId == 0 || leg != null;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -104,7 +106,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		//legs = this.repository.findAllPublishedLegs();
 		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "status", "published");
 		dataset.put("readonly", false);
 		dataset.put("types", typesChoices);
 		dataset.put("legs", legsChoices);
