@@ -14,3 +14,5 @@ customer.booking-record.form.label.passenger = Pasajero
 
 customer.booking-record.form.button.link = Añadir pasajero
 customer.booking-record.form.button.unlink = Eliminar pasajero
+
+customer.booking-record.form.title = Añade o elimina un pasajero de la reserva
