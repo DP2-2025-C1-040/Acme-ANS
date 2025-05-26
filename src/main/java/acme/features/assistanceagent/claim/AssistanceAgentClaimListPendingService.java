@@ -25,8 +25,17 @@ public class AssistanceAgentClaimListPendingService extends AbstractGuiService<A
 
 	@Override
 	public void authorise() {
+		Claim claim;
+		int claimId;
+		int agentId;
+		boolean status;
 
-		super.getResponse().setAuthorised(true);
+		claimId = super.getRequest().getData("claimId", int.class);
+		claim = this.repository.findClaimById(claimId);
+		agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		status = claim != null && !claim.isTransient() && claim.getAssistanceAgent().getId() == agentId;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
