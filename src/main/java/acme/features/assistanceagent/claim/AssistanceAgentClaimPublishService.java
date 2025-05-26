@@ -60,7 +60,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 	}
 
 	@Override
-	public void validate(final Claim claim) { //para que se publique tiene que tener status rejected o accepted
+	public void validate(final Claim claim) {
 		boolean claimCompleted;
 		ClaimStatus status;
 
@@ -88,12 +88,10 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		actualMoment = MomentHelper.getCurrentMoment();
 
 		typesChoices = SelectChoices.from(ClaimType.class, claim.getType());
-		//legs = this.repository.findAllPublishedLegsBefore(actualMoment);
-		//legs = this.repository.findAllPublishedLegs();
 		legs = this.repository.findAllLeg();
 		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "publish");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "published");
 		dataset.put("types", typesChoices);
 		dataset.put("legs", legsChoices);
 

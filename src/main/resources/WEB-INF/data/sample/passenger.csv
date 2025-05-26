@@ -1,18 +1,41 @@
 key,fullName,email,passportNumber,dateOfBirdth,specialNeeds,draftMode,key:customer
 # base entity
-passenger-00,John Doe,john.doe@example.com,ABC123,1990/01/01 00:00,None,TRUE,customer1
+passenger-00,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer1
 # fullName - standard variations
-passenger-01,A,a@example.com,123456,1985/05/15 12:30,,TRUE,customer1
-passenger-02,Al,al@example.com,ABCDEF,1970/12/31 23:59,Glasses,FALSE,customer2
-passenger-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",lorem.ipsum@example.com,A1B2C3D,1995/07/07 07:07,None,TRUE,customer2
-passenger-04,Normal Name,normal.name@example.com,XYZ7890,2000/01/15 15:45,Vegetarian,TRUE,customer1
-# specialNeeds - singular variations
-passenger-05,Hacker,hacker@example.com,PASS123,1980/03/03 03:03,"<script>alert('X');</script>",TRUE,customer1
-# email - standard variations (caracteres especiales en el email)
-passenger-06,Test User,user+test@example.co.uk,TEST456,1999/09/09 09:09,,FALSE,customer1
-# passportNumber - máximo (9 caracteres)
-passenger-07,Long Passport,long.passport@example.com,ABC123XYZ,1975/11/11 11:11,Wheelchair,TRUE,customer1
-# specialNeeds - campo opcional vacío
-passenger-08,No Special Needs,nospecial@example.com,DEF456,1988/08/08 08:08,,FALSE,customer1
-# fullName - con caracteres especiales
-passenger-09,José Pérez,jose.perez@example.es,JP9876,1992/02/29 00:00,Ninguno,TRUE,customer1
+# TODO - QUITAR LA L, PROBAR SI ESTÁ VACÍO QUÉ OCURRE
+passenger-01,L,john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer1
+passenger-02,Lo,john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer1
+passenger-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut e",john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer1
+passenger-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolore",john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer1
+passenger-05,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolores",john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer1
+# email - standard variations
+passenger-06,John Doe,L@example.com,ABC123,2003/06/08 14:00,,TRUE,customer1
+passenger-07,John Doe,Lo@e.com,ABC123,2003/06/08 14:00,,TRUE,customer1
+passenger-08,John Doe,"pruebapruebapruebapruebapruebaa@example.com",ABC123,2003/06/08 14:00,,TRUE,customer1
+passenger-09,John Doe,"abcdefghijklmnopqrstuvwxyzabcdeexampleexampleexampleexampleeeeee@exampleexampleexampleexampleexampleexampleexampleexamplee.com",ABC123,2003/06/08 14:00,,TRUE,customer1
+passenger-10,John Doe,"abcdefghijklmnopqrstuvwxyzabcdeexampleexampleexampleexampleeeeee@exampleexampleexampleexampleexampleexampleexampleexampleee.com",ABC123,2003/06/08 14:00,,TRUE,customer1
+# passportNumber - standard variations
+passenger-11,John Doe,john.doe@example.com,000000,2003/06/08 14:00,,TRUE,customer1
+passenger-12,John Doe,john.doe@example.com,AAA0001,2003/06/08 14:00,,TRUE,customer1
+passenger-13,John Doe,john.doe@example.com,JKL34567,2003/06/08 14:00,,TRUE,customer1
+passenger-14,John Doe,john.doe@example.com,ZZZZZZZZY,2003/06/08 14:00,,TRUE,customer1
+passenger-15,John Doe,john.doe@example.com,ZZZZZZZZZ,2003/06/08 14:00,,TRUE,customer1
+# date of birdth - standard variations
+passenger-16,John Doe,john.doe@example.com,ABC123,2000/01/01 00:00,,TRUE,customer1
+passenger-17,John Doe,john.doe@example.com,ABC123,2000/01/01 00:01,,TRUE,customer1
+passenger-18,John Doe,john.doe@example.com,ABC123,2012/06/15 12:00,,TRUE,customer1
+passenger-19,John Doe,john.doe@example.com,ABC123,2024/12/31 23:58,,TRUE,customer1
+passenger-20,John Doe,john.doe@example.com,ABC123,2024/12/31 23:59,,TRUE,customer1
+# specialNeeds - standard variations
+passenger-21,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,L,TRUE,customer1
+passenger-22,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,Lo,TRUE,customer1
+passenger-23,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,"Lorem ipsum dolor sit am",TRUE,customer1
+passenger-24,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,"Lorem ipsum dolor sit amet, consectetur adipisci",TRUE,customer1
+passenger-25,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,"Lorem ipsum dolor sit amet, consectetur adipiscin",TRUE,customer1
+# draftMode - standard variations
+passenger-26,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,FALSE,customer1
+passenger-27,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,FALSE,customer1
+passenger-28,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,FALSE,customer1
+# customer - standard variations
+passenger-29,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer2
+passenger-30,John Doe,john.doe@example.com,ABC123,2003/06/08 14:00,,TRUE,customer2

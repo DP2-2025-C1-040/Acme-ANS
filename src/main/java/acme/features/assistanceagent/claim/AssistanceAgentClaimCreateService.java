@@ -12,7 +12,6 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
-import acme.entities.claims.ClaimStatus;
 import acme.entities.claims.ClaimType;
 import acme.entities.leg.Leg;
 import acme.realms.assistanceAgent.AssistanceAgent;
@@ -30,8 +29,17 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Claim claim;
+		int claimId;
+		int agentId;
+		boolean status;
 
+		claimId = super.getRequest().getData("claimId", int.class);
+		claim = this.repository.findClaimById(claimId);
+		agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		status = claim != null && !claim.isTransient() && claim.getAssistanceAgent().getId() == agentId;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -39,17 +47,11 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		Claim claim;
 		AssistanceAgent agent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
 
-		//El momento cogeremos el actual ficticio
 		Date registrationMoment = MomentHelper.getCurrentMoment();
 
 		claim = new Claim();
 		claim.setRegistrationMoment(registrationMoment);
-
-		//		claim.setPassengerEmail("");
-		//		claim.setDescription("");
 		claim.setAssistanceAgent(agent);
-		//		claim.setType(ClaimType.FLIGHT_ISSUES);
-
 		claim.setPublished(false);
 
 		super.getBuffer().addData(claim);
@@ -64,6 +66,12 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 	@Override
 	public void validate(final Claim claim) {
+		if (claim.getLeg() != null)
+			if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
+				super.state(claim.getLeg().getScheduledArrival().before(claim.getRegistrationMoment()), "registrationMoment", "assistanceAgent.claim.form.error.registration-before-leg");
+
+		//if (!super.getBuffer().getErrors().hasErrors("leg"))
+		//super.state(claim.getLeg() != null && claim.getLeg().isTransient(), "leg", "assistanceAgent.claim.form.error.leg-null");
 		;
 	}
 
@@ -78,31 +86,29 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 		this.repository.save(claim);
 	}
-	//El estado de una reclamación mientras está siendo creada tiene sentido que sea pending, 
-	//Además esta no puede ser publicada porque no esta completada
-	//¿Hacer una validación para que no sea publicada si no esta completada?
+
 	@Override
 	public void unbind(final Claim claim) {
 
 		Dataset dataset;
-		ClaimStatus status;
 		SelectChoices typesChoices;
 		SelectChoices legsChoices;
 
 		Collection<Leg> legs;
-		status = ClaimStatus.PENDING;
+
+		Date now = MomentHelper.getCurrentMoment();
 
 		typesChoices = SelectChoices.from(ClaimType.class, claim.getType());
-		//legs = this.repository.findAllLegsBefore(actualMoment);  tiene sentido que sea este legs pero no parece ninguna leg
-		legs = this.repository.findAllLeg();
-		//legs = this.repository.findAllPublishedLegs();//Preguntar si se supone que todas las escalas estan publicadas
+		legs = this.repository.findAllLegsBefore(now);
+		//legs = this.repository.findAllLeg();
+		//legs = this.repository.findAllPublishedLegs();
 		legsChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg");
 		dataset.put("readonly", false);
 		dataset.put("types", typesChoices);
 		dataset.put("legs", legsChoices);
-		dataset.put("status", status);
+
 		super.getResponse().addData(dataset);
 
 	}

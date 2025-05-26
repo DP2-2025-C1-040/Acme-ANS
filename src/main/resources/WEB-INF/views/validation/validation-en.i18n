@@ -36,3 +36,10 @@ acme.validation.pattern-employee-code.message = The code must begin with 2 or 3 
 acme.validation.pattern-promo-code.message = The code must begin with exactly 4 capital letters, followed by a hyphen (-) and end with 2 numeric digits
 acme.validation.activityLog.leg.notLanded = The leg has not landed yet
 acme.validation.activity-log.flight-assignment.draftMode = The flight assignment has not published
+
+
+customer.booking.form.locatorCode = The locatorCode must have between 6 and 8 characters, and can be from A to Z and from 0 to 9
+customer.booking.form.lastNibble = The last nibble must contain only 4 digits
+customer.passenger.form.passportNumber = The passport number must contain from 6 to 9 characters, and can be from A to Z and from 0 to 9
+acme.validation.tracking-log.percentage.message= The status and percentage resolution aren't compatible
+acme.validation.tracking-log.resolutionDescription.message= The description only can be written when the claim is resolved.

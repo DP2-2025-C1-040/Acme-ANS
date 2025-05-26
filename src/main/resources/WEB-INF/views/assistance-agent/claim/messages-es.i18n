@@ -26,3 +26,7 @@ assistance-agent.claim.form.button.delete = Borrar
 assistance-agent.claim.form.button.publish = Publicar
 assistance-agent.claim.form.button.tracking-log = Registros
 assistance-agent.claim.form.button.create = Crear
+
+
+assistanceAgent.claim.form.error.registration-before-leg = No se puede crear una reclamación antes de la llegada del vuelo
+assistanceAgent.claim.form.error.leg-null = Debes elegir un vuelo

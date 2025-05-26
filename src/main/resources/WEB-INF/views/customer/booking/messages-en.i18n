@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-customer.booking.list.title = Booking
-customer.booking.form.title = List of bookings
+customer.booking.list.title = List of Bookings
+customer.booking.form.title = Booking's form
 
 customer.booking.list.label.locatorCode = Locator Code
 customer.booking.list.label.travelClass = Travel Class
@@ -20,9 +20,17 @@ customer.booking.form.label.locatorCode = Locator Code
 customer.booking.form.label.purchaseMoment = Purchase Moment
 customer.booking.form.label.type = Travel Class
 customer.booking.form.label.price = Price
-customer.booking.form.label.emailAddress = Last 4 Nibbles
+customer.booking.form.label.lastNibble = Last 4 Nibbles
 customer.booking.form.label.flight = Flight
 
 customer.booking.form.button.update = Update
 customer.booking.form.button.create = Create
-customer.booking.form.label.confirmation = Confirm that the airline is correct
+customer.booking.form.button.passengers = Passengers
+customer.booking.form.button.publish = Publish
+customer.booking.form.button.delete = Delete
+
+customer.booking.unique.locatorCode = The locator code must be unique
+customer.booking.publishing.nibble = You must have stored the last 4 nibbles before publishing
+
+acme.validation.customer.booking.one-passenger-minimum = At least, this booking must have one passenger associated
+acme.validation.customer.booking.all-passengers-published = Not all the passengers were published
