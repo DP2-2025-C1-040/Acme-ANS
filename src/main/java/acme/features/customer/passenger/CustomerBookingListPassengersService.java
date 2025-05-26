@@ -32,7 +32,7 @@ public class CustomerBookingListPassengersService extends AbstractGuiService<Cus
 		// Comprueba pertenencia y si está en draftMode
 		bookingId = super.getRequest().getData("bookingId", int.class);
 		booking = this.repository.findBookingById(bookingId);
-		status = booking != null && super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) && booking.getDraftMode();
+		status = booking != null && super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
 
 		super.getResponse().setAuthorised(status);
 	}
