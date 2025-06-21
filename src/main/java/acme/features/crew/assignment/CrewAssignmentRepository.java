@@ -20,6 +20,9 @@ public interface CrewAssignmentRepository extends AbstractRepository {
 	@Query("SELECT f FROM FlightAssignment f WHERE f.flightCrewMember.id = :id AND f.leg.status = :status")
 	Collection<FlightAssignment> findAllAssignmentsByMemberIdAndStatus(int id, LegStatus status);
 
+	@Query("SELECT f FROM FlightAssignment f WHERE f.flightCrewMember.id = :id")
+	Collection<FlightAssignment> findAllAssignmentsByMemberId(int id);
+
 	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.flightCrewMember.id = :memberId AND fa.leg.scheduledArrival < :moment")
 	Collection<FlightAssignment> findAllAssignmentsByMemberIdBeforeNow(int memberId, Date moment);
 
@@ -29,8 +32,8 @@ public interface CrewAssignmentRepository extends AbstractRepository {
 	@Query("SELECT f FROM FlightAssignment f WHERE f.id = :id")
 	FlightAssignment findFlightAssignmentById(int id);
 
-	@Query("SELECT l FROM Leg l WHERE l.draftMode = false")
-	Collection<Leg> findPublishedLegs();
+	@Query("SELECT l FROM Leg l WHERE l.draftMode = false AND l.scheduledDeparture > :currentMoment")
+	Collection<Leg> findUpcomingPublishedLegs(Date currentMoment);
 
 	@Query("SELECT l FROM Leg l WHERE l.id = :id")
 	Leg findLegById(int id);

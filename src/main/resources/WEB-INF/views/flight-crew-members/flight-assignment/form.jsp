@@ -51,6 +51,8 @@
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.aircraft" path="leg.aircraft" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flight" path="leg.flight" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.airline" path="leg.airline" readonly="true"/>
+			
+			<acme:button code="flight-crew-member.flight-assignment.form.button.activity-log" action="/flight-crew-members/activity-log/list?flightAssignmentId=${id}"/>
 		</jstl:when>
     	<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
     		<acme:input-select code="flight-crew-members.flight-assignment.form.label.leg" path="leg" choices="${legs}"/>
@@ -82,6 +84,7 @@
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.flight" path="leg.flight" readonly="true"/>
 			<acme:input-textbox code="flight-crew-members.flight-assignment.form.label.leg.airline" path="leg.airline" readonly="true"/>
     		
+    		<acme:button code="flight-crew-member.flight-assignment.form.button.activity-log" action="/flight-crew-members/activity-log/list?flightAssignmentId=${id}"/>
     		<acme:submit code="flight-crew-members.flight-assignment.form.button.update" action="/flight-crew-members/flight-assignment/update"/>
     		<acme:submit code="flight-crew-members.flight-assignment.form.button.delete" action="/flight-crew-members/flight-assignment/delete"/>
     		<acme:submit code="flight-crew-members.flight-assignment.form.button.publish" action="/flight-crew-members/flight-assignment/publish"/>

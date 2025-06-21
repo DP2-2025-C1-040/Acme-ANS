@@ -2,6 +2,7 @@
 package acme.features.crew.assignment;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -55,7 +56,7 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 					else if (legKey.matches("\\d+")) {
 						int legId = Integer.parseInt(legKey);
 						Leg leg = this.assignmentRepository.findLegById(legId);
-						legIsValid = leg != null && this.assignmentRepository.findAllLegs().contains(leg);
+						legIsValid = leg != null;
 					}
 			}
 			if (assignmentIdData == null)
@@ -92,9 +93,35 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		FlightCrewMembers crewMember = this.repository.findById(userId);
 
-		int assignmentCount = this.repository.countByFlightCrewMember(crewMember);
-		boolean isAssignedMultipleLegs = assignmentCount > 1;
-		super.state(!isAssignedMultipleLegs, "*", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
+		Collection<FlightAssignment> existingAssignments = this.assignmentRepository.findAllAssignmentsByMemberId(crewMember.getId());
+
+		Leg currentLeg = assignment.getLeg();
+		boolean overlaps = false;
+
+		if (currentLeg != null) {
+			Date currentStart = currentLeg.getScheduledDeparture();
+			Date currentEnd = currentLeg.getScheduledArrival();
+
+			for (FlightAssignment otherAssignment : existingAssignments) {
+				if (otherAssignment.getId() == assignment.getId())
+					continue;
+
+				Leg otherLeg = otherAssignment.getLeg();
+				if (otherLeg == null)
+					continue;
+
+				Date otherStart = otherLeg.getScheduledDeparture();
+				Date otherEnd = otherLeg.getScheduledArrival();
+
+				boolean doOverlap = !(currentEnd.before(otherStart) || currentStart.after(otherEnd));
+				if (doOverlap) {
+					overlaps = true;
+					break;
+				}
+			}
+
+			super.state(!overlaps, "leg", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
+		}
 
 		Leg selectedLeg = assignment.getLeg();
 		if (selectedLeg != null) {
@@ -122,15 +149,13 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		SelectChoices duties;
 		SelectChoices statuses;
 
-		legs = this.assignmentRepository.findPublishedLegs();
+		legs = this.assignmentRepository.findUpcomingPublishedLegs(MomentHelper.getCurrentMoment());
 
 		choices.add("0", "----", assignment.getLeg() == null);
-
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());
 			String label = leg.getFlightNumber() + " - " + leg.getOriginCity() + " - " + leg.getDestinationCity() + " - " + leg.getFlight().getTag();
 			boolean isSelected = leg.equals(assignment.getLeg());
-
 			choices.add(key, label, isSelected);
 		}
 
@@ -139,11 +164,40 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 		Dataset dataset = super.unbindObject(assignment, "duty", "moment", "currentStatus", "remarks", "leg", "draftMode");
 
+		// Guardamos el valor seleccionado para que el usuario vea lo que intentó poner
 		dataset.put("leg", assignment.getLeg() != null ? choices.getSelected().getKey() : "0");
-
 		dataset.put("legs", choices);
 		dataset.put("duties", duties);
 		dataset.put("statuses", statuses);
+
+		// Recuperamos el original para los datos readonly
+		FlightAssignment original = this.assignmentRepository.findFlightAssignmentById(assignment.getId());
+
+		// Datos del crew member (readonly)
+		FlightCrewMembers crewMember = original.getFlightCrewMember();
+		dataset.put("flightCrewMember.employeeCode", crewMember.getEmployeeCode());
+		dataset.put("flightCrewMember.phoneNumber", crewMember.getPhoneNumber());
+		dataset.put("flightCrewMember.languageSkills", crewMember.getLanguageSkills());
+		dataset.put("flightCrewMember.availabilityStatus", crewMember.getAvailabilityStatus());
+		dataset.put("flightCrewMember.salary", crewMember.getSalary());
+		dataset.put("flightCrewMember.yearsOfExperience", crewMember.getYearsOfExperience());
+		dataset.put("flightCrewMember.airline", crewMember.getAirline());
+
+		// Datos del leg (readonly)
+		if (original.getLeg() != null) {
+			Leg leg = original.getLeg();
+			dataset.put("leg.flightNumber", leg.getFlightNumber());
+			dataset.put("leg.status", leg.getStatus());
+			dataset.put("leg.scheduledDeparture", leg.getScheduledDeparture());
+			dataset.put("leg.scheduledArrival", leg.getScheduledArrival());
+			dataset.put("leg.originCity", leg.getOriginCity());
+			dataset.put("leg.destinationCity", leg.getDestinationCity());
+			dataset.put("leg.departureAirport", leg.getDepartureAirport());
+			dataset.put("leg.arrivalAirport", leg.getArrivalAirport());
+			dataset.put("leg.aircraft", leg.getAircraft());
+			dataset.put("leg.flight", leg.getFlight().getTag());
+			dataset.put("leg.airline", leg.getAirline());
+		}
 
 		super.getResponse().addData(dataset);
 	}

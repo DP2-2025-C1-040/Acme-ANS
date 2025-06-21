@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.assignment.CurrentStatus;
@@ -55,7 +56,7 @@ public class CrewAssignmentShowService extends AbstractGuiService<FlightCrewMemb
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		Collection<Leg> legs = this.repository.findPublishedLegs();
+		Collection<Leg> legs = this.repository.findUpcomingPublishedLegs(MomentHelper.getCurrentMoment());
 		SelectChoices choices = new SelectChoices();
 
 		choices.add("0", "----", assignment.getLeg() == null);
