@@ -149,7 +149,8 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 		SelectChoices duties;
 		SelectChoices statuses;
 
-		legs = this.assignmentRepository.findUpcomingPublishedLegs(MomentHelper.getCurrentMoment());
+		FlightCrewMembers member = (FlightCrewMembers) super.getRequest().getPrincipal().getActiveRealm();
+		legs = this.assignmentRepository.findUpcomingPublishedLegs(MomentHelper.getCurrentMoment(), member.getAirline().getId());
 
 		choices.add("0", "----", assignment.getLeg() == null);
 		for (Leg leg : legs) {

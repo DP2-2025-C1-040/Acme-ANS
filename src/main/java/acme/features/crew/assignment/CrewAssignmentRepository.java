@@ -32,8 +32,8 @@ public interface CrewAssignmentRepository extends AbstractRepository {
 	@Query("SELECT f FROM FlightAssignment f WHERE f.id = :id")
 	FlightAssignment findFlightAssignmentById(int id);
 
-	@Query("SELECT l FROM Leg l WHERE l.draftMode = false AND l.scheduledDeparture > :currentMoment")
-	Collection<Leg> findUpcomingPublishedLegs(Date currentMoment);
+	@Query("SELECT l FROM Leg l WHERE l.draftMode = false AND l.scheduledDeparture > :currentMoment AND l.airline.id = :airlineId AND l.flight.draftMode = false")
+	Collection<Leg> findUpcomingPublishedLegs(Date currentMoment, int airlineId);
 
 	@Query("SELECT l FROM Leg l WHERE l.id = :id")
 	Leg findLegById(int id);

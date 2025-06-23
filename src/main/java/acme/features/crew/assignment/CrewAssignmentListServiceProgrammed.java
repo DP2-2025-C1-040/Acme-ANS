@@ -36,6 +36,8 @@ public class CrewAssignmentListServiceProgrammed extends AbstractGuiService<Flig
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		assignments = this.repository.findAllAssignmentsByMemberIdAfterNow(memberId, MomentHelper.getCurrentMoment());
 
+		super.getResponse().addGlobal("showCreate", true);
+
 		super.getBuffer().addData(assignments);
 	}
 

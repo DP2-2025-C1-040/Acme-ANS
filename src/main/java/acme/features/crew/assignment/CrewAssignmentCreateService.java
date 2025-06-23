@@ -147,7 +147,8 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		Collection<Leg> legs = this.assignmentRepository.findUpcomingPublishedLegs(MomentHelper.getCurrentMoment());
+		FlightCrewMembers member = (FlightCrewMembers) super.getRequest().getPrincipal().getActiveRealm();
+		Collection<Leg> legs = this.assignmentRepository.findUpcomingPublishedLegs(MomentHelper.getCurrentMoment(), member.getAirline().getId());
 		SelectChoices choices = new SelectChoices();
 
 		choices.add("0", "----", assignment.getLeg() == null);
