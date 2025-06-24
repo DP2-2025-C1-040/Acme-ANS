@@ -129,8 +129,9 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 		Leg selectedLeg = assignment.getLeg();
 
 		if (selectedLeg != null) {
-			long pilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.PILOT);
-			long coPilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.COPILOT);
+			int currentAssignmentId = assignment.getId();
+			long pilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.PILOT, currentAssignmentId);
+			long coPilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.COPILOT, currentAssignmentId);
 
 			boolean isPilotAssigned = pilotCount > 0;
 			boolean isCoPilotAssigned = coPilotCount > 0;

@@ -72,10 +72,10 @@ assignment-57,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, cons
 assignment-58,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-36,true
 assignment-59,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-37,true
 assignment-60,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-38,true
-assignment-61,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-39,true
-assignment-62,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-40,true
-assignment-63,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-41,true
-assignment-64,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-42,true
+assignment-61,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-02,leg-39,true
+assignment-62,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-03,leg-41,true
+assignment-63,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-03,leg-42,true
+assignment-64,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-04,leg-43,true
 # leg -no singular values
 # draft-mode - standard variations
 assignment-65,PILOT,2024/12/15 00:01,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscin",member-01,leg-01,false
