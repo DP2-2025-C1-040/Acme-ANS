@@ -25,18 +25,19 @@ public class CrewActivityLogCreateService extends AbstractGuiService<FlightCrewM
 	@Override
 	public void authorise() {
 		boolean status = false;
-		String idRaw = super.getRequest().getData("id", String.class);
-		int id = -1;
+		Object idData = super.getRequest().getData().get("flightAssignmentId");
 
-		// Validar que el ID sea un número entero positivo
-		if (idRaw != null && idRaw.trim().matches("\\d+")) {
-			id = Integer.parseInt(idRaw.trim());
-			ActivityLog activityLog = this.repository.findActivityLogById(id);
+		if (idData instanceof String rawId) {
+			rawId = rawId.trim();
 
-			if (activityLog != null && activityLog.getDraftMode()) {
-				int activeUserId = super.getRequest().getPrincipal().getActiveRealm().getId();
-				boolean userOwnsActivityLog = activityLog.getFlightAssignment().getFlightCrewMember().getId() == activeUserId;
-				status = userOwnsActivityLog;
+			if (!rawId.isEmpty() && rawId.matches("\\d+")) {
+				int flightAssignmentId = Integer.parseInt(rawId);
+				FlightAssignment assignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+
+				if (assignment != null && assignment.getDraftMode()) {
+					int activeUserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+					status = assignment.getFlightCrewMember().getId() == activeUserId;
+				}
 			}
 		}
 
