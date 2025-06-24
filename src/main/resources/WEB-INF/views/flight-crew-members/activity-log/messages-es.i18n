@@ -2,6 +2,7 @@ flight-crew-members.activity-log.list.title = Lista de registros de actividad
 
 flight-crew-members.activity-log.list.label.registrationMoment = Fecha
 flight-crew-members.activity-log.list.label.typeOfIncident = Tipo de incidente
+flight-crew-members.activity-log.list.label.severityLevel = Nivel de severidad
 
 flight-crew-members.activity-log.form.title = Registro de actividad
 

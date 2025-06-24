@@ -36,6 +36,8 @@ public class CrewAssignmentListServiceLanded extends AbstractGuiService<FlightCr
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		assignments = this.repository.findAllAssignmentsByMemberIdBeforeNow(memberId, MomentHelper.getCurrentMoment());
 
+		super.getResponse().addGlobal("showCreate", false);
+
 		super.getBuffer().addData(assignments);
 	}
 

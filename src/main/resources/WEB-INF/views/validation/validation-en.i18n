@@ -35,6 +35,7 @@ acme.validation.pattern-phone-number.message = The number must contain between 6
 acme.validation.pattern-employee-code.message = The code must begin with 2 or 3 upper case letters, followed by exactly 6 digits
 acme.validation.pattern-promo-code.message = The code must begin with exactly 4 capital letters, followed by a hyphen (-) and end with 2 numeric digits
 acme.validation.activityLog.leg.notLanded = The leg has not landed yet
+acme.validation.activityLog.flightAssignment.notNull = The flight assignment cannot be null
 acme.validation.activity-log.flight-assignment.draftMode = The flight assignment has not published
 
 

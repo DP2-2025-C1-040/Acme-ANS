@@ -47,7 +47,7 @@ flight-crew-members.flight-assignment.form.button.create = Crear
 flight-crew-members.flight-assignment.form.button.update = Actualizar
 flight-crew-members.flight-assignment.form.button.publish = Publicar
 flight-crew-members.flight-assignment.form.button.delete = Borrar
+flight-crew-member.flight-assignment.form.button.activity-log = Registros de actividad
 
 flight-crew-members.flight-assignment.form.error.not-available = El tripulante de vuelo no está disponible
-flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = El tripulante de vuelo está asignado a varias escalas
-flight-crew-members.flight-assignment.form.error.leg-already-occurred = La escala ya ha ocurrido
+flight-crew-members.flight-assignment.form.error.assigned-multiple-legs = El tripulante de vuelo está asignado a varias escalas simultáneamente

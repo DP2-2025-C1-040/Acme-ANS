@@ -6,9 +6,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activity_log.ActivityLog;
+import acme.entities.assignment.FlightAssignment;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
@@ -24,16 +26,27 @@ public class CrewActivityLogListService extends AbstractGuiService<FlightCrewMem
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int flightAssignmentId;
+		int flightCrewMemberId;
+		FlightAssignment flightAssignment;
+		boolean status;
+
+		flightAssignmentId = super.getRequest().getData("flightAssignmentId", int.class);
+		flightCrewMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+
+		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == flightCrewMemberId;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Collection<ActivityLog> activityLogs;
-		int memberId;
+		int flightAssignmentId;
 
-		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		activityLogs = this.repository.findAllActivityLogsByMemberId(memberId);
+		flightAssignmentId = super.getRequest().getData("flightAssignmentId", int.class);
+		activityLogs = this.repository.findAllActivityLogsByFlightAssignmentId(flightAssignmentId);
 
 		super.getBuffer().addData(activityLogs);
 	}
@@ -42,9 +55,28 @@ public class CrewActivityLogListService extends AbstractGuiService<FlightCrewMem
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident");
+		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
+
+		int flightAssignmentId = super.getRequest().getData("flightAssignmentId", int.class);
+		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+
+		// Show create if the assignment is completed
+		if (flightAssignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment()))
+			super.getResponse().addGlobal("showAction", true);
 
 		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void unbind(final Collection<ActivityLog> activityLog) {
+		int flightAssignmentId = super.getRequest().getData("flightAssignmentId", int.class);
+		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+
+		// Show create if the assignment is completed
+		if (flightAssignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment()))
+			super.getResponse().addGlobal("showAction", true);
+
+		super.getResponse().addGlobal("flightAssignmentId", flightAssignmentId);
 	}
 
 }

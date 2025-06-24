@@ -2,6 +2,7 @@
 package acme.features.crew.assignment;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -52,8 +53,8 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 						legValid = true;
 					else if (legKey.matches("\\d+")) {
 						int legId = Integer.parseInt(legKey);
-						Collection<Leg> validLegs = this.assignmentRepository.findAllLegs();
-						legValid = validLegs.stream().anyMatch(leg -> leg.getId() == legId);
+						Leg leg = this.assignmentRepository.findLegById(legId);
+						legValid = leg != null;
 					}
 			}
 
@@ -95,15 +96,42 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		FlightCrewMembers crewMember = this.repository.findById(userId);
 
-		int assignmentCount = this.repository.countByFlightCrewMember(crewMember);
-		boolean isAssignedMultipleLegs = assignmentCount > 1;
-		super.state(!isAssignedMultipleLegs, "*", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
+		Collection<FlightAssignment> existingAssignments = this.assignmentRepository.findAllAssignmentsByMemberId(crewMember.getId());
+
+		Leg currentLeg = assignment.getLeg();
+		boolean overlaps = false;
+
+		if (currentLeg != null) {
+			Date currentStart = currentLeg.getScheduledDeparture();
+			Date currentEnd = currentLeg.getScheduledArrival();
+
+			for (FlightAssignment otherAssignment : existingAssignments) {
+				if (otherAssignment.getId() == assignment.getId())
+					continue;
+
+				Leg otherLeg = otherAssignment.getLeg();
+				if (otherLeg == null)
+					continue;
+
+				Date otherStart = otherLeg.getScheduledDeparture();
+				Date otherEnd = otherLeg.getScheduledArrival();
+
+				boolean doOverlap = !(currentEnd.before(otherStart) || currentStart.after(otherEnd));
+				if (doOverlap) {
+					overlaps = true;
+					break;
+				}
+			}
+
+			super.state(!overlaps, "leg", "flight-crew-members.flight-assignment.form.error.assigned-multiple-legs");
+		}
 
 		Leg selectedLeg = assignment.getLeg();
 
 		if (selectedLeg != null) {
-			long pilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.PILOT);
-			long coPilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.COPILOT);
+			int currentAssignmentId = assignment.getId();
+			long pilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.PILOT, currentAssignmentId);
+			long coPilotCount = this.assignmentRepository.countByLegAndDuty(selectedLeg, Duty.COPILOT, currentAssignmentId);
 
 			boolean isPilotAssigned = pilotCount > 0;
 			boolean isCoPilotAssigned = coPilotCount > 0;
@@ -120,7 +148,8 @@ public class CrewAssignmentCreateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		Collection<Leg> legs = this.assignmentRepository.findPublishedLegs();
+		FlightCrewMembers member = (FlightCrewMembers) super.getRequest().getPrincipal().getActiveRealm();
+		Collection<Leg> legs = this.assignmentRepository.findUpcomingPublishedLegs(MomentHelper.getCurrentMoment(), member.getAirline().getId());
 		SelectChoices choices = new SelectChoices();
 
 		choices.add("0", "----", assignment.getLeg() == null);
