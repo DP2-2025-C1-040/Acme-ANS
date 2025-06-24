@@ -64,7 +64,6 @@ public class CrewActivityLogPublishService extends AbstractGuiService<FlightCrew
 	@Override
 	public void perform(final ActivityLog activityLog) {
 		activityLog.setDraftMode(false);
-		activityLog.setRegistrationMoment(MomentHelper.getCurrentMoment());
 		this.repository.save(activityLog);
 	}
 
