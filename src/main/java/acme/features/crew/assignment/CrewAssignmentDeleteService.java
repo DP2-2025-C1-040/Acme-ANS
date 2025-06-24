@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activity_log.ActivityLog;
@@ -55,7 +56,7 @@ public class CrewAssignmentDeleteService extends AbstractGuiService<FlightCrewMe
 					else if (legKey.matches("\\d+")) {
 						int legId = Integer.parseInt(legKey);
 						Leg leg = this.repository.findLegById(legId);
-						legIsValid = leg != null && this.repository.findAllLegs().contains(leg);
+						legIsValid = leg != null;
 					}
 			}
 			if (assignmentIdData == null)
@@ -107,7 +108,8 @@ public class CrewAssignmentDeleteService extends AbstractGuiService<FlightCrewMe
 		SelectChoices duties;
 		SelectChoices statuses;
 
-		legs = this.repository.findPublishedLegs();
+		FlightCrewMembers member = (FlightCrewMembers) super.getRequest().getPrincipal().getActiveRealm();
+		legs = this.repository.findUpcomingPublishedLegs(MomentHelper.getCurrentMoment(), member.getAirline().getId());
 
 		for (Leg leg : legs) {
 			String key = Integer.toString(leg.getId());

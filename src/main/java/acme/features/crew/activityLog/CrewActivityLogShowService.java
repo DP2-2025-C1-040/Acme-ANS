@@ -1,16 +1,13 @@
 
 package acme.features.crew.activityLog;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activity_log.ActivityLog;
-import acme.entities.assignment.FlightAssignment;
 import acme.realms.crew.FlightCrewMembers;
 
 @GuiService
@@ -51,35 +48,10 @@ public class CrewActivityLogShowService extends AbstractGuiService<FlightCrewMem
 
 	@Override
 	public void unbind(final ActivityLog activityLog) {
-		int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Collection<FlightAssignment> assignments;
+		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
 
-		assignments = this.repository.findFlightAssignmentsByCrewMember(memberId);
-
-		FlightAssignment currentAssignment = activityLog.getFlightAssignment();
-		if (currentAssignment != null && assignments.stream().noneMatch(a -> a.getId() == currentAssignment.getId()))
-			assignments.add(currentAssignment);
-
-		SelectChoices choices = new SelectChoices();
-
-		for (FlightAssignment assignment : assignments) {
-			String key = Integer.toString(assignment.getId());
-			String label = assignment.getMoment() + " - " + assignment.getDuty() + " - " + assignment.getCurrentStatus() + " - " + assignment.getLeg().getFlightNumber();
-			boolean isSelected = assignment.equals(currentAssignment);
-
-			choices.add(key, label, isSelected);
-		}
-
-		choices.add("0", "----", false);
-
-		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "flightAssignment", "draftMode");
-
-		if (choices.getSelected() != null)
-			dataset.put("flightAssignment", choices.getSelected().getKey());
-		else
-			dataset.put("flightAssignment", "0");
-
-		dataset.put("assignments", choices);
+		if (activityLog.getFlightAssignment().getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment()))
+			super.getResponse().addGlobal("showAction", true);
 
 		super.getResponse().addData(dataset);
 	}

@@ -33,6 +33,7 @@ acme.validation.pattern-phone-number.message = El número debe contener entre 6 
 acme.validation.pattern-employee-code.message = El código debe comenzar con 2 o 3 letras mayúsculas, seguidas de exactamente 6 dígitos
 acme.validation.pattern-promo-code.message = El código debe comenzar con exactamente 4 letras mayúsculas, seguidas de un guion (-) y terminar con 2 dígitos numéricos
 acme.validation.activityLog.leg.notLanded = La escala no ha aterrizado todavía
+acme.validation.activityLog.flightAssignment.notNull = El vuelo asignado no puede ser nulo
 acme.validation.activity-log.flight-assignment.draftMode = El vuelo asignado no está publicado
 acme.validation.service.promo-code.year.message = El código promocional no es válido para este año.
 acme.validation.service.promo-code.unique.message = Este código promocional ya ha sido usado.

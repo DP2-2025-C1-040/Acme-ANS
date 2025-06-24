@@ -20,4 +20,6 @@
 	<acme:list-column code="flight-crew-members.flight-assignment.list.label.moment" path="moment"/>
 </acme:list>
 
-<acme:button code="flight-crew-members.flight-assignment.form.button.create" action="/flight-crew-members/flight-assignment/create"/>
+<jstl:if test="${showCreate}">
+	<acme:button code="flight-crew-members.flight-assignment.form.button.create" action="/flight-crew-members/flight-assignment/create"/>
+</jstl:if>
