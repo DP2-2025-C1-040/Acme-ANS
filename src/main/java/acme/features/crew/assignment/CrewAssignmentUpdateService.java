@@ -30,10 +30,15 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 
 	@Override
 	public void authorise() {
-		int id = super.getRequest().getData("id", int.class);
-		FlightAssignment assignment = this.assignmentRepository.findFlightAssignmentById(id);
-
 		boolean status = false;
+
+		String rawId = super.getRequest().getData("id", String.class);
+		FlightAssignment assignment = null;
+
+		if (rawId != null && rawId.trim().matches("\\d+")) {
+			int id = Integer.parseInt(rawId.trim());
+			assignment = this.assignmentRepository.findFlightAssignmentById(id);
+		}
 
 		if (assignment != null && assignment.getDraftMode()) {
 			int activeUserId = super.getRequest().getPrincipal().getActiveRealm().getId();
@@ -45,11 +50,11 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 			boolean legIsValid = false;
 			boolean idIsValid = false;
 
+			// Validación de leg (como ya hacías)
 			if (legData == null)
 				legIsValid = true;
 			else if (legData instanceof String legKey) {
 				legKey = legKey.trim();
-
 				if (!legKey.isEmpty())
 					if (legKey.equals("0"))
 						legIsValid = true;
@@ -59,13 +64,15 @@ public class CrewAssignmentUpdateService extends AbstractGuiService<FlightCrewMe
 						legIsValid = leg != null;
 					}
 			}
+
+			// Validación de id como string numérico
 			if (assignmentIdData == null)
 				idIsValid = true;
 			else if (assignmentIdData instanceof String idKey) {
 				idKey = idKey.trim();
-				if (!idKey.isEmpty() && idKey.matches("\\d+"))
-					idIsValid = true;
+				idIsValid = !idKey.isEmpty() && idKey.matches("\\d+");
 			}
+
 			status = userOwnsAssignment && legIsValid && idIsValid;
 		}
 
