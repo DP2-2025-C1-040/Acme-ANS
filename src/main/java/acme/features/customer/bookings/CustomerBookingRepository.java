@@ -2,6 +2,7 @@
 package acme.features.customer.bookings;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -21,8 +22,9 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT b FROM Booking b WHERE b.id = :id")
 	Booking findBookingById(int id);
 
-	@Query("SELECT f FROM Flight f WHERE f.draftMode = FALSE")
-	Collection<Flight> findAllFlights();
+	//	@Query("SELECT f FROM Flight f WHERE f.draftMode = FALSE")
+	@Query("SELECT DISTINCT l.flight FROM Leg l WHERE l.draftMode = FALSE AND l.flight.draftMode = FALSE AND l.scheduledDeparture > :now")
+	Collection<Flight> findAllFlights(Date now);
 
 	@Query("SELECT c FROM Customer c WHERE c.id = :id")
 	Customer findOneCustomerById(int id);

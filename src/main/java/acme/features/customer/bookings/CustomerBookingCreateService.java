@@ -2,6 +2,7 @@
 package acme.features.customer.bookings;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -78,8 +79,10 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		Collection<Flight> flights;
 		SelectChoices choicesTravelClasses;
 		SelectChoices choicesFlights;
+		Date now;
 
-		flights = this.repository.findAllFlights();
+		now = MomentHelper.getCurrentMoment();
+		flights = this.repository.findAllFlights(now);
 
 		choicesFlights = SelectChoices.from(flights, "tag", booking.getFlight());
 		choicesTravelClasses = SelectChoices.from(TravelClassEnum.class, booking.getTravelClass());
