@@ -32,8 +32,8 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT b FROM Booking b WHERE b.locatorCode = :locatorCode")
 	Booking findBookingByLocatorCode(String locatorCode);
 
-	@Query("SELECT f FROM Flight f WHERE f.id = :flightId AND f.draftMode = FALSE")
-	Flight findOneFlightPublishedById(int flightId);
+	@Query("SELECT DISTINCT l.flight FROM Leg l WHERE l.flight.id = :flightId AND l.flight.draftMode = FALSE AND l.draftMode = FALSE AND l.scheduledDeparture > :now")
+	Flight findOneFlightPublishedById(int flightId, Date now);
 
 	@Query("SELECT COUNT(*) FROM BookingRecord br WHERE br.booking.id = :id")
 	Integer countPassengersAssociatedToBooking(int id);

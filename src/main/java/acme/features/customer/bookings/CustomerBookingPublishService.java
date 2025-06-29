@@ -34,6 +34,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		int flightId;
 		Flight flight;
 		Booking booking;
+		Date now;
 
 		// Comprueba pertenencia y si está en draftMode
 		bookingId = super.getRequest().getData("id", int.class);
@@ -42,7 +43,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 		// Comprueba si el flight asignado es adecuado
 		flightId = super.getRequest().getData("flight", int.class);
-		flight = this.repository.findOneFlightPublishedById(flightId);
+		now = MomentHelper.getCurrentMoment();
+		flight = this.repository.findOneFlightPublishedById(flightId, now);
 		status = status && (flightId == 0 || flight != null);
 
 		super.getResponse().setAuthorised(status);

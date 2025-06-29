@@ -32,12 +32,14 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		boolean status;
 		int flightId;
 		Flight flight;
+		Date now;
 
 		if (super.getRequest().getMethod().equals("GET"))
 			status = true;
 		else {
 			flightId = super.getRequest().getData("flight", int.class);
-			flight = this.repository.findOneFlightPublishedById(flightId);
+			now = MomentHelper.getCurrentMoment();
+			flight = this.repository.findOneFlightPublishedById(flightId, now);
 			status = flightId == 0 || flight != null;
 		}
 
