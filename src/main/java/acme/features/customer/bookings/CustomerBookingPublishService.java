@@ -73,6 +73,12 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 			boolean allPassengersPublished;
 			boolean hasPassengers;
 			int bookingId;
+			boolean withNibble;
+
+			if (!super.getBuffer().getErrors().hasErrors("lastNibble")) {
+				withNibble = !booking.getLastNibble().equals("");
+				super.state(withNibble, "lastNibble", "customer.booking.publishing.nibble");
+			}
 
 			bookingId = super.getRequest().getData("id", int.class);
 			allPassengersPublished = this.repository.countPassengersInDraftModeFor(bookingId);

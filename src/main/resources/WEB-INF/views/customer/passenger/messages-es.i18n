@@ -26,3 +26,5 @@ customer.passenger.form.button.update = Actualizar
 customer.passenger.form.button.create = Crear
 customer.passenger.form.button.publish = Publicar
 customer.passenger.form.button.delete = Eliminar
+
+customer.passenger.unique.passportNumber = El número de pasaporte debe ser único

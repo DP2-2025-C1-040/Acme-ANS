@@ -44,16 +44,6 @@ public class BookingValidator extends AbstractValidator<ValidBooking, Booking> {
 
 				super.state(context, uniqueBooking, "locatorCode", "customer.booking.unique.locatorCode");
 			}
-			{
-				boolean withNibble;
-
-				withNibble = booking.getDraftMode() || booking.getLastNibble() != null;
-
-				super.state(context, withNibble, "*", "customer.booking.publishing.nibble");
-			}
-			{
-
-			}
 			result = !super.hasErrors(context);
 		}
 

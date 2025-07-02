@@ -31,6 +31,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	public void authorise() {
 		boolean status;
 		int flightId;
+		int bookingId;
 		Flight flight;
 		Date now;
 
@@ -41,6 +42,8 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 			now = MomentHelper.getCurrentMoment();
 			flight = this.repository.findOneFlightPublishedById(flightId, now);
 			status = flightId == 0 || flight != null;
+			bookingId = super.getRequest().getData("id", int.class);
+			status = status && bookingId == 0;
 		}
 
 		super.getResponse().setAuthorised(status);

@@ -26,3 +26,5 @@ customer.passenger.form.button.update = Update
 customer.passenger.form.button.create = Create
 customer.passenger.form.button.publish = Publish
 customer.passenger.form.button.delete = Delete
+
+customer.passenger.unique.passportNumber = The passport number must be unique
