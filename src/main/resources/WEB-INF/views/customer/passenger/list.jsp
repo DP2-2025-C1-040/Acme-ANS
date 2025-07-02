@@ -22,7 +22,7 @@
 </acme:list>
 
 <acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
-<jstl:if test="${bookingId != null}">
-	<acme:button code="customer.booking-record.form.button.link" action="/customer/booking-record/create?bookingId=${bookingId}"/>
-	<acme:button code="customer.booking-record.form.button.unlink" action="/customer/booking-record/delete?bookingId=${bookingId}"/>
+<jstl:if test="${bookingId != null && bookingInDraftMode != null && bookingInDraftMode == true}">
+	<acme:button code="customer.booking-record.form.button.link" action="/customer/booking-record/link?bookingId=${bookingId}"/>
+	<acme:button code="customer.booking-record.form.button.unlink" action="/customer/booking-record/unlink?bookingId=${bookingId}"/>
 </jstl:if>

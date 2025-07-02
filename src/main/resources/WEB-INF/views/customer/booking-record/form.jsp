@@ -21,11 +21,11 @@
 	<acme:input-select code="customer.booking-record.form.label.passenger" path="passenger" choices="${passengers}"/>
 
 	<jstl:choose>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="customer.booking-record.form.button.link" action="/customer/booking-record/create?bookingId=${bookingId}"/>
+		<jstl:when test="${_command == 'link'}">
+			<acme:submit code="customer.booking-record.form.button.link" action="/customer/booking-record/link?bookingId=${bookingId}"/>
 		</jstl:when>
-		<jstl:when test="${_command == 'delete'}">
-			<acme:submit code="customer.booking-record.form.button.unlink" action="/customer/booking-record/delete?bookingId=${bookingId}"/>
+		<jstl:when test="${_command == 'unlink'}">
+			<acme:submit code="customer.booking-record.form.button.unlink" action="/customer/booking-record/unlink?bookingId=${bookingId}"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

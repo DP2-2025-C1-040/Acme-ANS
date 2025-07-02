@@ -39,13 +39,13 @@ public class CustomerBookingListPassengersService extends AbstractGuiService<Cus
 
 	@Override
 	public void load() {
-		Collection<Passenger> bookings;
+		Collection<Passenger> passengers;
+		int bookingId;
 
-		int bookingId = super.getRequest().getData("bookingId", int.class);
-		bookings = this.repository.findAllPassengersByBookingId(bookingId);
+		bookingId = super.getRequest().getData("bookingId", int.class);
+		passengers = this.repository.findAllPassengersByBookingId(bookingId);
 
-		super.getBuffer().addData(bookings);
-		super.getResponse().addGlobal("bookingId", bookingId);
+		super.getBuffer().addData(passengers);
 	}
 
 	@Override
@@ -55,6 +55,18 @@ public class CustomerBookingListPassengersService extends AbstractGuiService<Cus
 		dataset = super.unbindObject(passenger, "fullName", "passportNumber", "specialNeeds");
 
 		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void unbind(final Collection<Passenger> passenger) {
+		int bookingId;
+		Booking booking;
+
+		bookingId = super.getRequest().getData("bookingId", int.class);
+		booking = this.repository.findBookingById(bookingId);
+
+		super.getResponse().addGlobal("bookingId", bookingId);
+		super.getResponse().addGlobal("bookingInDraftMode", booking.getDraftMode());
 	}
 
 }
