@@ -31,7 +31,7 @@ import lombok.Setter;
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {
 	"passportNumber", "customer_id"
 }), indexes = {
-	@Index(columnList = "customer_id")
+	@Index(columnList = "customer_id"), @Index(columnList = "id,customer_id")
 })
 public class Passenger extends AbstractEntity {
 
