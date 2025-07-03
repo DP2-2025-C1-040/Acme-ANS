@@ -1,0 +1,6 @@
+C1:
+	D01: https://github.com/orgs/DP2-2025-C1-040/projects/7/views/5
+	D02: https://github.com/orgs/DP2-2025-C1-040/projects/7/views/8
+	D03: https://github.com/orgs/DP2-2025-C1-040/projects/7/views/10
+	D04: https://github.com/orgs/DP2-2025-C1-040/projects/7/views/11
+C2: https://github.com/orgs/DP2-2025-C1-040/projects/7/views/12
