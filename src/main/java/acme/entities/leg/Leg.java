@@ -18,7 +18,6 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
-import acme.constraints.ValidFlightNumber;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airline.Airline;
 import acme.entities.airport.Airport;
@@ -29,7 +28,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@ValidFlightNumber
+//@ValidFlightNumber
 @Table(indexes = {
 	@Index(columnList = "scheduledArrival"), @Index(columnList = "scheduledDeparture"), @Index(columnList = "draftMode, scheduledDeparture, airline_id")
 })
