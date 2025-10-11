@@ -1,34 +1,34 @@
 key,locatorCode,purchaseMoment,travelClass,lastNibble,draftMode,key:customer,key:flight
 # base entity
-booking-00,ABC123,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-01
+booking-00,ABC123,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
 # locatorCode - standard variations
-booking-01,AAAAAA,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-01
-booking-02,000000,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-01
-booking-03,AAA000,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-01
-booking-04,JKLM059,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-01
-booking-05,99999999,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-01
-booking-06,ZZZZ9999,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-01
+booking-01,AAAAAA,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
+booking-02,000000,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
+booking-03,AAA000,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
+booking-04,JKLM059,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
+booking-05,99999999,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
+booking-06,ZZZZ9999,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
 # purchaseMoment - standard variations (momentos pasados)
-booking-07,ABC124,2000/01/01 00:00,ECONOMY,1234,TRUE,customer1,flight-01
-booking-08,ABC125,2000/01/01 00:01,ECONOMY,1234,TRUE,customer1,flight-01
-booking-09,ABC126,2012/02/29 14:15,ECONOMY,1234,TRUE,customer1,flight-01
-booking-10,ABC127,2024/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-01
-booking-11,ABC128,2025/01/01 00:00,ECONOMY,1234,TRUE,customer1,flight-01
+booking-07,ABC124,2000/01/01 00:00,ECONOMY,1234,TRUE,customer1,flight-02
+booking-08,ABC125,2000/01/01 00:01,ECONOMY,1234,TRUE,customer1,flight-02
+booking-09,ABC126,2012/02/29 14:15,ECONOMY,1234,TRUE,customer1,flight-02
+booking-10,ABC127,2024/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
+booking-11,ABC128,2025/01/01 00:00,ECONOMY,1234,TRUE,customer1,flight-02
 # travelClass - standard variations
-booking-12,ABC129,2022/12/31 23:59,BUSINESS,1234,TRUE,customer1,flight-01
+booking-12,ABC129,2022/12/31 23:59,BUSINESS,1234,TRUE,customer1,flight-02
 # lastNible - standard variations
-booking-13,ABC135,2022/12/31 23:59,ECONOMY,0000,TRUE,customer1,flight-01
-booking-14,ABC136,2022/12/31 23:59,ECONOMY,0001,TRUE,customer1,flight-01
-booking-15,ABC137,2022/12/31 23:59,ECONOMY,5555,TRUE,customer1,flight-01
-booking-16,ABC138,2022/12/31 23:59,ECONOMY,9998,TRUE,customer1,flight-01
-booking-17,ABC139,2022/12/31 23:59,ECONOMY,9999,TRUE,customer1,flight-01
+booking-13,ABC135,2022/12/31 23:59,ECONOMY,0000,TRUE,customer1,flight-02
+booking-14,ABC136,2022/12/31 23:59,ECONOMY,0001,TRUE,customer1,flight-02
+booking-15,ABC137,2022/12/31 23:59,ECONOMY,5555,TRUE,customer1,flight-02
+booking-16,ABC138,2022/12/31 23:59,ECONOMY,9998,TRUE,customer1,flight-02
+booking-17,ABC139,2022/12/31 23:59,ECONOMY,9999,TRUE,customer1,flight-02
 # draftMode - variaciones
-booking-18,ABC140,2022/12/31 23:59,ECONOMY,1234,FALSE,customer1,flight-01
+booking-18,ABC140,2022/12/31 23:59,ECONOMY,1234,FALSE,customer1,flight-02
 # customer - standard variations
-booking-19,ABC141,2022/12/31 23:59,ECONOMY,1234,TRUE,customer2,flight-01
-booking-20,ABC142,2022/12/31 23:59,ECONOMY,1234,TRUE,customer2,flight-01
-booking-21,ABC143,2022/12/31 23:59,ECONOMY,1234,TRUE,customer2,flight-01
+booking-19,ABC141,2022/12/31 23:59,ECONOMY,1234,TRUE,customer2,flight-02
+booking-20,ABC142,2022/12/31 23:59,ECONOMY,1234,TRUE,customer2,flight-02
+booking-21,ABC143,2022/12/31 23:59,ECONOMY,1234,TRUE,customer2,flight-02
 # flight - standard variations
-booking-22,ABC144,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-02
-booking-23,ABC145,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-03
-booking-24,ABC146,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-03
+booking-22,ABC144,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-03
+booking-23,ABC145,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-04
+booking-24,ABC146,2022/12/31 23:59,ECONOMY,1234,TRUE,customer1,flight-05

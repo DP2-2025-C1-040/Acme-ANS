@@ -46,10 +46,10 @@ leg-32,DEF0032,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit a
 leg-33,DEF0033,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,true,airport-01,airport-02,aircraft-04,flight-01,airline-01
 leg-34,DEF0034,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,true,airport-01,airport-02,aircraft-05,flight-01,airline-01
 # flight - standard variations
-leg-35,DEF0035,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-02,airline-01
-leg-36,DEF0036,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-03,airline-01
-leg-37,DEF0037,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-04,airline-01
-leg-38,DEF0038,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-05,airline-01
+leg-35,DEF0035,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-36,DEF0036,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-37,DEF0037,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-01,airline-01
+leg-38,DEF0038,ON_TIME,2024/12/15 00:01,2024/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-01,airline-01
 # airline - standard variations,"","","","","",""
 leg-39,DEF0039,ON_TIME,2026/12/15 00:01,2026/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-02,airline-02
 leg-40,DEF0040,ON_TIME,2027/12/15 00:01,2027/12/16 00:02,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,false,airport-01,airport-02,aircraft-01,flight-02,airline-02

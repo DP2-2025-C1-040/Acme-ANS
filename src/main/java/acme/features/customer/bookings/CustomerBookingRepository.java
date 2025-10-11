@@ -22,8 +22,7 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT b FROM Booking b WHERE b.id = :id")
 	Booking findBookingById(int id);
 
-	//	@Query("SELECT f FROM Flight f WHERE f.draftMode = FALSE")
-	@Query("SELECT DISTINCT l.flight FROM Leg l WHERE l.draftMode = FALSE AND l.flight.draftMode = FALSE AND l.scheduledDeparture > :now")
+	@Query("SELECT f FROM Flight f WHERE f.draftMode = FALSE AND not exists(SELECT l FROM Leg l WHERE l.flight.id = f.id and ((l.draftMode = true) or (:now > l.scheduledDeparture)))")
 	Collection<Flight> findAllFlights(Date now);
 
 	@Query("SELECT c FROM Customer c WHERE c.id = :id")
@@ -32,7 +31,7 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("SELECT b FROM Booking b WHERE b.locatorCode = :locatorCode")
 	Booking findBookingByLocatorCode(String locatorCode);
 
-	@Query("SELECT DISTINCT l.flight FROM Leg l WHERE l.flight.id = :flightId AND l.flight.draftMode = FALSE AND l.draftMode = FALSE AND l.scheduledDeparture > :now")
+	@Query("SELECT f FROM Flight f WHERE f.id = :flightId AND f.draftMode = FALSE AND not exists(SELECT l FROM Leg l WHERE l.flight.id = f.id and ((l.draftMode = true) or (:now > l.scheduledDeparture)))")
 	Flight findOneFlightPublishedById(int flightId, Date now);
 
 	@Query("SELECT COUNT(*) FROM BookingRecord br WHERE br.booking.id = :id")
