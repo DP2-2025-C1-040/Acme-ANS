@@ -50,7 +50,6 @@ public class CrewAssignmentDeleteService extends AbstractGuiService<FlightCrewMe
 			boolean legIsValid = false;
 			boolean idIsValid = false;
 
-			// Validación de leg (como ya hacías)
 			if (legData == null)
 				legIsValid = true;
 			else if (legData instanceof String legKey) {
@@ -65,7 +64,6 @@ public class CrewAssignmentDeleteService extends AbstractGuiService<FlightCrewMe
 					}
 			}
 
-			// Validación de id como string numérico
 			if (assignmentIdData == null)
 				idIsValid = true;
 			else if (assignmentIdData instanceof String idKey) {
