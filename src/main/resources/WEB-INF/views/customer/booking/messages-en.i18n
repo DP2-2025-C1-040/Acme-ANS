@@ -34,3 +34,4 @@ customer.booking.publishing.nibble = You must have stored the last 4 nibbles bef
 
 acme.validation.customer.booking.one-passenger-minimum = At least, this booking must have one passenger associated
 acme.validation.customer.booking.all-passengers-published = Not all the passengers were published
+acme.validation.customer.booking.has-non-repeated-passports-in-flight = The following passengers already have a booking for this flight, with this passports: {0}

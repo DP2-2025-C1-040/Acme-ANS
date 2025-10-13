@@ -87,6 +87,17 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 			super.state(allPassengersPublished, "*", "acme.validation.customer.booking.all-passengers-published");
 			super.state(hasPassengers, "*", "acme.validation.customer.booking.one-passenger-minimum");
 		}
+		{
+			Collection<String> allPassengersPassportsForThisBooking;
+			Collection<String> allRepeatedPassports;
+			boolean areNonRepeatedPassportsForFlight;
+
+			allPassengersPassportsForThisBooking = this.repository.findAllPasportsForBooking(booking.getId());
+			allRepeatedPassports = this.repository.findRepeatedPassportsForFlight(booking.getFlight().getId(), allPassengersPassportsForThisBooking);
+			areNonRepeatedPassportsForFlight = allRepeatedPassports.isEmpty();
+
+			super.state(areNonRepeatedPassportsForFlight, "*", "acme.validation.customer.booking.has-non-repeated-passports-in-flight", allRepeatedPassports.toString());
+		}
 	}
 
 	@Override

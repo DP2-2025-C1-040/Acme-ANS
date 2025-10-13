@@ -45,4 +45,10 @@ public interface CustomerBookingRepository extends AbstractRepository {
 
 	@Query("SELECT COUNT(*) > 0 FROM BookingRecord br WHERE br.booking.id = :bookingId")
 	boolean existsPassengersFor(int bookingId);
+
+	@Query("SELECT br.passenger.passportNumber FROM BookingRecord br WHERE br.booking.id = :id")
+	Collection<String> findAllPasportsForBooking(int id);
+
+	@Query("SELECT br.passenger.passportNumber FROM BookingRecord br WHERE br.booking.flight.id = :id AND br.booking.draftMode = FALSE AND br.passenger.passportNumber IN :passports")
+	Collection<String> findRepeatedPassportsForFlight(int id, Collection<String> passports);
 }
