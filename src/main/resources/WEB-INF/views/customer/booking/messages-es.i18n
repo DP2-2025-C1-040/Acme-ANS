@@ -34,3 +34,4 @@ customer.booking.publishing.nibble = Debe almacenar los 4 últimos dígitos de t
 
 acme.validation.customer.booking.one-passenger-minimum = Al menos, en esta reserva debe haber un pasajero mínimo
 acme.validation.customer.booking.all-passengers-published = No están todos los pasajeros publicados
+acme.validation.customer.booking.has-non-repeated-passports-in-flight = Los siguientes pasajeros ya tienen una reserva para este vuelo, con esto pasaportes: {0}
